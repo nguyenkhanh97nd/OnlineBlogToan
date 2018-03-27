@@ -43,8 +43,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif] --}}
 
-  <link rel="stylesheet" href="public/page/css/app.css">
-  <script type="text/javascript" src="public/page/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/public/page/css/app.css">
+  <script type="text/javascript" src="/public/page/js/jquery.min.js"></script>
 
 </head>
 
@@ -63,37 +63,37 @@
 
     @include('layout.header')
 
-	<!--Nhung content tu pages-->
+  <!--Nhung content tu pages-->
   <div style="padding-top: 90px;"></div>
     @yield('content')
-	<!--End Nhung -->
-	
+  <!--End Nhung -->
+  
     @include ('layout.footer')
-	
-	<!-- Nhung script -->
-	@yield('script')
+  
+  <!-- Nhung script -->
+  @yield('script')
 
 
-  <script type="text/javascript" src="public/page/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-sanitize.js"></script>
-  <script type="text/javascript" src="public/page/js/app.js"></script>
+  <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/app.js"></script>
 
 
 <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-messages.min.js"></script>
+  <script src="/public/page/js/angular-animate.min.js"></script>
+  <script src="/public/page/js/angular-aria.min.js"></script>
+  <script src="/public/page/js/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+  <script src="/public/page/js/angular-material.min.js"></script>
 
   <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+  <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
   
   
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+  {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script> --}}
 
 </body>
 
