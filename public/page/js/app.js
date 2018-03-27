@@ -73,7 +73,7 @@
 
 $("div.alert").delay(3000).slideUp();
 
-window.baseUrl = 'http://127.0.0.1:8000/';
+window.baseUrl = 'http://thithu.blogtoan.com/';
 window.myApp = angular.module('myApp', ['ngRoute', 'ngSanitize', 'ngMaterial'], function ($interpolateProvider) {
 	$interpolateProvider.startSymbol('<%kh');
 	$interpolateProvider.endSymbol('hk%>');
