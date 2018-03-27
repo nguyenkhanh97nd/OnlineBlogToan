@@ -1,7 +1,15 @@
 $("div.alert").delay(3000).slideUp()
 
 window.baseUrl = 'http://thithu.blogtoan.com/'
-
+window.myApp = angular.module('myApp', ['ngRoute', 'ngSanitize', 'ngMaterial'], function($interpolateProvider) {
+	$interpolateProvider.startSymbol('<%kh')
+	$interpolateProvider.endSymbol('hk%>')
+}).filter('myDateFormat', function myDateFormat($filter){
+  return function(text){
+    let  tempdate= new Date(text.replace(/-/g,"/"));
+    return $filter('date')(tempdate, "dd-MM-yyyy");
+  }
+})
 
 
 
