@@ -46,6 +46,13 @@
   <link rel="stylesheet" href="/public/page/css/app.css">
   <script type="text/javascript" src="/public/page/js/jquery.min.js"></script>
 
+
+   <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/app.js"></script>
+
 </head>
 
 <body  ng-app="myApp" ng-cloak>
@@ -74,11 +81,7 @@
   @yield('script')
 
 
-  <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/app.js"></script>
+ 
 
 
 <!-- Angular Material requires Angular.js Libraries -->
