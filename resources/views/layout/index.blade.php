@@ -46,13 +46,6 @@
   <link rel="stylesheet" href="/public/page/css/app.css">
   <script type="text/javascript" src="/public/page/js/jquery.min.js"></script>
 
-
-   <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/app.js"></script>
-
 </head>
 
 <body  ng-app="myApp" ng-cloak>
@@ -81,7 +74,11 @@
   @yield('script')
 
 
- 
+  <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="/public/page/js/app.js"></script>
 
 
 <!-- Angular Material requires Angular.js Libraries -->
@@ -94,7 +91,9 @@
 
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
-  
+  <script type="text/javascript">
+    angular.module('myApp', [])
+  </script>
   
   {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script> --}}
 
