@@ -48,8 +48,8 @@
 
   <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
   <script type="text/javascript" data-cfasync="false" src="/public/page/js/angular.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
+  <script type="text/javascript"  data-cfasync="false" src="/public/page/js/angular-route.min.js"></script>
+  <script type="text/javascript"  data-cfasync="false" src="/public/page/js/angular-sanitize.min.js"></script>
   <script type="text/javascript" data-cfasync="false" src="/public/page/js/app.js"></script>
 
 
@@ -59,7 +59,7 @@
   <script src="/public/page/js/angular-messages.min.js"></script>
 
   <!-- Angular Material Library -->
-  <script src="/public/page/js/angular-material.min.js"></script>
+  <script data-cfasync="false" src="/public/page/js/angular-material.min.js"></script>
 
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
