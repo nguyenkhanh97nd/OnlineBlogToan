@@ -92,7 +92,15 @@
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
   <script type="text/javascript">
-    angular.module('myApp', [])
+    window.myApp = angular.module('myApp', ['ngRoute', 'ngSanitize', 'ngMaterial'], function($interpolateProvider) {
+  $interpolateProvider.startSymbol('<%kh')
+  $interpolateProvider.endSymbol('hk%>')
+}).filter('myDateFormat', function myDateFormat($filter){
+  return function(text){
+    let  tempdate= new Date(text.replace(/-/g,"/"));
+    return $filter('date')(tempdate, "dd-MM-yyyy");
+  }
+})
   </script>
   
   {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script> --}}
