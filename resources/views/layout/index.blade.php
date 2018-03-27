@@ -50,19 +50,22 @@
   <script type="text/javascript" data-cfasync="false" src="/public/page/js/angular.min.js"></script>
   <script type="text/javascript"  data-cfasync="false" src="/public/page/js/angular-route.min.js"></script>
   <script type="text/javascript"  data-cfasync="false" src="/public/page/js/angular-sanitize.min.js"></script>
-  <script type="text/javascript" data-cfasync="false" src="/public/page/js/app.js"></script>
+  
 
 
 <!-- Angular Material requires Angular.js Libraries -->
   <script src="/public/page/js/angular-animate.min.js"></script>
   <script src="/public/page/js/angular-aria.min.js"></script>
   <script src="/public/page/js/angular-messages.min.js"></script>
-
+  
   <!-- Angular Material Library -->
   <script data-cfasync="false" src="/public/page/js/angular-material.min.js"></script>
 
+  
   <!-- Angular Material style sheet -->
   <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
+  <script type="text/javascript" data-cfasync="false" src="/public/page/js/app.js"></script>
+
 
 </head>
 
