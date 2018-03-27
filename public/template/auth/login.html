@@ -1,0 +1,52 @@
+<div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Đăng nhập</div>
+                <div class="panel-body">
+                    <form name="formLogin" ng-submit="doLogin(formLogin)" class="form-horizontal">
+
+                        <span class="help-block" ng-if="wrong_account">
+                            <strong><%kh wrong_account hk%></strong>
+                        </span> 
+
+                        <div class="form-group">
+                            
+
+                            <label for="login" class="col-md-4 control-label">Username hoặc Email</label>
+
+                            <div class="col-md-6">
+                                <input ng-model="login" id="login" type="text" class="form-control" name="login" required autofocus>
+
+                                <span class="help-block" ng-if="wrong_info">
+                                    <strong><%kh wrong_info hk%></strong>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password" class="col-md-4 control-label">Mật khẩu</label>
+
+                            <div class="col-md-6">
+
+                                <input ng-model="password" id="password" type="password" class="form-control" name="password" required>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Đăng nhập
+                                </button>
+
+                                <a class="btn btn-link" ng-click="goForgot()">
+                                    Quên mật khẩu?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

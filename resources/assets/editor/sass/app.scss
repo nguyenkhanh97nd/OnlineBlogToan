@@ -1,0 +1,202 @@
+
+// Fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+
+a {
+    cursor: pointer;
+}
+.left-col{
+    position: fixed!important;
+    background: #2A3F54;
+    color:#fff;
+    width: 230px;
+    min-height: 100%;
+    z-index: 1;
+    position: absolute;
+    padding:0px;
+}
+.right-col{
+    clear: both;
+    margin-left: 230px;
+}
+.dashboard-title{
+    margin: 15px auto;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+.dashboard-title a{
+    color:#E7E7E7;
+    font-weight: 500;
+}
+.wrapper{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.profile{
+    padding:10px 0px;
+    border-bottom: 1px solid #fff;
+}
+.media-left span{
+    background: #eaeaea;
+    display: inline-block;
+    box-sizing: content-box;
+    color: #fff;
+    text-align: center;
+    vertical-align: top;
+    font-weight: normal;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    font-size: 32px;
+    line-height: 64px;
+    border: 1px solid #eaeaea;
+
+}
+
+.menu-left a{
+    color:#E7E7E7;
+    font-weight: 500;
+    cursor: pointer;
+}
+.sidebar-left li{
+    padding:10px 0px 0px 0px;
+}
+.menu-left a:hover, .menu-left a:active, .menu-left a:focus{
+    background: #2A3F54!important;
+}
+.submenu li{
+    margin-left: 25px;
+    padding:5px 0px;
+}
+.menu-section ul{
+    list-style-type: none;
+    padding:0px;
+    margin:0px;
+
+}
+.menu-left li ul{
+    display: none;
+}
+.caret{
+    float: right;
+    margin-top:7px;
+}
+
+
+/**
+ * ===============TOP NAV ================
+ */
+.top-nav{
+    padding:15px 0px 0px 0px;
+    background: #EDEDED;
+    border-bottom: 1px solid #D9DEE4;
+    color:#2A3F54;
+}
+
+.navbar-inverse{
+    border:none!important;
+}
+.navbar-toggle-left{
+    display: block;
+    position: relative;
+    float: left;
+    padding: 9px 10px;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+
+}
+button:focus, button:active{
+    outline:none;
+}
+
+.icon-bar{
+    background-color: #2A3F54;
+    font-weight: bold;
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin-top:4px;
+}
+
+/**
+ * ========================== MAIN-CONTENT ===========================
+ */
+
+// Category
+.btnContent {
+    color:#f1004c;
+    cursor: pointer;
+}
+.btnContent:hover {
+    color: blue;
+}
+.is-edit span{
+    color:#fff;
+}
+.is-delete span{
+    color:#fff;
+}
+.pagination-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-input {
+    width: 45px;
+}
+table th {
+    text-align: center;
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+// Element-UI
+.el-select {
+    width: 100%;
+}
+.el-date-editor.el-input {
+    width: 100%!important;
+}
+
+.img-posts-admin {
+    width: 150px;
+    height: auto;
+}
+
+.avatar-member-admin {
+    width: 150px;
+    height: auto;
+}
+
+/**
+ * ========================== INDEX DASHBOARD ========================= 
+ */
+
+.title-count{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+.title-stats-count{
+    border-bottom: 1px solid #D9DEE4;
+    padding: 0 10px 0 20px;
+    position: relative;
+}
+.count{
+    font-size: 30px;
+    line-height: 47px;
+    font-weight: 600;
+}

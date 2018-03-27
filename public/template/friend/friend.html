@@ -1,0 +1,142 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="heading-block col-sm-12">
+            <a ng-href="/">Trang chủ </a>|
+            <a ng-href="follow">Follow</a>
+
+            <form class="pull-right search-friend" role="search">
+            	<input class="form-control" ng-change="doSearch(searchFriend)" ng-model="searchFriend" name="searchfriend" type="text" placeholder="Tìm kiếm bạn bè">
+            </form>
+            <a ng-click="show_followers()" class="pull-right invite-friend"><%kh followers.length hk%> Followers</a>
+        </div>
+        
+
+        <div ng-if="show_followers_model && !users">
+            <div ng-repeat="friend in show_followers_model">
+
+                <div class="content-item-subcategory col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 media">
+                            <div class="row">
+                                <a ng-href="profile/<%kh friend.username hk%>">
+                                    <div ng-if="friend.avatar">
+                                       <img class="img-responsive" style="width: 70px;" ng-src="upload/users/<%kh friend.avatar hk%>"/>
+                                    </div>
+                                    <div ng-if="!friend.avatar">
+                                        <div class="friend-list-span text-center">
+                                          <span><%kh friend.name.substring(0,1) hk%></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 caption">
+
+                            <p class="friend-list-name"><a ng-href="profile/<%kh friend.username hk%>"><%kh friend.name hk%></a></p>
+                            
+                            <div ng-if="followings | check_following: friend.id">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <form ng-submit="doRemoveFollow(formRemoveFollow)" name="formRemoveFollow">
+                                            <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="friend.username">
+                                            <input type="submit" class="be-add-received-type" value="Unfollow">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="!(followings | check_following: friend.id)">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <form ng-submit="doAddFollow(formAddFollow)" name="formAddFollow">
+                                            <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="friend.username">
+                                            <input type="submit" class="be-add-received-type" value="Follow">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="! searchFriend && ! show_followers_model">
+            <div ng-repeat="friend in followings">
+
+                <div class="content-item-subcategory col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 media">
+                            <div class="row">
+                                <a ng-href="profile/<%kh friend.username hk%>">
+                                    <div ng-if="friend.avatar">
+                                       <img class="img-responsive" style="width: 70px;" ng-src="upload/users/<%kh friend.avatar hk%>"/>
+                                    </div>
+                                    <div ng-if="!friend.avatar">
+                                        <div class="friend-list-span text-center">
+                                          <span><%kh friend.name.substring(0,1) hk%></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 caption">
+                            <p class="friend-list-name"><a ng-href="profile/<%kh friend.username hk%>"><%kh friend.name hk%></a></p>
+                            <form ng-submit="doRemoveFollow(formRemoveFollow)" name="formRemoveFollow">
+                                <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="friend.username">
+                                <input type="submit" class="be-add-received-type" value="Unfollow">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div ng-if="searchFriend">
+            <div ng-repeat="friend in users">
+
+
+                <div class="content-item-subcategory col-sm-6">
+                    <div class="row">
+                        <div class="col-md-2 media">
+                            <div class="row">
+                                <a ng-href="profile/<%kh friend.username hk%>">
+                                    <div ng-if="friend.avatar">
+                                       <img class="img-responsive" style="width: 70px;" ng-src="upload/users/<%kh friend.avatar hk%>"/>
+                                    </div>
+                                    <div ng-if="!friend.avatar">
+                                        <div class="friend-list-span text-center">
+                                          <span><%kh friend.name.substring(0,1) hk%></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-10 caption">
+                            <p class="friend-list-name"><a ng-href="profile/<%kh friend.username hk%>"><%kh friend.name hk%></a></p>
+                            <div ng-if="followings | check_following: friend.id">
+                                <form ng-submit="doRemoveFollow(formRemoveFollow)" name="formRemoveFollow">
+                                    <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="friend.username">
+                                    <input type="submit" class="be-add-received-type" value="Unfollow">
+                                </form>
+                            </div>
+
+                            <div ng-if="!(followings | check_following: friend.id)">
+                                <form ng-submit="doAddFollow(formAddFollow)" name="formAddFollow">
+                                    <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="friend.username">
+                                    <input type="submit" class="be-add-received-type" value="Follow">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 hidden-sm hidden-xs">
+        <p class="heading-title">THỐNG KÊ</p>
+        <p>Following: <%kh followings.length hk%></p>
+        <p>Followers: <%kh followers.length hk%></p>
+    </div>
+</div>

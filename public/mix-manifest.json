@@ -1,0 +1,9 @@
+{
+  "/admin/js/app.js": "/admin/js/app.js",
+  "/page/js/app.js": "/page/js/app.js",
+  "/page/css/app.css": "/page/css/app.css",
+  "/admin/css/app.css": "/admin/css/app.css",
+  "/admin/js/vue.min.js": "/admin/js/vue.min.js",
+  "/editor/js/app.js": "/editor/js/app.js",
+  "/editor/css/app.css": "/editor/css/app.css"
+}

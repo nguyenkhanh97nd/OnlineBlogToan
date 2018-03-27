@@ -1,0 +1,175 @@
+<div class="row">
+
+	<div class="col-sm-9 col-xs-12">
+		<div class="col-md-3">
+			<div class="row">
+			<div class="be-user-block">
+				<div class="be-user-detail">
+					<a href="profile/<%kh getUser.username hk%>" class="be-ava-user">
+						<div ng-if="!getUser.avatar">
+							<div  class="span-circle">
+								<span><%kh getUser.name.substring(0,1) hk%></span>
+							</div>
+						</div>
+						<div ng-if="getUser.avatar">
+							<img class="img-circle" width="64px" height="64px" ng-src="upload/users/<%kh getUser.avatar hk%>">
+						</div>
+					</a>
+					<p class="be-user-name">
+						<%kh getUser.name hk%>
+					</p>
+					<div ng-if="user.id == getUser.id">
+						<a ng-href="setting"><span>Cài đặt</span></a>
+					</div>
+				</div>
+				<div class="be-user-activity-block">
+					<div class="row">
+						<div class="col-md-12">
+						<div ng-controller="FriendshipController">
+
+							<div ng-if="getUser.is_following">
+								<form ng-submit="doRemoveFollow(formRemoveFollow)" name="formRemoveFollow">
+									<input type="submit" class="be-user-activity-button be-add-type" value="Unfollow">
+								</form>
+							</div>
+							<div ng-if="user.id != getUser.id">
+								<div ng-if="!getUser.is_following">
+									<form ng-submit="doAddFollow(formAddFollow)" name="formAddFollow">
+										<input type="submit" class="be-user-activity-button be-add-type" value="Follow">
+									</form>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				<h5 class="be-title">Thông tin</h5>
+				<p class="be-text-userblock"><%kh getUser.info hk%></p>
+			</div>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="be-large-post">
+				<div class="be-info-block">
+					<div class="be-large-post-align">
+						<span class="glyphicon glyphicon-comment be-glyphicon-info"> </span>
+						<span class="be-info-count"><%kh getUser.comment.length hk%></span>
+						<span class="glyphicon glyphicon-check be-glyphicon-info"> </span>
+						<span class="be-info-count"><%kh getUser.bdata.length hk%></span>
+						<span class="glyphicon glyphicon-pencil be-glyphicon-info"> </span>
+						<span class="be-info-count"><%kh getUser.post.length hk%></span>
+					</div>
+				</div>
+				
+				<div ng-repeat="feed in feeds.data">
+					<div class="col-md-12">
+						<div class="row be-single-feed">
+							<div class="col-md-12">
+								<h4 class="be-feed-title"><a ng-href="profile/<%kh getUser.username hk%>"><%kh getUser.name hk%></a> đã đăng câu hỏi tại 
+		                            <a ng-href="social-learning/<%kh feed.sub_cate_question.cate_question.slug hk%>"><%kh feed.sub_cate_question.cate_question.name hk%></a>, 
+		                            <a ng-href="social-learning/<%kh feed.sub_cate_question.cate_question.slug hk%>/<%kh feed.sub_cate_question.slug hk%>"><%kh feed.sub_cate_question.name hk%></a></h4>
+		                        <p class="be-feed-time"><span class="glyphicon glyphicon-time"></span> <%kh feed.updated_at hk%></p>
+							</div>
+							<div class="col-md-12">
+								<p class="be-feed-content"><%kh feed.content hk%></p>
+							</div>
+							<div class="col-md-12">
+								<div class="row be-devide-feed">
+									<div class="col-md-4">
+										<div ng-if="! (feed.like_feed | check_like_feed: user.id)">
+											<form role="form" ng-submit="doLike(status)" name="status">
+												<input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+												<span class="be-like-feed-btn"><span class="glyphicon glyphicon-thumbs-up"></span> 
+												<input class="be-like-feed-btn-submit" type="submit"  value="Thích"><span><%kh feed.like_feed.length hk%></span></span>
+											</form>
+										</div>
+										<div ng-if="feed.like_feed | check_like_feed: user.id">
+											<form role="form" ng-submit="doDislike(status)" name="status">
+												<input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+												<span style="color:#3b5998" class="be-like-feed-btn"><span class="glyphicon glyphicon-thumbs-up"></span> 
+												<input class="be-like-feed-btn-submit" type="submit"  value="Bỏ thích"></span>
+											</form>
+										</div> 
+									</div>
+									<div class="col-md-4">
+										<span class="be-like-feed-btn">
+											<span class="glyphicon glyphicon-comment"></span> 
+											<span class="be-comment-feed-span-click click-comment">Bình luận</span>
+											<span><%kh feed.comment_feed.length hk%></span>
+										</span>
+									</div>
+									<div class="col-md-4">
+										<form role="form" ng-submit="doShare(status)" name="status">
+				                            <div class="form-group">
+				                            	<input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+				                            	<span class="be-like-feed-btn"><span class="glyphicon glyphicon-share-alt"></span> 
+												<input class="be-like-feed-btn-submit" type="submit"  value="Chia sẻ"></span>
+				                            </div>
+				                        </form>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div ng-if="feed.like_feed | check_like_feed: user.id">
+									<p>Bạn <span ng-if="feed.like_feed.length > 1">và <%kh feed.like_feed.length - 1 hk%> người khác</span> thích điều này</p>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div ng-if="feed.status == 1">
+			                        <a class="pull-left be-comment-media" ng-href="profile/<%kh user.username hk%>">
+			                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" ng-if="! user.avatar"><%kh user.name.substring(0,1) hk%></span>
+			                                <img class="img-circle" style="width: 34px; height: 34px" ng-if="user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh user.avatar hk%>">
+			                        </a>
+			                        <div class="media-body">
+			                            <form role="form" ng-submit="doComment(status)" name="status">
+			                            <div class="form-group">
+			                            	<input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+			                            	<input type="text" class="form-control  be-comment-form" ng-model="comment" placeholder="Trả lời nhanh..."  name="comment">
+			                            </div>
+			                        </form>
+			                        </div>
+				                </div>
+
+				                <div ng-repeat="(key, comment_feed_item) in feed.comment_feed" class="be-show-first-comment">
+									<div ng-if="key < 2">
+				                	<a class="pull-left be-comment-media" ng-href="profile/<%kh comment_feed_item.user.username hk%>">
+			                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" ng-if="! comment_feed_item.user.avatar"><%kh comment_feed_item.user.name.substring(0,1) hk%></span>
+			                                <img class="img-circle" style="width: 34px; height: 34px" ng-if="comment_feed_item.user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh comment_feed_item.user.avatar hk%>">
+			                        </a>
+			                        <div class="media-body">
+			                        	<p>
+				                            <span class="media-heading" ><a ng-href="profile/<%kh comment_feed_item.user.username hk%>"><font size="3" color="#3b5998"> <%kh comment_feed_item.user.name hk%> </font></a>
+				                            </span>
+				                            <span><%kh comment_feed_item.content hk%></span>
+			                        	</p>
+			                        </div>
+			                    	</div>
+				                </div>
+				                
+	                    	</div>
+	                    	<div class="col-md-12">
+			               		<p><a ng-href="comment_feed/<%kh feed.slug hk%>">Xem chi tiết...</a></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<md-progress-linear ng-if="loading_more_status" md-mode="indeterminate"></md-progress-linear>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="col-sm-3 hidden-xs">
+    	<p class="heading-title">THÀNH TÍCH</p>
+    	<p><font size="3" color="#f1004c">GPA: <%kh getUser.gpa hk%></font></p>
+    	<p><font size="3" color="#f1004c">Điểm hoạt động: <%kh getUser.point_activity hk%></font></p>
+    	<div  class="be-max-points">
+    	<div ng-repeat="max_point in max_points.data">
+    		<p>
+    			Đạt điểm tuyệt đối trong bài thi <a ng-href="<%kh max_point.post.subcategory.slug hk%>/<%kh max_point.post.slug hk%>"><%kh max_point.post.name hk%></a>
+    		</p>
+    	</div>
+	    </div>
+	</div>
+
+</div>

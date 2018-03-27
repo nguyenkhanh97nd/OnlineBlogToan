@@ -1,0 +1,30 @@
+<div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12">
+            <div class="heading-block col-sm-12">
+                <a ng-href="/">Trang chủ </a>|
+                <a ng-href="<%kh category.slug + '.html' hk%>">
+                    <%kh category.name hk%>
+                </a>
+            </div>
+            <div class="col-md-12 subcategory-description">
+                <p ng-bind-html="category.description"></p>
+            </div>
+            <div ng-repeat="subcategory in category.subcategory">
+            <!--Các bài đăng mới -->
+            <div class="col-sm-12">
+                <div class="row">
+
+                    <h2><a ng-href="<%kh subcategory.slug hk%>"><%kh subcategory.name hk%></a></h2>
+         
+                    <p ng-bind-html="subcategory.description"></p>
+                </div>
+            </div>
+            </div>
+            <!--End các bài -->
+
+        </div>
+
+        <div class="col-md-3 hidden-sm hidden-xs">
+            <!-- BETA MODE -->
+        </div>
+</div>

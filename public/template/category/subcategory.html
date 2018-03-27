@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-sm-9 col-xs-12">
+            <div class="heading-block col-sm-12">
+                <a ng-href="/">Trang chủ </a>|
+                <a ng-href="<%kh subcategory.category.slug + '.html' hk%>"><%kh subcategory.category.name hk%></a> |
+                <a ng-href="<%kh subcategory.slug hk%>"><%kh subcategory.name hk%></a>
+            </div>
+            <div class="col-md-12 subcategory-description">
+                <p ng-bind-html="subcategory.description"></p>
+            </div>
+            <div ng-repeat="post in posts.data">
+                <!--Các bài đăng mới -->
+                <div class="content-item-subcategory col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-3 hidden-xs">
+                            <div class="row">
+                                <a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><img class="img-responsive" ng-src="upload/posts/<%kh post.image hk%>"/></a>
+                            </div>
+                        </div>
+                        <div class="meta-content-single col-sm-9 col-xs-12 caption">
+                            <a class="cate-post-title" href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a>
+                            <p>Tác giả: <%kh post.author.name hk%> | Ngày: <%kh post.created_at | myDateFormat hk%> | Chuyên mục: <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a> | Lượt xem: <%kh post.count_views hk%></p>
+                            <p class="cate-post-brief" ng-bind-html="post.brief"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End các bài -->
+            <md-progress-linear ng-if="loading_more_cate_post" md-mode="indeterminate"></md-progress-linear>
+    </div>
+    <div class="col-sm-3 hidden-xs">
+        
+        <p class="heading-title">TOP XEM NHIỀU</p>
+        <div class="row">
+        <ul  class="list-unstyled" ng-repeat="(key, top_post) in top_posts">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-5 text-center">
+                        <a ng-href="<%kh top_post.subcategory.slug + '/' + top_post.slug hk%>"><img class="img-responsive" ng-src="upload/posts/<%kh top_post.image hk%>"/></a>
+                    </div>
+                    <div class="col-md-7">
+                        <p style="margin: 0">
+                            <span> <a href="<%kh top_post.subcategory.slug + '/' + top_post.slug hk%>"><font size="2"><%kh top_post.name hk%></font></a></span></p>
+                        <p><font size="1"><%kh top_post.created_at hk%></font></p>
+                    </div>
+                </div>
+            </div>
+        </ul>
+        </div>
+    </div>
+
+</div>

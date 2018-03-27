@@ -1,0 +1,33 @@
+<div class="row">
+
+        <div class="col-sm-9 col-xs-12">
+                <div class="heading-block col-sm-12">
+                    <span>Tìm kiếm: </span> <form class="pull-right search-friend" role="search">
+                        <input class="form-control" ng-change="doSearch(searchPost)" ng-model="searchPost" name="searchPost" type="text" placeholder="Tìm kiếm bài viết"></form>
+                </div>
+                
+                <div ng-if="posts && searchPost">
+                <div ng-repeat="post in posts.data">
+                    <div class="content-item-subcategory col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-3 hidden-xs">
+                                <div class="row">
+                                    <a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><img class="img-responsive" ng-src="upload/posts/<%kh post.image hk%>"/></a>
+                                </div>
+                            </div>
+                            <div class="meta-content-single col-sm-9 col-xs-12 caption">
+                                <a class="cate-post-title" href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a>
+                                <p>Tác giả: <%kh post.author.name hk%> | Ngày: <%kh post.created_at | myDateFormat hk%> | Chuyên mục: <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a> | Lượt xem: <%kh post.count_views hk%></p>
+                                <p class="cate-post-brief" ng-bind-html="post.brief"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <md-progress-linear ng-if="loading_more_search_post" md-mode="indeterminate"></md-progress-linear>
+                </div>
+        </div>
+        <div class="col-sm-3 hidden-xs">
+            <div class="fb-page" data-href="https://www.facebook.com/BlogToanHocFanpage/" data-width="300" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/BlogToanHocFanpage/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/BlogToanHocFanpage/">Blog Toán THPT</a></blockquote></div>
+        </div>
+
+</div>

@@ -1,0 +1,266 @@
+<div class="row">
+    <div class="col-sm-9 col-xs-12">
+        <div class="col-md-3">
+            <div class="row">
+            <div class="be-user-block">
+                <div class="be-user-detail">
+                    <a href="profile/<%kh getUser.username hk%>" class="be-ava-user">
+                        <div ng-if="!getUser.avatar">
+                            <div  class="span-circle">
+                                <span><%kh getUser.name.substring(0,1) hk%></span>
+                            </div>
+                        </div>
+                        <div ng-if="getUser.avatar">
+                            <img class="img-circle" width="64px" height="64px" ng-src="upload/users/<%kh getUser.avatar hk%>">
+                        </div>
+                    </a>
+                    <p class="be-user-name">
+                        <%kh getUser.name hk%>
+                    </p>
+                    <div ng-if="user.id == getUser.id">
+                        <a ng-href="setting"><span>Cài đặt</span></a>
+                    </div>
+                </div>
+                <div class="be-user-activity-block">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div ng-if="getUser.is_following">
+                                <form ng-submit="doRemoveFollow(formRemoveFollow)" name="formRemoveFollow">
+                                    <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="getUser.username">
+                                    <input type="submit" class="be-user-activity-button be-add-type" value="Unfollow">
+                                </form>
+                            </div>
+                            <div ng-if="user.id != getUser.id">
+                                <div ng-if="!getUser.is_following">
+                                    <form ng-submit="doAddFollow(formAddFollow)" name="formAddFollow">
+                                        <input type="hidden" name="inputUsername" ng-model="inputUsername" ng-value="getUser.username">
+                                        <input type="submit" class="be-user-activity-button be-add-type" value="Follow">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <h5 class="be-title">Thông tin</h5>
+                <p class="be-text-userblock"><%kh getUser.info hk%></p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="col-md-12">
+                <div class="row be-single-feed">
+                    <div class="col-md-12">
+                        <h4 class="be-feed-title"><a ng-href="profile/<%kh getUser.username hk%>"><%kh getUser.name hk%></a> đã đăng câu hỏi tại 
+                            <a ng-href="social-learning/<%kh feed.sub_cate_question.cate_question.slug hk%>"><%kh feed.sub_cate_question.cate_question.name hk%></a>, 
+                            <a ng-href="social-learning/<%kh feed.sub_cate_question.cate_question.slug hk%>/<%kh feed.sub_cate_question.slug hk%>"><%kh feed.sub_cate_question.name hk%></a>
+
+                            <span class="pull-right option-feed">
+                                <div ng-if="user.id == getUser.id && feed.status != 10">
+                                <button class="option-feed-btn" data-toggle="collapse" data-target="#option_feed_span">...</button>
+                                  <ul id="option_feed_span" class="collapse expand-option-feed">
+                                        <li><a ng-click="edit_comment_feed($event)"><span class="glyphicon glyphicon-pencil"></span><span style="margin-left: 5px"> Sửa</span></a></li>
+                                        <li><a ng-click="remove_comment_feed(feed.slug)"><span class="glyphicon glyphicon-trash"></span><span style="margin-left: 5px"> Xoá</span></a></li>
+                                  </ul>
+                                </div>
+                            </span>
+                        </h4>
+                        <p class="be-feed-time"><span class="glyphicon glyphicon-time"></span> <%kh feed.updated_at hk%></p>
+                    </div>
+                    <div class="col-md-12">
+                        <p class="be-feed-name"><%kh feed.name hk%></p>
+                        <p class="be-feed-content"><%kh feed.content hk%></p>
+                        <img ng-if="feed.image" class="img-responsive" ng-src="upload/user_questions/<%kh feed.image hk%>" >
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row be-devide-feed">
+                            <div class="col-md-4">
+                                <div ng-if="! (feed.like_feed | check_like_feed: user.id)">
+                                    <form role="form" ng-submit="doLike(status)" name="status">
+                                        <input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+                                        <span class="be-like-feed-btn"><span class="glyphicon glyphicon-thumbs-up"></span> 
+                                        <input class="be-like-feed-btn-submit" type="submit"  value="Thích"></span>
+                                    </form>
+                                </div>
+                                <div ng-if="feed.like_feed | check_like_feed: user.id">
+                                    <form role="form" ng-submit="doDislike(status)" name="status">
+                                        <input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+                                        <span style="color:#3b5998" class="be-like-feed-btn"><span class="glyphicon glyphicon-thumbs-up"></span> 
+                                        <input class="be-like-feed-btn-submit" type="submit"  value="Bỏ thích"></span>
+                                    </form>
+                                </div> 
+                            </div>
+                            <div class="col-md-4">
+                                <span class="be-like-feed-btn" ng-click="focus_comment()">
+                                    <span class="glyphicon glyphicon-comment"></span> 
+                                    <span  class="be-comment-feed-span-click click-comment">Bình luận</span>
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <form role="form" ng-submit="doShare(status)" name="status">
+                                    <div class="form-group">
+                                        <input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+                                        <span class="be-like-feed-btn"><span class="glyphicon glyphicon-share-alt"></span> 
+                                        <input class="be-like-feed-btn-submit" type="submit"  value="Chia sẻ"></span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div ng-if="feed.like_feed | check_like_feed: user.id">
+                            <p>Bạn <span ng-if="feed.like_feed.length > 1">và <%kh feed.like_feed.length - 1 hk%> người khác</span> thích điều này</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+
+                        <a class="pull-left be-comment-media hidden_status" ng-href="profile/<%kh user.username hk%>">
+                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" ng-if="! user.avatar"><%kh user.name.substring(0,1) hk%></span>
+                                <img class="img-circle" style="width: 34px; height: 34px" ng-if="user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh user.avatar hk%>">
+                        </a>
+                        <div class="media-body hidden_status">
+                            <form role="form" ng-submit="doComment(status)" name="status">
+                            <div class="form-group">
+                                    <input type="hidden" ng-value="feed.slug" ng-model="slug" name="slug">
+                                    <input type="text" class="form-control be-comment-form focus-comment" ng-model="comment" placeholder="Viết bình luận..."  name="comment">
+                                    
+                                    <div class="input-file-container">  
+                                        <input class="input-file" id="my-file" type="file" ng-click="click_image_upload($event)">
+                                        <label title="Thêm ảnh" tabindex="0" for="my-file"  class="input-file-trigger"><span class="glyphicon glyphicon-folder-open"></span></label>
+
+                                        <a class="remove-add-image" ng-click="removeImageData()">Xoá ảnh</a>
+                                      </div>
+                                      <p class="file-return"></p>
+                                      <div id="imgComment"></div>
+                            </div>
+                        </form>
+                        </div>
+
+                        <div ng-repeat="(key,comment_feed_item) in comment_feeds.data" class="be-show-first-comment">
+                            <a class="pull-left be-comment-media" ng-href="profile/<%kh comment_feed_item.user.username hk%>">
+                                    <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" ng-if="! comment_feed_item.user.avatar"><%kh comment_feed_item.user.name.substring(0,1) hk%></span>
+                                    <img class="img-circle" style="width: 34px; height: 34px" ng-if="comment_feed_item.user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh comment_feed_item.user.avatar hk%>">
+                            </a>
+                            <div class="media-body">
+                                <p class="comment-content-feed">
+                                    <span class="media-heading" >
+                                        <span>
+                                            <a ng-href="profile/<%kh comment_feed_item.user.username hk%>"><font size="3" color="#3b5998"> <%kh comment_feed_item.user.name hk%> </font></a>
+                                            <span ng-if="comment_feed_item.status == 10" class="accept-ans-a">(Đã được duyệt)</span>
+                                        </span>
+                                        <span class="pull-right option-feed" ng-if="user.id == getUser.id">
+                                            <a ng-if="comment_feed_item.status == 1" ng-click="accept_ans($event)"  id="<%kh comment_feed_item.id hk%>" class="accept-ans-a">
+                                                Duyệt <span class="glyphicon glyphicon-thumbs-up"></span>
+                                            </a>
+                                            <a ng-if="comment_feed_item.status == 10" ng-click="remove_accept_ans($event)"  id="<%kh comment_feed_item.id hk%>" class="accept-ans-a">
+                                                Bỏ duyệt <span class="glyphicon glyphicon-thumbs-down"></span>
+                                            </a>
+                                        </span>
+                                    </span>
+                                </p>
+                                <p class="comment-content-feed"><%kh comment_feed_item.content hk%></p>
+                                <img ng-if="comment_feed_item.image" class="img-responsive" ng-src="upload/user_questions_comment/<%kh comment_feed_item.image hk%>" >
+                            </div>
+                        </div>
+                        
+                        <md-progress-linear ng-if="load_more_comment_feeds" md-mode="indeterminate"></md-progress-linear>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-sm-3 hidden-xs">
+        <p class="heading-title">THÔNG TIN</p>
+        <div class="be-user-block">
+            <p>Thời gian: <%kh feed.updated_at hk%></p>
+            <p>Tổng lượt thích: <%kh feed.like_feed.length hk%></p>
+            <p>Tổng bình luận: <%kh total_comments hk%></p>
+            <p>Số điểm: <%kh feed.point_feed hk%></p>
+        </div>
+        <div ng-if="user.id == getUser.id ">
+            <button ng-if="feed.status == 1" name="<%kh feed.slug hk%>" class="btn btn-success" ng-click="lock_feed($event)">Khoá bài</button>
+            <p ng-if="feed.status == 0"><font size="3" color="#f1004c">Bạn đã đóng bài</font></p>
+            <p ng-if="feed.status == 10"><font size="3" color="#f1004c">Bài bị Admin đóng</font></p>
+        </div>
+        <div ng-if="user.id != getUser.id">
+            <p ng-if="feed.status == 0"><font size="3" color="#f1004c">Bài đã đóng</font></p>
+            <p ng-if="feed.status == 10"><font size="3" color="#f1004c">Bài bị Admin đóng</font></p>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="col-md-12">
+        <div class="col-md-offset-2 col-md-8">
+        <form class="showQuestionForm" ng-submit="editQuestionFun()">
+            <a class="pull-left be-feed-media" style="margin-top: 0" ng-href="profile/<%kh user.username hk%>">
+                    <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" ng-if="! user.avatar"><%kh user.name.substring(0,1) hk%></span>
+                    <img class="img-circle" style="width: 34px; height: 34px" ng-if="user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh user.avatar hk%>">
+            </a>
+            <div class="media-body body-feed-item">
+                <div class="sort-left" layout="row" layout-align="space-between center">
+                    <md-select required ng-model="select_cate" ng-change="select_cate_fun()" placeholder="Chọn chuyên mục"  class="md-no-underline custom-md-select-cate">
+                      <md-option ng-repeat="cate in catequestion" ng-selected="cate.id == feed.sub_cate_question.cate_question.id" ng-value="cate.slug"><%kh cate.name hk%></md-option>
+                    </md-select>        
+                </div>
+                <div class="sort-left div_select_subcate" layout="row" style="margin-left:5px" layout-align="space-between center">
+                        <md-select  ng-model="select_subcate" required placeholder="Chọn mục"  class="md-no-underline custom-md-select-cate">
+                          <md-option ng-repeat="subcate in subcatequestion" ng-selected="subcate.id == feed.sub_cate_question.id" ng-value="subcate.slug"><%kh subcate.name hk%></md-option>
+                        </md-select>
+                </div>
+                <div class="sort-left div_select_subcate" layout="row" style="margin-left:5px" layout-align="space-between center">
+                        
+                        <md-select ng-model="point_set" disabled placeholder="Số điểm"  class="md-no-underline custom-md-select-cate">
+                              <md-option ng-selected="feed.point_feed == 5"  value="5">5</md-option>
+                              <md-option ng-selected="feed.point_feed == 10" value="10">10</md-option>
+                              <md-option ng-selected="feed.point_feed == 15" value="15">15</md-option>
+                              <md-option ng-selected="feed.point_feed == 20" value="20">20</md-option>
+                        </md-select>
+                </div>
+                <div class="cancel_form_question pull-right">
+                    <span ng-if="minify" class="span-minify glyphicon glyphicon glyphicon-menu-down" ng-click="cancel_minify_add()"></span>
+                    <span ng-if="!minify" class="span-minify glyphicon glyphicon glyphicon-menu-up" ng-click="cancel_minify_add()"></span>
+                    <span ng-if="zoom" class="span-resize glyphicon glyphicon-resize-full" ng-click="cancel_resize_add()"></span>
+                    <span ng-if="!zoom" class="span-resize glyphicon glyphicon-resize-small" ng-click="cancel_resize_add()"></span>
+                    <span class="span-cancel glyphicon glyphicon-remove" ng-click="cancel_form_add()"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div layout-gt-sm="row">
+                      <md-input-container class="md-block custom-md-block" flex-gt-sm>
+                        <label>Tiêu đề</label>
+                        <input ng-model="title_question"  md-maxlength="100">
+                      </md-input-container>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <md-input-container class="md-block">
+                      <label>Nội dung</label>
+                      <textarea ng-model="content_question" md-maxlength="500" rows="5" md-select-on-focus></textarea>
+                    </md-input-container>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="form_add_question">
+                        <md-button class="submit_add_question" type="submit" >Gửi</md-button>
+                          <div class="input-file-container">  
+                            <input class="input-file" id="my-file" type="file">
+                            <label title="Thêm ảnh" tabindex="0" for="my-file" class="input-file-trigger"><span class="glyphicon glyphicon-folder-open"></span></label>
+
+                            <a class="remove-add-image" ng-click="removeImageData()">Xoá ảnh</a>
+                          </div>
+                          <p class="file-return"></p>
+                          <div id="imgQuestion"></div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>

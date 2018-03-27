@@ -1,0 +1,76 @@
+
+<div class="row">
+	<div class="col-md-3 hidden-xs hidden-sm">
+		<p class="heading-title">NỔI BẬT</p>
+		<ul class="list-unstyled" ng-repeat="featurePost in featurePosts">
+			<li class="feature-index container-fluid">
+			<div class="row">
+			<div class="col-md-10">
+				<div class="row">
+					<a ng-href="<%kh featurePost.subcategory.slug + '/' + featurePost.slug hk%>"><%kh featurePost.name hk%></a> 
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="row">
+					<span class="pull-right"><font color="#f1004c"><%kh featurePost.count_views hk%></font></span>
+				</div>
+			</div>
+			</div>
+			</li>
+		</ul>
+	</div>
+	<div class="col-md-6 col-xs-12">
+		<p class="heading-title">BÀI VIẾT MỚI</p>
+		
+		<div ng-repeat="post in posts.data">
+		<!--Các bài đăng mới -->
+		<div class="content-item-index col-sm-12">
+			<div class="col-sm-12">
+				<h2><a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a></h2>
+			</div>
+			<div class="meta-item-index col-sm-12">
+				<span>Tác giả: <%kh post.author.name hk%></span>
+				<span>Ngày: <%kh post.created_at | myDateFormat hk%></span>
+				<span>Chuyên mục: <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a></span>
+				<span>Lượt xem: <%kh post.count_views hk%> </span>
+			</div>
+			<div class="col-sm-12">
+				<div class="col-sm-5 media">
+					<a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>" ><img class="img-responsive" ng-src="<%kh 'upload/posts/' + post.image hk%>"/></a>
+				</div>
+				<div class="col-sm-7 caption">
+					 <p ng-bind-html="post.brief"></p>
+				</div>
+			</div>
+		</div>
+		
+		</div>
+		<!--End các bài -->
+
+		<md-progress-linear ng-if="loading_more_home" md-mode="indeterminate"></md-progress-linear>
+
+	</div>
+	<div class="col-md-3 hidden-xs hidden-sm">
+		<p class="heading-title">RANKING</p>
+
+		<ul class="list-unstyled" ng-repeat="(key, user_sort) in users_sort">
+			
+			<li class="feature-index container-fluid">
+				<div class="col-md-2">
+					<span class="pull-left"><%kh (key+1) hk%>. </span>
+				</div>
+				<div class="col-md-8 text-center"><a ng-href="profile/<%kh user_sort.username hk%>">
+					<%kh user_sort.username hk%>	
+					</a> 
+				</div>
+				<div class="col-md-2">
+					<span class="pull-right"><font color="#f1004c"><%kh user_sort.gpa hk%></font></span>
+				</div>
+			</li>
+
+		</ul>
+		
+		<p ng-if="current_rank"><font color="#f1004c">Rank hiện tại: <%kh current_rank hk%></font></p>
+		<p ng-if="current_rank_status"><font color="#f1004c">Bạn cần <%kh current_rank_status hk%> bài thi online nữa để xếp hạng</font></p>
+	</div>
+</div>

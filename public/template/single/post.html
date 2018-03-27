@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col-sm-9 col-xs-12">
+        <div class="heading-block col-sm-12">
+            <a ng-href="/">Trang chủ </a>|
+            <a ng-href="<%kh post.subcategory.category.slug + '.html' hk%>"><%kh post.subcategory.category.name hk%></a> |
+            <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a> |
+            <a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3 media hidden-xs">
+                    <a ng-href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><img  style="margin-top: 22px" class="img-responsive" ng-src="upload/posts/<%kh post.image hk%>"/></a>
+                </div>
+                <div class="meta-content-single  col-sm-9 col-xs-12 caption">
+                    <h1><a href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a></h1>
+                    <p>Tác giả: <%kh post.author.name hk%></p>
+                    <p>Ngày: <%kh post.created_at hk%></p>
+                    <p>Chuyên mục: <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a></p>
+                    <p>Lượt xem: <%kh post.count_views hk%> </p>
+                </div>
+
+                <div class="content-single col-sm-12 col-xs-12">
+                    <p ng-bind-html="content">
+                        <%kh post.content hk%>
+                    </p>
+                </div>
+                <div class="test_online col-sm-12 col-xs-12">
+                    <div ng-if="user">
+                        <p ng-if="testonline"><font color="#f1004c">Tham gia thi thử:</font> <a href="<%kh 'testonline/' + post.slug hk%>"><%kh post.name hk%></a></p>
+                        <p ng-if="!testonline"><font color="#f1004c">Lịch thi thử sẽ được công bố sau.</font></p>
+                    </div>
+                    <div ng-if="!user">
+                        <p>Bạn cần đăng nhập để thi thử.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <!--bình luận -->
+
+        <div ng-if="user">
+        <div class="col-sm-12 col-xs-12">
+        <div class="row well">
+            <h4>Viết bình luận ...</h4>
+            <form name="commentForm" ng-submit="doComment(commentForm)">
+
+                <span class="help-block" ng-if="wrong_comment">
+                    <strong><%kh wrong_comment hk%></strong>
+                </span> 
+
+                <div class="form-group">
+                    <textarea class="comment-area form-control" rows="3" ng-model="$parent.comment_content" name="comment_content"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi</button>
+            </form>
+        </div>
+        </div>
+
+          
+        </div>
+                    
+        <!-- Posted Comments -->
+        <div ng-if="comments">
+            <div class="col-sm-12 col-xs-12">
+            <div class="row">
+            <div ng-repeat="comment in comments.data">
+            
+                    <div class="media">
+                        <a class="pull-left" ng-href="profile/<%kh comment.user.username hk%>">
+                                <span style="border-radius: 50%; width:50px; height: 50px; line-height: 50px" ng-if="! comment.user.avatar"><%kh comment.user.name.substring(0,1) hk%></span>
+                                <img class="img-circle" ng-if="comment.user.avatar" width="50px" height="50px" ng-src="upload/users/<%kh comment.user.avatar hk%>">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading"><a ng-href="profile/<%kh comment.user.username hk%>"><font size="3" color="#3b5998"> <%kh comment.user.name hk%> </font></a>
+                                <!-- <font size="1" class="pull-right"><%kh comment.created_at hk%></font> -->
+                            </h4>
+                            <p><%kh comment.content hk%></p>
+                        </div>
+                 
+                    </div>
+            </div>
+            </div>
+            </div>
+            
+            <md-progress-linear ng-if="loading_more_comment" md-mode="indeterminate"></md-progress-linear>
+
+        </div>
+        
+    </div>
+
+    <div class="col-sm-3 hidden-xs">
+        <p class="heading-title">CÙNG CHUYÊN MỤC</p>
+        <ul  class="list-unstyled" ng-repeat="(key, same_post) in same_posts">
+            <div class="col-md-12"><div class="row">
+            <div class="col-md-5 text-center">
+                <a ng-href="<%kh same_post.subcategory.slug + '/' + same_post.slug hk%>"><img class="img-responsive" ng-src="upload/posts/<%kh same_post.image hk%>"/></a>
+            </div>
+            <div class="col-md-7">
+                <p style="margin: 0"><span><a href="<%kh same_post.subcategory.slug + '/' + same_post.slug hk%>"><font size="2"><%kh same_post.name hk%></a></font></span></p>
+                <p><font size="1"><%kh same_post.created_at hk%></font></p>
+            </div>
+            </div></div>
+        </ul>
+    </div>
+
+</div>

@@ -1,0 +1,224 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="heading-block col-sm-12">
+            <a ng-href="/">Trang chủ </a>|
+            <a ng-href="<%kh post.subcategory.category.slug hk%>.html"><%kh post.subcategory.category.name hk%></a> |
+            <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a> |
+            <a ng-href="<%kh post.subcategory.slug hk%>/<%kh post.slug hk%>"><%kh post.name hk%></a>
+        </div>
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-3 media hidden-xs">
+                    <a ng-href="<%kh post.subcategory.slug hk%>/<%kh post.slug hk%>"><img class="img-responsive" src="upload/posts/<%kh post.image hk%>"/></a>
+                </div>
+                <div class="meta-content-single  col-sm-9 col-xs-12 caption">
+                    <h1><a href="<%kh post.subcategory.slug + '/' + post.slug hk%>"><%kh post.name hk%></a></h1>
+                    <p>Tác giả: <%kh post.author.name hk%></p>
+                    <p>Ngày: <%kh post.created_at hk%></p>
+                    <p>Chuyên mục: <a ng-href="<%kh post.subcategory.slug hk%>"><%kh post.subcategory.name hk%></a></p>
+                    <p>Lượt xem: <%kh post.count_views hk%> </p>
+                </div>
+
+                <div class="content-single col-sm-12 col-xs-12">
+                    <div ng-if="wait_start">
+                        <span>Bài thi sẽ bắt đầu sau: </span><span class="count_down"><%kh timeCount hk%></span>
+                    </div>
+                    <div ng-if="wait_end">
+                        <span>Bài thi sẽ kết thúc sau: </span><span class="count_down"><%kh timeCount hk%></span>
+                        <p>Nhằm đảm bảo tính công bằng, đáp án và kết quả xếp hạng sẽ công bố sau khi kết thúc thời gian thi online</p>
+                    </div>
+                    <div ng-if="eliminate">
+                        <span>Bài thi sẽ kết thúc sau: </span><span class="count_down"><%kh timeCount hk%></span>
+                        <p>Bạn vào muộn hơn 20% thời gian. Vui lòng đợi các thí sinh khác thi xong để được thi offline</p>
+                    </div>
+                    <div ng-if="bquestions">
+                        <div ng-if="!ans_true">
+                        <div ng-repeat="(key, question) in bquestions" >
+                            <fieldset id = "ques-<%kh key hk%>" class="fieldset-question">
+                                <legend class="legend-name-question" ><strong>Câu <%kh key + 1 hk%>. <%kh question.name hk%></strong></legend>
+                                <div ng-if="question.image">
+                                <p><img width="200px" height="112px" ng-src="upload/questions/<%kh question.image hk%>"/></p>
+                                </div>
+
+                                <label class="label-testonline">
+                                    <input type="radio" ng-click="doAnswer(key, 'A')" class="choose option-input radio" name='ans-<%kh key hk%>' id='ans-a<%kh key hk%>' value='A' ng-checked="dataAns[key] == 'A'" />
+                                    <strong class="strong-answer">A. <%kh question.ans_a hk%></strong>
+                                </label>
+                                
+                                <label class="label-testonline">
+                                    <input type="radio" ng-click="doAnswer(key, 'B')" class="choose option-input radio" name='ans-<%kh key hk%>' id='ans-b<%kh key hk%>' value='B' ng-checked="dataAns[key] == 'B'" />
+                                    <strong class="strong-answer">B. <%kh question.ans_b hk%></strong>
+                                </label>
+
+                                <label class="label-testonline">
+                                    <input type="radio" ng-click="doAnswer(key, 'C')" class="choose option-input radio" name='ans-<%kh key hk%>' id='ans-c<%kh key hk%>' value='C' ng-checked="dataAns[key] == 'C'" />
+                                    <strong class="strong-answer">C. <%kh question.ans_c hk%></strong>
+                                </label>
+
+                                <label class="label-testonline">
+                                    <input type="radio" ng-click="doAnswer(key, 'D')" class="choose option-input radio" name='ans-<%kh key hk%>' id='ans-d<%kh key hk%>' value='D' ng-checked="dataAns[key] == 'D'" />
+                                    <strong class="strong-answer">D. <%kh question.ans_d hk%></strong>
+                                </label>
+
+                            </fieldset>
+                        </div>
+                        </div>
+                        <div ng-if="ans_true">
+                        <div ng-repeat="(key, question) in bquestions">
+                            <fieldset id = "ques-<%kh key hk%>" class="fieldset-question">
+                                <legend class="legend-name-question">Câu <%kh key + 1 hk%>. <%kh question.name hk%></legend>
+                                <div ng-if="question.image">
+                                <p><img width="200px" height="112px" ng-src="upload/questions/<%kh question.image hk%>"/></p>
+                                </div>
+
+                                <label class="label-testonline" ng-style="ans_true[key] == 'A' ? {'color' : 'blue'} : {}">
+                                    <input disabled type="radio" class="chooseResult option-input radio" name='ans-<%kh key hk%>' id='ans-a<%kh key hk%>' value='A' ng-checked="dataAns[key] == 'A'" />
+                                    <strong class="strong-answer">A. <%kh question.ans_a hk%></strong>
+                                </label>
+                                
+                                <label class="label-testonline" ng-style="ans_true[key] == 'B' ? {'color' : 'blue'} : {}">
+                                    <input disabled type="radio" class="chooseResult option-input radio" name='ans-<%kh key hk%>' id='ans-b<%kh key hk%>' value='B' ng-checked="dataAns[key] == 'B'" />
+                                    <strong class="strong-answer">B. <%kh question.ans_b hk%></strong>
+                                </label>
+
+                                <label class="label-testonline" ng-style="ans_true[key] == 'C' ? {'color' : 'blue'} : {}">
+                                    <input disabled type="radio" class="chooseResult option-input radio" name='ans-<%kh key hk%>' id='ans-c<%kh key hk%>' value='C' ng-checked="dataAns[key] == 'C'" />
+                                    <strong class="strong-answer">C. <%kh question.ans_c hk%></strong>
+                                </label>
+
+                                <label class="label-testonline" ng-style="ans_true[key] == 'D' ? {'color' : 'blue'} : {}">
+                                    <input disabled type="radio" class="chooseResult option-input radio" name='ans-<%kh key hk%>' id='ans-d<%kh key hk%>' value='D' ng-checked="dataAns[key] == 'D'" />
+                                    <strong class="strong-answer">D. <%kh question.ans_d hk%></strong>
+                                </label>
+
+                            </fieldset>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 parent_fixed">
+        <div ng-if="dataAns && !ans_true" class="table_fixed">
+                <button class="btn btn-success" ng-click="clickSubmit()">Nộp bài</button>
+
+                <p ng-if="timeSubmitOnline" class="count_down_testing"> <span class="title-countdown">Thời gian còn lại:</span> <%kh timeCount hk%> </p>
+                <p ng-if="timeSubmitOffline" class="count_down_testing"> <span class="title-countdown">Thời gian còn lại:</span> <%kh timeCount hk%> </p>
+
+                <table class="table table-bordered">
+                    <tbody ng-repeat="i in [] | range: (dataAns.length/5)">
+                    <tr class="table-content" align="center">
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index hk%>"><%kh (5*$index + 1) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index]" id="answer_<%kh 5*$index hk%>">
+                                <%kh dataAns[5*$index] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 1 hk%>"><%kh (5*$index + 2) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 1]" id="answer_<%kh 5*$index + 1 hk%>">
+                                <%kh dataAns[5*$index + 1] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 2 hk%>"><%kh (5*$index + 3) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 2]" id="answer_<%kh 5*$index + 2 hk%>">
+                                <%kh dataAns[5*$index + 2] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 3 hk%>"><%kh (5*$index + 4) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 3]" id="answer_<%kh 5*$index + 3 hk%>">
+                                <%kh dataAns[5*$index + 3] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 4 hk%>"><%kh (5*$index + 5) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 4]" id="answer_<%kh 5*$index + 4 hk%>">
+                                <%kh dataAns[5*$index + 4] hk%>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+        <div ng-if="dataAns && ans_true" class="table_fixed">
+                
+                <p class="count_down"> Điểm: <%kh points + '/' + 10 hk%> </p>
+
+                <table class="table table-bordered">
+                    <tbody ng-repeat="i in [] | range: (dataAns.length/5)">
+                    <tr class="table-content" align="center">
+                        <td  class="scroll_ans" id = "scroll_<%kh 5*$index hk%>"><%kh (5*$index + 1) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index]" id="answer_<%kh 5*$index hk%>" ng-style="ans_true[5*$index] == dataAns[5*$index] ? {'color' : 'blue'} : {'color':'red'}">
+                                <%kh dataAns[5*$index] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 1 hk%>"><%kh (5*$index + 2) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 1]" id="answer_<%kh 5*$index + 1 hk%>" ng-style="ans_true[5*$index + 1] == dataAns[5*$index + 1] ? {'color' : 'blue'} : {'color':'red'}">
+                                <%kh dataAns[5*$index + 1] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 2 hk%>"><%kh (5*$index + 3) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 2]" id="answer_<%kh 5*$index + 2 hk%>" ng-style="ans_true[5*$index + 2] == dataAns[5*$index + 2] ? {'color' : 'blue'} : {'color':'red'}">
+                                <%kh dataAns[5*$index + 2] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 3 hk%>"><%kh (5*$index + 4) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 3]" id="answer_<%kh 5*$index + 3 hk%>" ng-style="ans_true[5*$index + 3] == dataAns[5*$index + 3] ? {'color' : 'blue'} : {'color':'red'}">
+                                <%kh dataAns[5*$index + 3] hk%>
+                            </span>
+                        </td>
+                        <td class="scroll_ans" id = "scroll_<%kh 5*$index + 4 hk%>"><%kh (5*$index + 5) + '. ' hk%>
+                            <span ng-if="dataAns[5*$index + 4]" id="answer_<%kh 5*$index + 4 hk%>" ng-style="ans_true[5*$index + 4] == dataAns[5*$index + 4] ? {'color' : 'blue'} : {'color':'red'}">
+                                <%kh dataAns[5*$index + 4] hk%>
+                            </span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <p class="heading-title">BẢNG XẾP HẠNG</p>
+
+                <ul class="list-unstyled" ng-repeat="(key, user_rank) in users">
+            
+                    <li class="feature-index container-fluid">
+                        <div class="col-md-2">
+                            <span class="pull-left"><%kh (key+1) hk%>. </span>
+                        </div>
+                        <div class="col-md-8 text-center"><a ng-href="profile/<%kh user_rank.user.username hk%>">
+                            <%kh user_rank.user.username hk%>    
+                            </a> 
+                        </div>
+                        <div class="col-md-2">
+                            <span class="pull-right"><font color="#f1004c"><%kh user_rank.point_exam hk%></font></span>
+                        </div>
+                    </li>
+
+                </ul>
+                <p><%kh current_user_rank_status hk%></p>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    setTimeout(function(){ 
+
+        $('.table_fixed').width($('.parent_fixed').width()).css('position', 'fixed')
+
+        var tableClick = $('.scroll_ans')
+        tableClick.click(function() {
+            let id = $(this).attr('id');
+            let idQues = 'ques-'+ id.substring(7);
+            $('html, body').animate({
+                scrollTop: $("#"+ idQues+"").offset().top-100
+            }, 500);
+        })
+
+        $('.choose').change(function() {
+            let id = $(this).attr('id')
+            let value = $(this).val()
+            let key = id.substring(5)
+            $('#answer_'+key).html(value)
+            $('#answer_'+key).css( 'color', 'red')
+        })
+
+    }, 1000)
+</script>
