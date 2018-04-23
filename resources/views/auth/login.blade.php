@@ -1,1 +1,1 @@
-@extends('page.master')
+@extends('pages.master')
