@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title-header')</title> 
   <!-- jQuery -->
-  <script type="text/javascript" src=" {{ url('admin/js/jquery.min.js') }} "></script>
+  <script type="text/javascript" src=" {{ url('public/admin/js/jquery.min.js') }} "></script>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
     <!-- X-CSRF-TOKEN -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,7 +19,7 @@
   <link rel="publisher" href="https://plus.google.com/102529050099795243520"/>
   <meta itemprop="name" content="Giải chi tiết đề thi thử môn Toán - Tin tức thi thử THPT Quốc Gia">
   <meta itemprop="description" content="Chuyên trang chia sẻ kinh nghiệm làm bài thi THPT Quốc Gia, các bài viết hướng dẫn giải chi tiết đề thi thử môn Toán, hướng dẫn ôn tập tốt kỳ thi THPT Quốc Gia hiệu quả nhất">
-  <meta itemprop="image" content="{!! url('logo.jpg') !!}">
+  <meta itemprop="image" content="/public/logo.jpg">
   <meta property="og:title" content="Giải chi tiết đề thi thử môn Toán - Tin tức thi thử THPT Quốc Gia" />
   <meta property="og:locale" content="vi_VN" />
   <meta property="og:type" content="website" />
@@ -31,15 +31,15 @@
 
   
   @yield('image-page')
-    <meta property="og:image" content="{!! url('logo.jpg') !!}" /><meta itemprop="image" content="Link đến hình đại diện cho bài viết">
+    <meta property="og:image" content="/public/logo.jpg" /><meta itemprop="image" content="Link đến hình đại diện cho bài viết">
   @yield('next-page')
 
-  <link rel="shortcut icon" href="{{ url('favicon.ico') }}" type="image/x-icon">
-  <link rel="icon" href="{{ url('favicon.ico') }}" type="image/x-icon">
+  <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">
   
   <!-- Bootstrap Core CSS -->
-  <link href="{{ url('admin/css/app.css') }}" rel="stylesheet">
-<script type="text/javascript" src="{!! url('admin/ckeditor/ckeditor.js') !!}"></script>
+  <link href="{{ url('public/admin/css/app.css') }}" rel="stylesheet">
+<script type="text/javascript" src="{!! url('public/admin/ckeditor/ckeditor.js') !!}"></script>
 </head>
 <body>
   <div class="container-body">
@@ -48,12 +48,12 @@
   </div>
   
   <!-- Bootstrap Core JavaScript -->
-  <script type="text/javascript" src="{{ url('admin/js/bootstrap.min.js')}}"></script>
+  <script type="text/javascript" src="{{ url('public/admin/js/bootstrap.min.js')}}"></script>
   
   
-  <script type="text/javascript" src="{{ url('admin/js/moment.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url('public/admin/js/moment.min.js') }}"></script>
 
-  <script type="text/javascript" src=" {{ url('admin/js/app.js') }} "></script>
+  <script type="text/javascript" src=" {{ url('public/admin/js/app.js') }} "></script>
 
 
 
