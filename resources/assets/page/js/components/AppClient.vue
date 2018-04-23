@@ -15,9 +15,9 @@
       <router-link  :to="{ name: 'ClientIndex' }"><a class="navbar-brand">Online Blog Toán</a></router-link>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" v-for="category in categories">
 
-		<li  v-for="category in categories"><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: category.slug } }"><a :title="category.name" class="color-white">{{ category.name }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: category.slug } }"><a :title="category.name" class="color-white">{{ category.name }}</a></router-link></li>
 		
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
