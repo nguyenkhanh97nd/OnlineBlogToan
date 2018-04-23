@@ -16,7 +16,7 @@
   <link rel="publisher" href="https://plus.google.com/102529050099795243520"/>
   <meta itemprop="name" content="Online Blog Toán, Thi thử online THPT Quốc Gia">
   <meta itemprop="description" content="Online Blog Toán, Thi thử online các môn Toán, Lý, Hoá, Sinh, Sử, Địa trên Blog Toán">
-  <meta itemprop="image" content="{!! URL::asset('logo.jpg') !!}">
+  <meta itemprop="image" content="/public/logo.jpg">
   <meta property="og:title" content="Online Blog Toán - Thi thử Online THPT Quốc Gia" />
   <meta property="og:locale" content="vi_VN" />
   <meta property="og:type" content="website" />
@@ -29,11 +29,11 @@
 
   
   @yield('image-page')
-    <meta property="og:image" content="{!! URL::asset('logo.jpg') !!}" /><meta itemprop="image" content="Link đến hình đại diện cho bài viết">
+    <meta property="og:image" content="/public/logo.jpg" /><meta itemprop="image" content="Link đến hình đại diện cho bài viết">
   @yield('next-page')
 
-  <link rel="shortcut icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">
-  <link rel="icon" href="{{ URL::asset('favicon.ico') }}" type="image/x-icon">    
+  <link rel="shortcut icon" href="/public/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/public/favicon.ico" type="image/x-icon">    
       
     
     {{-- <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
