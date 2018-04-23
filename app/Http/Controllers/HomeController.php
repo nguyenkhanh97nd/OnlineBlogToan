@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function getIndex()
     {
-        $categories = Category::where('status', 1)->get();
-        return view('pages.index', compact(['categories']));
+        return view('pages.master');
     }
 }

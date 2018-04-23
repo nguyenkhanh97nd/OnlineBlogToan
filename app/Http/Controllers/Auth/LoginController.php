@@ -82,6 +82,7 @@ class LoginController extends Controller
         // Kiểm tra đăng nhập
         if(Auth::attempt($credentials_confirmed)) {
 
+            Auth::attempt($credentials_confirmed);
             $email = Auth::user()->email;
             $password = $request->password;
 

@@ -143,7 +143,9 @@ Route::group(['prefix'=>'bdata', 'middleware'=>'auth:api'], function() {
 
 Route::group(['prefix'=>'client'], function() {
 
+	Route::get('category', ['as'=>'api.client.getAllCategory', 'uses'=>'CategoryController@apiClientGetAllCategory']);
 
+	
 
 	Route::post('testonline', ['as'=>'api.client.testOnlineIndex', 'uses'=>'TestOnlineController@apiClientTestOnlineIndex'])->middleware('jwt.auth');
 	Route::post('ajaxanswer', ['as'=>'api.client.ajaxAnswer', 'uses'=>'TestOnlineController@apiClientAjaxAnswer'])->middleware('jwt.auth');
@@ -184,7 +186,7 @@ Route::group(['prefix'=>'client'], function() {
 
 	Route::post('like', ['as' => 'api.client.likeFeed', 'uses' => 'ProfileController@apiClientDoLike'])->middleware('jwt.auth');
 	Route::post('dislike', ['as' => 'api.client.dislikeFeed', 'uses' => 'ProfileController@apiClientDoDislike'])->middleware('jwt.auth');
-	Route::post('comment', ['as' => 'api.client.commentFeed', 'uses' => 'ProfileController@apiClientDoComment'])->middleware('jwt.auth');
+	Route::post('commentFeed', ['as' => 'api.client.commentFeed', 'uses' => 'ProfileController@apiClientDoComment'])->middleware('jwt.auth');
 	Route::post('postFeed', ['as'=>'api.client.postFeed', 'uses'=>'SocialLearningController@apiClientPostFeed'])->middleware('jwt.auth');
 
 	Route::get('comment_feed', ['as'=>'api.client.getCommentFeeds', 'uses'=>'CommentFeedController@apiClientGetCommentFeeds']);

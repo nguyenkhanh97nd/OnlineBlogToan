@@ -135,6 +135,15 @@ class CategoryController extends Controller
         return response()->json($findCategory);
     }
 
+
+    public function apiClientGetAllCategory() {
+
+        $categories = Category::where('status', 1)->get();
+        return response()->json($categories);
+
+    }
+
+
     /**
      * API Angular Client
      * @param  [string] $slugCate [Slug category]

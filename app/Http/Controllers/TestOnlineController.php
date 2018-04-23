@@ -309,7 +309,7 @@ class TestOnlineController extends Controller
 
                             $current_user_rank_status = "Bạn không thi online, không có rank";
 
-                            if(array_search($current_user->id, $all_rank, true)) {
+                            if(in_array($current_user->id, $all_rank)) {
                                 $current_user_rank_status = "Bạn xếp thứ ".(array_search($current_user->id, $all_rank) + 1)." trong tổng số ".count($all_rank)." thí sinh dự thi online.";
                             }
 
@@ -320,7 +320,8 @@ class TestOnlineController extends Controller
 		                    	'points' => $points,
 		                    	'users' => $users,
                                 'bquestions' => $bquestions,
-                                'current_user_rank_status' => $current_user_rank_status
+                                'current_user_rank_status' => $current_user_rank_status,
+
 		                    ]);
                         }
                     }
@@ -391,6 +392,7 @@ class TestOnlineController extends Controller
 
                     return response()->json([
                         'timeSubmitOnline' => $delta_time_end_online,
+                        'dataAns' => $update
                     ]);
                 }
             } else {
@@ -409,6 +411,7 @@ class TestOnlineController extends Controller
 
                     return response()->json([
                         'timeSubmitOffline' => $seconds_do - $delta_time_did,
+                        'dataAns' => $update
                     ]);
                 }
             }

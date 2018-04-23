@@ -15,12 +15,11 @@ class SettingController extends Controller
     
     public function apiClientSettingName(Request $request) {
 
-    	$this->validate($request,[
-            'name' => 'required|max:40',
-        ],[
-            'name.required' => 'Cần nhập tên',
-            'name.max' => 'Tên không quá 40 kí tự'
-        ]);
+        if(strlen(trim($request->name)) < 1 || strlen(trim($request->name)) > 40) {
+            return response()->json([
+                'wrong_name' => 'Tên 1-40 kí tự'
+            ]);
+        }
 
     	$token = JWTAuth::getToken();
         $current_user = JWTAuth::toUser($token);
@@ -30,19 +29,19 @@ class SettingController extends Controller
         $update->save();
 
     	return response()->json([
-    		'success' => true
+    		'success' => 'Cập nhật tên thành công'
     	]);
 
     }
 
     public function apiClientSettingInfo(Request $request) {
 
-    	$this->validate($request,[
-            'info' => 'required|max:200',
-        ],[
-            'info.required' => 'Cần điền giới thiệu',
-            'info.max' => 'Giới thiệu bản thân không quá 200 ký tự'
-        ]);
+        if(strlen(trim($request->info)) < 1 || strlen(trim($request->info)) > 200) {
+            return response()->json([
+                'wrong_info' => 'Giới thiệu bản thân 1-200 kí tự'
+            ]);
+        }
+
         $token = JWTAuth::getToken();
         $current_user = JWTAuth::toUser($token);
 
@@ -51,7 +50,7 @@ class SettingController extends Controller
         $update->save();
         
         return response()->json([
-    		'success' => true
+    		'success' => 'Cập nhật thông tin thành công'
     	]);
     }
 
@@ -64,7 +63,15 @@ class SettingController extends Controller
             $exploded = explode(',', $request->avatar);
             $decoded = base64_decode($exploded[1]);
 
-            $extension = str_contains($exploded[0], 'jpeg') ? 'jpg' : 'png';
+            if($exploded[0] === 'data:image/jpeg;base64') {
+                $extension = 'jpg';
+            } else if($exploded[0] === 'data:image/png;base64') {
+                $extension = 'png';
+            } else {
+                return response()->json([
+                    'wrong_avatar' => 'Chỉ sử dụng ảnh PNG,JPG,JPEG'
+                ]);
+            }
 
             $username = $user->username;
             $name = str_random(4)."_".$username.'.'.$extension;
@@ -73,40 +80,47 @@ class SettingController extends Controller
             }
             $path = 'upload/users/'.$name;
 
+            file_put_contents($path, $decoded);
+
+            if(filesize($path) > 500000) {
+                unlink($path);
+                return response()->json([
+                    'wrong_avatar' => 'Ảnh phải nhỏ hơn 500KB'
+                ]);
+            }
+
             if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
                 unlink('upload/users/'.$user->avatar);
             }
-
-            file_put_contents($path, $decoded);
 
             $user->avatar = $name;
         }
         $user->save();
 
         return response()->json([
-            'success' => true
+            'success' => 'Cập nhật ảnh thành công'
         ]);
     }
 
     public function apiClientSettingPassword(Request $request) {
 
-        $this->validate($request,[
-            'cur_pwd' => 'required|min:6',
-            'new_pwd' => 'required|min:6',
-        ],[
-            'cur_pwd.required' => 'Nhập mật khẩu hiện tại',
-            'cur_pwd.min' => 'Mật khẩu hiện tại quá ngắn',
-            'new_pwd.required' => 'Nhập mật khẩu mới',
-            'new_pwd.min' => 'Mật khẩu tối thiểu 6 kí tự',
-        ]);
-
         $token = JWTAuth::getToken();
         $user = JWTAuth::toUser($token);
 
-        if(!Hash::check($request->cur_pwd, $user->password)) {
+        if(strlen(trim($request->cur_pwd)) < 6) {
             return response()->json([
-                'wrong_old_password' => true
+                'wrong_old_password' => 'Mật khẩu hiện tại quá ngắn'
             ]);
+        } else if(strlen(trim($request->new_pwd)) < 6) {
+            return response()->json([
+                'wrong_password' => 'Mật khẩu tối thiểu 6 kí tự'
+            ]);
+        } else {
+            if(!Hash::check($request->cur_pwd, $user->password)) {
+                return response()->json([
+                    'wrong_old_password' => 'Sai mật khẩu hiện tại'
+                ]);
+            }
         }
 
         $user->password = bcrypt($request->new_pwd);
@@ -124,7 +138,7 @@ class SettingController extends Controller
             });
 
         return response()->json([
-            'success' => true
+            'success' => 'Đổi mật khẩu thành công'
         ]);
 
     }

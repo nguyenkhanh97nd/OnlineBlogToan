@@ -14,15 +14,8 @@ const { mix } = require('laravel-mix');
 mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js','public/page/js')
    .copy('node_modules/jquery/dist/jquery.min.js','public/page/js')
    .copy('node_modules/bootstrap-sass/assets/fonts/bootstrap/','public/page/fonts/')
-   .copy('node_modules/angular/angular.min.js', 'public/page/js')
-   .copy('node_modules/angular-route/angular-route.min.js', 'public/page/js')
-   .copy('node_modules/angular-sanitize/angular-sanitize.min.js', 'public/page/js')
 
-   .copy('node_modules/angular-material/angular-material.min.js', 'public/page/js')
-   .copy('node_modules/angular-material/angular-material.min.css', 'public/page/css')
-   .copy('node_modules/angular-aria/angular-aria.min.js', 'public/page/js')
-   .copy('node_modules/angular-animate/angular-animate.min.js', 'public/page/js')
-   .copy('node_modules/angular-messages/angular-messages.min.js', 'public/page/js')
+
 
    .js('resources/assets/page/js/app.js','public/page/js') 
    .sass('resources/assets/page/sass/app.scss', 'public/page/css')

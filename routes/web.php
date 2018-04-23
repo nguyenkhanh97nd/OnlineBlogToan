@@ -139,8 +139,8 @@ Route::group(['prefix'=>'editor', 'middleware'=>'editorLogin'], function(){
 
 Route::get('/',['as'=>'page.index','uses'=>'HomeController@getIndex']);
 
-
-Route::get('register/verify/{code}',['as'=>'register.verify','uses'=>'Auth\RegisterController@verify']);
+Route::get('register/verify/{code}', ['as'=>'register.getVerify', 'uses' => 'HomeController@getIndex']);
+Route::post('register/verify/{code}',['as'=>'register.postVerify','uses'=>'Auth\RegisterController@verify']);
 
 
 

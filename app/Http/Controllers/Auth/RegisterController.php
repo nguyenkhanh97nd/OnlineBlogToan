@@ -123,8 +123,9 @@ class RegisterController extends Controller
         } else {
             $notification_status ='Vui lòng đăng nhập';
         }
-
-        return redirect()->route('login')->withErrors(['confirm_email' => $notification_status]);
+        return response()->json([
+            'confirm_email' => $notification_status
+        ]);
     }
 
 
@@ -133,7 +134,7 @@ class RegisterController extends Controller
      * @param  array  $data [Request post]
      * @return [json]       [After validate]
      */
-    protected function angularValidate(array $data)
+    protected function registerValidate(array $data)
     {
         $validate = null;
 
@@ -199,8 +200,8 @@ class RegisterController extends Controller
      */
     public function apiClientRegister(Request $request) {
 
-        if($this->angularValidate($request->all())) {
-            return $this->angularValidate($request->all());
+        if($this->registerValidate($request->all())) {
+            return $this->registerValidate($request->all());
         }
 
         $confirmation_code = time().uniqid(true);

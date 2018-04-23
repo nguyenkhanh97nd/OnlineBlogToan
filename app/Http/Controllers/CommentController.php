@@ -65,27 +65,8 @@ class CommentController extends Controller
         ]);
     }
 
-    public function postComment($idPost, Request $request){
-        $this->validate($request,[
-                    'content'=>'required|min:1|max:200',
-                ],[
-                    'content.required'=>'Bạn phải nhập nội dung bình luận',
-                    'content.min'=>'Không thể bình luận trống',
-                    'content.max'=>'Bình luận không vượt quá 200 ký tự',
-                ]);
-
-    	$comment = new Comment;
-    	
-    	$comment->content = $request->content;        
-        
-        $comment->post_id = $idPost;
-        $comment->user_id = Auth::user()->id;
-    	$comment->save();
-    	return redirect()->back();
-    }
-
     /**
-     * Angular API Client
+     * API Client
      * @param  [string] $slugSubCate [slug subcategory]
      * @param  [string] $slugPost    [slug post]
      * @return [json]              [comments for post]
@@ -101,7 +82,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Angular API Client
+     * API Client
      * @param  [string] $slugPost [Slug Post Comment]
      * @return [json]           [Success or not]
      */

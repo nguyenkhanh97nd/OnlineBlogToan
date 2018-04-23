@@ -84,14 +84,23 @@ class ProfileController extends Controller
 
         $slug = $feed->slug;
 
-        
+
 
         $comment_feed = new CommentFeed;
 
         if($imageData) {
             $exploded = explode(',', $imageData);
             $decoded = base64_decode($exploded[1]);
-            $extension = str_contains($exploded[0], 'jpeg') ? 'jpg' : 'png';
+
+            if($exploded[0] === 'data:image/jpeg;base64') {
+                $extension = 'jpg';
+            } else if($exploded[0] === 'data:image/png;base64') {
+                $extension = 'png';
+            } else {
+                return response()->json([
+                    'comment_status' => 'Chỉ sử dụng ảnh PNG,JPG,JPEG'
+                ]);
+            }
 
             $name = $slug."_".str_random(4).'.'.$extension;
             while(file_exists("upload/user_questions_comment/".$name)){
@@ -99,6 +108,13 @@ class ProfileController extends Controller
             }
             $path = 'upload/user_questions_comment/'.$name;
             file_put_contents($path, $decoded);
+
+            if(filesize($path) > 1000000) {
+                unlink($path);
+                return response()->json([
+                    'comment_status' => 'Ảnh phải nhỏ hơn 1MB'
+                ]);
+            }
 
             $comment_feed->image = $name;
         } else {

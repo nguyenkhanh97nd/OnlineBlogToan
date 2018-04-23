@@ -43,60 +43,20 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif] --}}
 
-  <link rel="stylesheet" href="/public/page/css/app.css">
-  <script type="text/javascript" src="/public/page/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/page/css/app.css">
+  <script type="text/javascript" src="/page/js/jquery.min.js"></script>
 
 
 </head>
 
-<body  ng-app="myApp" ng-cloak>
+<body >
 
-<!--Facebook Root-->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.8&appId=160947010982381";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+  <div id="app_client" ></div>
 
-
-    @include('layout.header')
-
-  <!--Nhung content tu pages-->
-  <div style="padding-top: 90px;"></div>
-    @yield('content')
-  <!--End Nhung -->
   
-    @include ('layout.footer')
-  
-  <!-- Nhung script -->
-  @yield('script')
-  
-  <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-route.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/angular-sanitize.min.js"></script>
-  <script type="text/javascript" src="/public/page/js/app.js"></script>
+  <script type="text/javascript" src="/page/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/page/js/app.js"></script>
 
-
-<!-- Angular Material requires Angular.js Libraries -->
-  <script src="/public/page/js/angular-animate.min.js"></script>
-  <script src="/public/page/js/angular-aria.min.js"></script>
-  <script src="/public/page/js/angular-messages.min.js"></script>
-
-  <!-- Angular Material Library -->
-  <script src="/public/page/js/angular-material.min.js"></script>
-
-  <!-- Angular Material style sheet -->
-  <link rel="stylesheet" href="/public/page/css/angular-material.min.css">
-  
-  <script type="text/javascript">
-    angular.module('myApp')
-  </script>
-
-  {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML'></script> --}}
 
 </body>
 

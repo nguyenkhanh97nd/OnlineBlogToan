@@ -36,7 +36,8 @@ class CommentFeedController extends Controller
         }
 
         return response()->json([
-            'feeds' => $feeds
+            'feeds' => $feeds,
+            'v' => $sort_key
         ]);
     }
 
@@ -215,7 +216,7 @@ class CommentFeedController extends Controller
         $title = (string) trim($request->title);
         $content = (string) trim($request->content);
         $imageData = (string) trim($request->imageData);
-
+        $imageUrl = (string) trim($request->imageUrl);
 
         $title = preg_replace('/\s+/', ' ', $title);
         $content = preg_replace('/\s+/', ' ', $content);
@@ -247,22 +248,46 @@ class CommentFeedController extends Controller
 
             $exploded = explode(',', $imageData);
             $decoded = base64_decode($exploded[1]);
-            $extension = str_contains($exploded[0], 'jpeg') ? 'jpg' : 'png';
+
+
+            if($exploded[0] === 'data:image/jpeg;base64') {
+                $extension = 'jpg';
+            } else if($exploded[0] === 'data:image/png;base64') {
+                $extension = 'png';
+            } else {
+                return response()->json([
+                    'error' => 'Chỉ sử dụng ảnh PNG,JPG,JPEG'
+                ]);
+            }
 
             $name = str_random(4)."_".$slug.'.'.$extension;
             while(file_exists("upload/user_questions/".$name)){
                 $name = str_random(4)."_".$slug.'.'.$extension;
             }
             $path = 'upload/user_questions/'.$name;
+            file_put_contents($path, $decoded);
+            
+            if(filesize($path) > 1000000) {
+                unlink($path);
+                return response()->json([
+                    'error' => 'Ảnh phải nhỏ hơn 1MB'
+                ]);
+            }
 
             if($feed->image) {
                 if(file_exists('upload/user_questions/'.$feed->image)) {
                     unlink('upload/user_questions/'.$feed->image);
                 }
             }
-            file_put_contents($path, $decoded);
+            
             $feed->image = $name;
-
+        } else if($imageUrl == null) {
+            if($feed->image) {
+                if(file_exists('upload/user_questions/'.$feed->image)) {
+                    unlink('upload/user_questions/'.$feed->image);
+                }
+            }
+            $feed->image = '';
         }
         $feed->update();
 

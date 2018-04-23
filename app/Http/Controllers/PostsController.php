@@ -453,7 +453,7 @@ class PostsController extends Controller
 
 
     /**
-     * Angular API
+     * API Client
      * @return [json] [List Posts]
      */
     public function apiClientGetPosts() {
@@ -467,7 +467,7 @@ class PostsController extends Controller
     }
 
     /**
-     * API Angular
+     * API Client
      * @param  [string] $slugSubCate [slug sub category]
      * @param  [string] $slugPost    [slug post]
      * @return [json]              [post found]
@@ -496,7 +496,7 @@ class PostsController extends Controller
     }
 
     /**
-     * API Angular
+     * API Client
      * @param  [string] $search [search keyword]
      * @return [json]         [posts]
      */
