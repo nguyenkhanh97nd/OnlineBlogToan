@@ -78,6 +78,11 @@ class SettingController extends Controller
             while(file_exists("upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
+            if(file_exists('upload/users/test.txt')) {
+                $sao = 'Co';
+            } else {
+                $sao = 'Khong';
+            }
             // $path = 'upload/users/'.$name;
 
             // file_put_contents($path, $decoded);
@@ -99,7 +104,7 @@ class SettingController extends Controller
 
         return response()->json([
             // 'success' => 'Cập nhật ảnh thành công',
-            'success' => file_exists('upload/users/test.txt')
+            'success' => $sao
         ]);
     }
 
