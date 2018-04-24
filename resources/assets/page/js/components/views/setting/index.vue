@@ -328,8 +328,10 @@
 							vm.$swal("Success!", response.data.success, "success", {
 		                      button: "OK!",
 		                    })
-							vm.$router.go()
+							// vm.$router.go()
 						}
+					}, (response) => {
+						console.log(response)
 					})
 				} else {
 					vm.wrong_avatar = 'Chưa chọn ảnh'
