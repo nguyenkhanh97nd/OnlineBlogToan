@@ -78,27 +78,28 @@ class SettingController extends Controller
             while(file_exists("upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            $path = 'upload/users/'.$name;
+            // $path = 'upload/users/'.$name;
 
-            file_put_contents($path, $decoded);
+            // file_put_contents($path, $decoded);
 
-            if(filesize($path) > 500000) {
-                unlink($path);
-                return response()->json([
-                    'wrong_avatar' => 'Ảnh phải nhỏ hơn 500KB'
-                ]);
-            }
+            // if(filesize($path) > 500000) {
+            //     unlink($path);
+            //     return response()->json([
+            //         'wrong_avatar' => 'Ảnh phải nhỏ hơn 500KB'
+            //     ]);
+            // }
 
-            if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
-                unlink('upload/users/'.$user->avatar);
-            }
+            // if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
+            //     unlink('upload/users/'.$user->avatar);
+            // }
 
-            $user->avatar = $name;
+            // $user->avatar = $name;
         }
         $user->save();
 
         return response()->json([
-            'success' => 'Cập nhật ảnh thành công'
+            // 'success' => 'Cập nhật ảnh thành công',
+            'success' => $extension
         ]);
     }
 
