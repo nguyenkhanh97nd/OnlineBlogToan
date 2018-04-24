@@ -75,10 +75,10 @@ class SettingController extends Controller
 
             $username = $user->username;
             $name = str_random(4)."_".$username.'.'.$extension;
-            while(file_exists("upload/users/".$name)){
+            while(file_exists("public/upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            $path = 'upload/users/'.$name;
+            $path = 'public/upload/users/'.$name;
 
             file_put_contents($path, $decoded);
 
@@ -93,7 +93,7 @@ class SettingController extends Controller
             //     unlink('upload/users/'.$user->avatar);
             // }
 
-            // $user->avatar = $name;
+            $user->avatar = $name;
         }
         $user->save();
 
