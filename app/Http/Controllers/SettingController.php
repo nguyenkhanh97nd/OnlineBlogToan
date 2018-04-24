@@ -82,7 +82,17 @@ class SettingController extends Controller
             $path = 'public/upload/users/'.$name;
 
             // file_put_contents($path, $decoded);
+            
+            if(file_exists('public/upload/users/test.txt')) {
+                $s = 'Co';
+            } else {
+                $s = 'khong';
+            }
+            
             file_put_contents('public/upload/users/test.txt', 'fuckme');
+            return response()->json([
+                'success' => $s,
+            ]);
 
             // if(filesize($path) > 500000) {
             //     unlink($path);
