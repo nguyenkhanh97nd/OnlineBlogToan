@@ -65,9 +65,9 @@ class SocialLearningController extends Controller
         	$exploded = explode(',', $imageData);
         	$decoded = base64_decode($exploded[1]);
 
-        	if($exploded[0] == 'data:image/jpeg;base64') {
+        	if($exploded[0] === 'data:image/jpeg;base64') {
                 $extension = 'jpg';
-            } else if($exploded[0] == 'data:image/png;base64') {
+            } else if($exploded[0] === 'data:image/png;base64') {
                 $extension = 'png';
             } else {
                 return response()->json([
@@ -76,10 +76,10 @@ class SocialLearningController extends Controller
             }
 
         	$name = str_random(4)."_".$slug.'.'.$extension;
-        	while(file_exists("upload/user_questions/".$name)){
+        	while(file_exists("public/upload/user_questions/".$name)){
 	            $name = str_random(4)."_".$slug.'.'.$extension;
 	        }
-	        $path = 'upload/user_questions/'.$name;
+	        $path = 'public/upload/user_questions/'.$name;
 	        file_put_contents($path, $decoded);
 
             if(filesize($path) > 1000000) {

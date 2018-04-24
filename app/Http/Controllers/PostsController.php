@@ -95,10 +95,10 @@ class PostsController extends Controller
 
         $slug = $request->slug;
         $name = str_random(4)."_".$slug.'.'.$extension;
-        while(file_exists("upload/posts/".$name)){
+        while(file_exists("public/upload/posts/".$name)){
             $name = str_random(4)."_".$slug.'.'.$extension;
         }
-        $path = 'upload/posts/'.$name;
+        $path = 'public/upload/posts/'.$name;
         file_put_contents($path, $decoded);
 
         $post->image = $name;
@@ -188,11 +188,11 @@ class PostsController extends Controller
 
             $slug = $request->slug;
             $name = str_random(4)."_".$slug.'.'.$extension;
-            while(file_exists("upload/posts/".$name)){
+            while(file_exists("public/upload/posts/".$name)){
                 $name = str_random(4)."_".$slug.'.'.$extension;
             }
-            $path = 'upload/posts/'.$name;
-            unlink('upload/posts/'.$edit->image);
+            $path = 'public/upload/posts/'.$name;
+            unlink('public/upload/posts/'.$edit->image);
             file_put_contents($path, $decoded);
 
             $edit->image = $name;
@@ -252,7 +252,7 @@ class PostsController extends Controller
                 'message' => "Can't remove this Post because it has questions or comments"
             ]);
         }
-        unlink('upload/posts/'.$post->image);
+        unlink('public/upload/posts/'.$post->image);
 
         $post->delete($id);
 
@@ -360,11 +360,11 @@ class PostsController extends Controller
 
             $slug = $request->slug;
             $name = str_random(4)."_".$slug.'.'.$extension;
-            while(file_exists("upload/posts/".$name)){
+            while(file_exists("public/upload/posts/".$name)){
                 $name = str_random(4)."_".$slug.'.'.$extension;
             }
-            $path = 'upload/posts/'.$name;
-            unlink('upload/posts/'.$edit->image);
+            $path = 'public/upload/posts/'.$name;
+            unlink('public/upload/posts/'.$edit->image);
             file_put_contents($path, $decoded);
 
             $edit->image = $name;
@@ -424,7 +424,7 @@ class PostsController extends Controller
                 'message' => "Can't remove this Pending Post because it has questions or comments"
             ]);
         }
-        unlink('upload/posts/'.$post->image); 
+        unlink('public/upload/posts/'.$post->image); 
         $post->delete($id);
 
         Mail::send('admin.mail.posts.delete', $data, function($message) use ($data){

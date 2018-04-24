@@ -56,11 +56,11 @@ class EditorBQuestionsController extends Controller
 
                 $image = $id."_".str_random(4)."_".($i+1).".".$extension;
 
-                while(file_exists("upload/questions/".$image)){
+                while(file_exists("public/upload/questions/".$image)){
                     $image = $id."_".str_random(4)."_".($i+1).".".$extension;
                 }
 
-                $file->move("upload/questions",$image);
+                $file->move("public/upload/questions",$image);
 
                 $img[] = $image;
             }
@@ -116,17 +116,17 @@ class EditorBQuestionsController extends Controller
 
                 $image = $id."_".str_random(4)."_".($i+1).".".$extension;
 
-                while(file_exists("upload/questions/".$image)){
+                while(file_exists("public/upload/questions/".$image)){
                     $image = $id."_".str_random(4)."_".($i+1).".".$extension;
                 }
 
                 if( $image_indb != NULL ) {
-                    if(file_exists('upload/questions/'.$image_indb)) {
-                        unlink('upload/questions/'.$image_indb);
+                    if(file_exists('public/upload/questions/'.$image_indb)) {
+                        unlink('public/upload/questions/'.$image_indb);
                     }
                 }
 
-                $file->move("upload/questions",$image);
+                $file->move("public/upload/questions",$image);
                 $img[] = $image;
             }
             else{

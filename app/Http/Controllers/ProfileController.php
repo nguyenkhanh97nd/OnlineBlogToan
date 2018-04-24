@@ -103,10 +103,10 @@ class ProfileController extends Controller
             }
 
             $name = $slug."_".str_random(4).'.'.$extension;
-            while(file_exists("upload/user_questions_comment/".$name)){
+            while(file_exists("public/upload/user_questions_comment/".$name)){
                 $name = $slug."_".str_random(4).'.'.$extension;
             }
-            $path = 'upload/user_questions_comment/'.$name;
+            $path = 'public/upload/user_questions_comment/'.$name;
             file_put_contents($path, $decoded);
 
             if(filesize($path) > 1000000) {

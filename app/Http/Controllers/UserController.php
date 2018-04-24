@@ -95,10 +95,10 @@ class UserController extends Controller
 
             $username = $request->username;
             $name = str_random(4)."_".$username.'.'.$extension;
-            while(file_exists("upload/users/".$name)){
+            while(file_exists("public/upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            $path = 'upload/users/'.$name;
+            $path = 'public/upload/users/'.$name;
             file_put_contents($path, $decoded);
             $user->avatar = $name;
         }
@@ -144,8 +144,8 @@ class UserController extends Controller
         $user->status = $request->status;
 
         if($request->avatar == 'deleted') {
-            if(file_exists('upload/users/'.$user->avatar)) {
-                unlink('upload/users/'.$user->avatar);
+            if(file_exists('public/upload/users/'.$user->avatar)) {
+                unlink('public/upload/users/'.$user->avatar);
             }
             $user->avatar = NULL;
         }
@@ -158,13 +158,13 @@ class UserController extends Controller
 
             $username = $request->username;
             $name = str_random(4)."_".$username.'.'.$extension;
-            while(file_exists("upload/users/".$name)){
+            while(file_exists("public/upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            $path = 'upload/users/'.$name;
+            $path = 'public/upload/users/'.$name;
 
-            if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
-                unlink('upload/users/'.$user->avatar);
+            if($user->avatar && file_exists('public/upload/users/'.$user->avatar)) {
+                unlink('public/upload/users/'.$user->avatar);
             }
 
             file_put_contents($path, $decoded);
@@ -190,8 +190,8 @@ class UserController extends Controller
             ]);
         }
         
-        if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
-            unlink('upload/users/'.$user->avatar);
+        if($user->avatar && file_exists('public/upload/users/'.$user->avatar)) {
+            unlink('public/upload/users/'.$user->avatar);
         }        
         $user->delete($id);
         return response()->json([

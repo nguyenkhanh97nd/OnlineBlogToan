@@ -41,11 +41,11 @@ class EditorPostsController extends Controller
         $slug = $request->txtSlug;
         $image = str_random(4)."_".$slug.'.'.$extension;
 
-        while(file_exists("upload/posts/".$image)){
+        while(file_exists("public/upload/posts/".$image)){
             $image = str_random(4)."_".$slug.'.'.$extension;
         }
 
-        $file->move("upload/posts",$image);
+        $file->move("public/upload/posts",$image);
 
         $postAdd->image = $image;
 
@@ -125,13 +125,13 @@ class EditorPostsController extends Controller
             $slug = $request->txtSlug;
             $image = str_random(4)."_".$slug.'.'.$extension;
 
-            while(file_exists("upload/posts/".$image)){
+            while(file_exists("public/upload/posts/".$image)){
                 $image = str_random(4)."_".$slug.'.'.$extension;
             }
-            $file->move("upload/posts",$image);
+            $file->move("public/upload/posts",$image);
 
-            if(file_exists('upload/posts/'.$edit->image)) {
-                unlink('upload/posts/'.$edit->image);
+            if(file_exists('public/upload/posts/'.$edit->image)) {
+                unlink('public/upload/posts/'.$edit->image);
             }
 
             $edit->image = $image;
@@ -154,8 +154,8 @@ class EditorPostsController extends Controller
         if(count($findPost) == 0) {
             return view('pages.errors');
         }
-        if(file_exists('upload/posts/'.$findPost->image)) {
-            unlink('upload/posts/'.$findPost->image);
+        if(file_exists('public/upload/posts/'.$findPost->image)) {
+            unlink('public/upload/posts/'.$findPost->image);
         }
         $findPost->delete($findPost->id);
         return redirect()->route('editor.posts.getList')->with(['flash_level'=>'success','flash_message'=>'Success Delete Post']);

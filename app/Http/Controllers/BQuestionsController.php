@@ -81,10 +81,10 @@ class BQuestionsController extends Controller
                 $extension = str_contains($exploded[0], 'jpeg') ? 'jpg' : 'png';
                 $slug = $post_id;
                 $name = str_random(4)."_".$slug.'.'.$extension;
-                while(file_exists("upload/questions/".$name)){
+                while(file_exists("public/upload/questions/".$name)){
                     $name = str_random(4)."_".$slug.'.'.$extension;
                 }
-                $path = 'upload/questions/'.$name;
+                $path = 'public/upload/questions/'.$name;
                 file_put_contents($path, $decoded);
                 $img[$i] = $name;
             }
@@ -173,13 +173,13 @@ class BQuestionsController extends Controller
                 $extension = str_contains($exploded[0], 'jpeg') ? 'jpg' : 'png';
                 $slug = $post_id;
                 $name = str_random(4)."_".$slug.'.'.$extension;
-                while(file_exists("upload/questions/".$name)){
+                while(file_exists("public/upload/questions/".$name)){
                     $name = str_random(4)."_".$slug.'.'.$extension;
                 }
-                $path = 'upload/questions/'.$name;
+                $path = 'public/upload/questions/'.$name;
 
-                if($image_indb[$i] != "" && file_exists('upload/questions/'.$image_indb[$i])) {
-                    unlink('upload/questions/'.$image_indb[$i]);
+                if($image_indb[$i] != "" && file_exists('public/upload/questions/'.$image_indb[$i])) {
+                    unlink('public/upload/questions/'.$image_indb[$i]);
                 }
                 file_put_contents($path, $decoded);
 
@@ -323,8 +323,8 @@ class BQuestionsController extends Controller
             ]);
         }
         $image = $idQ->image;
-        while(file_exists("upload/questions/".$image)){
-            unlink("upload/questions/".$image);
+        while(file_exists("public/upload/questions/".$image)){
+            unlink("public/upload/questions/".$image);
         }
         $idQ->image = "";
         $idQ->save();

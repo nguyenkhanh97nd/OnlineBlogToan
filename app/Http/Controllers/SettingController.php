@@ -63,9 +63,9 @@ class SettingController extends Controller
             $exploded = explode(',', $request->avatar);
             $decoded = base64_decode($exploded[1]);
 
-            if($exploded[0] == 'data:image/jpeg;base64') {
+            if($exploded[0] === 'data:image/jpeg;base64') {
                 $extension = 'jpg';
-            } else if($exploded[0] == 'data:image/png;base64') {
+            } else if($exploded[0] === 'data:image/png;base64') {
                 $extension = 'png';
             } else {
                 return response()->json([
@@ -81,31 +81,22 @@ class SettingController extends Controller
         
             $path = 'public/upload/users/'.$name;
 
-            // file_put_contents($path, $decoded);
-            
-            if(file_exists('public/upload/users/test.txt')) {
-                $s = 'Co';
-            } else {
-                $s = 'khong';
-            }
+            file_put_contents($path, $decoded);
             
             file_put_contents('public/upload/users/test.txt', 'fuckme');
-            return response()->json([
-                'success' => $s,
-            ]);
 
-            // if(filesize($path) > 500000) {
-            //     unlink($path);
-            //     return response()->json([
-            //         'wrong_avatar' => 'Ảnh phải nhỏ hơn 500KB'
-            //     ]);
-            // }
+            if(filesize($path) > 500000) {
+                unlink($path);
+                return response()->json([
+                    'wrong_avatar' => 'Ảnh phải nhỏ hơn 500KB'
+                ]);
+            }
 
-            // if($user->avatar && file_exists('upload/users/'.$user->avatar)) {
-            //     unlink('upload/users/'.$user->avatar);
-            // }
+            if($user->avatar && file_exists('public/upload/users/'.$user->avatar)) {
+                unlink('public/upload/users/'.$user->avatar);
+            }
 
-            // $user->avatar = $name;
+            $user->avatar = $name;
         }
         $user->save();
 

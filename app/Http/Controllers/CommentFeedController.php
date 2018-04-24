@@ -185,16 +185,16 @@ class CommentFeedController extends Controller
             foreach($feed->comment_feed as $comment_feed) {
 
                 if($comment_feed->image) {
-                    if(file_exists('upload/user_questions_comment/'.$comment_feed->image)) {
-                        unlink('upload/user_questions_comment/'.$comment_feed->image);
+                    if(file_exists('public/upload/user_questions_comment/'.$comment_feed->image)) {
+                        unlink('public/upload/user_questions_comment/'.$comment_feed->image);
                     }
                 }
                 CommentFeed::destroy($comment_feed->id);
 
             }
             if($feed->image) {
-                if(file_exists('upload/user_questions/'.$feed->image)) {
-                    unlink('upload/user_questions/'.$feed->image);
+                if(file_exists('public/upload/user_questions/'.$feed->image)) {
+                    unlink('public/upload/user_questions/'.$feed->image);
                 }
             }
             $feed->delete();
@@ -261,10 +261,10 @@ class CommentFeedController extends Controller
             }
 
             $name = str_random(4)."_".$slug.'.'.$extension;
-            while(file_exists("upload/user_questions/".$name)){
+            while(file_exists("public/upload/user_questions/".$name)){
                 $name = str_random(4)."_".$slug.'.'.$extension;
             }
-            $path = 'upload/user_questions/'.$name;
+            $path = 'public/upload/user_questions/'.$name;
             file_put_contents($path, $decoded);
             
             if(filesize($path) > 1000000) {
@@ -275,16 +275,16 @@ class CommentFeedController extends Controller
             }
 
             if($feed->image) {
-                if(file_exists('upload/user_questions/'.$feed->image)) {
-                    unlink('upload/user_questions/'.$feed->image);
+                if(file_exists('public/upload/user_questions/'.$feed->image)) {
+                    unlink('public/upload/user_questions/'.$feed->image);
                 }
             }
             
             $feed->image = $name;
         } else if($imageUrl == null) {
             if($feed->image) {
-                if(file_exists('upload/user_questions/'.$feed->image)) {
-                    unlink('upload/user_questions/'.$feed->image);
+                if(file_exists('public/upload/user_questions/'.$feed->image)) {
+                    unlink('public/upload/user_questions/'.$feed->image);
                 }
             }
             $feed->image = '';
