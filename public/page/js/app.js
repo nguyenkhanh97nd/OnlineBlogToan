@@ -70769,6 +70769,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -72773,6 +72786,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -73422,6 +73440,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -75739,50 +75762,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.title_question),
-      expression: "title_question"
-    }],
+  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": ""
+      "placeholder": "Nhập tiêu đề câu hỏi"
     },
-    domProps: {
-      "value": (_vm.title_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.title_question = $event.target.value
-      }
+    model: {
+      value: (_vm.title_question),
+      callback: function($$v) {
+        _vm.title_question = $$v
+      },
+      expression: "title_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.content_question),
-      expression: "content_question"
-    }],
+  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": "",
-      "rows": "5"
+      "type": "textarea",
+      "rows": 5,
+      "placeholder": "Nhập nội dung câu hỏi"
     },
-    domProps: {
-      "value": (_vm.content_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.content_question = $event.target.value
-      }
+    model: {
+      value: (_vm.content_question),
+      callback: function($$v) {
+        _vm.content_question = $$v
+      },
+      expression: "content_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
@@ -77849,41 +77857,28 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "layout": "row",
       "layout-align": "space-between center"
     }
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.select_cate),
-      expression: "select_cate"
-    }],
-    staticClass: "md-no-underline custom-md-select-cate",
+  }, [_c('el-select', {
     attrs: {
-      "required": "",
       "placeholder": "Chọn chuyên mục"
     },
     on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.select_cate = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.select_cate_fun]
+      "change": _vm.select_cate_fun
+    },
+    model: {
+      value: (_vm.select_cate),
+      callback: function($$v) {
+        _vm.select_cate = $$v
+      },
+      expression: "select_cate"
     }
-  }, [_c('option', {
-    attrs: {
-      "value": "",
-      "disabled": ""
-    }
-  }, [_vm._v("Chọn chuyên mục")]), _vm._v(" "), _vm._l((_vm.catequestion), function(cate) {
-    return _c('option', {
-      domProps: {
+  }, _vm._l((_vm.catequestion), function(cate) {
+    return (cate.sub_cate_question.length) ? _c('el-option', {
+      attrs: {
+        "label": cate.name,
         "value": cate.slug
       }
-    }, [_vm._v(_vm._s(cate.name))])
-  })], 2)]), _vm._v(" "), _c('div', {
+    }) : _vm._e()
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "sort-left div_select_subcate",
     staticStyle: {
       "margin-left": "5px"
@@ -77892,41 +77887,25 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "layout": "row",
       "layout-align": "space-between center"
     }
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.select_subcate),
-      expression: "select_subcate"
-    }],
-    staticClass: "md-no-underline custom-md-select-cate",
+  }, [_c('el-select', {
     attrs: {
-      "required": "",
       "placeholder": "Chọn mục"
     },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.select_subcate = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
+    model: {
+      value: (_vm.select_subcate),
+      callback: function($$v) {
+        _vm.select_subcate = $$v
+      },
+      expression: "select_subcate"
     }
-  }, [_c('option', {
-    attrs: {
-      "value": "",
-      "disabled": ""
-    }
-  }, [_vm._v("Chọn mục")]), _vm._v(" "), _vm._l((_vm.subcatequestion), function(subcate) {
-    return _c('option', {
-      domProps: {
+  }, _vm._l((_vm.subcatequestion), function(subcate) {
+    return _c('el-option', {
+      attrs: {
+        "label": subcate.name,
         "value": subcate.slug
       }
-    }, [_vm._v(_vm._s(subcate.name))])
-  })], 2)]), _vm._v(" "), _c('div', {
+    })
+  }))], 1), _vm._v(" "), _c('div', {
     staticClass: "sort-left div_select_subcate",
     staticStyle: {
       "margin-left": "5px"
@@ -77935,46 +77914,42 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "layout": "row",
       "layout-align": "space-between center"
     }
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.point_set),
-      expression: "point_set"
-    }],
-    staticClass: "md-no-underline custom-md-select-cate",
+  }, [_c('el-select', {
     attrs: {
-      "disabled": "",
       "placeholder": "Số điểm"
     },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.point_set = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
+    model: {
+      value: (_vm.point_set),
+      callback: function($$v) {
+        _vm.point_set = $$v
+      },
+      expression: "point_set"
     }
-  }, [_c('option', {
+  }, [_c('el-option', {
     attrs: {
+      "disabled": "",
+      "label": "5",
       "value": "5"
     }
-  }, [_vm._v("5")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "disabled": "",
+      "label": "10",
       "value": "10"
     }
-  }, [_vm._v("10")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "disabled": "",
+      "label": "15",
       "value": "15"
     }
-  }, [_vm._v("15")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "disabled": "",
+      "label": "20",
       "value": "20"
     }
-  }, [_vm._v("20")])])]), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "cancel_form_question pull-right"
   }, [(_vm.minify) ? _c('span', {
     staticClass: "span-minify glyphicon glyphicon glyphicon-menu-down",
@@ -78009,50 +77984,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "layout-gt-sm": "row"
     }
-  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.title_question),
-      expression: "title_question"
-    }],
+  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": ""
+      "placeholder": "Tiêu đề câu hỏi"
     },
-    domProps: {
-      "value": (_vm.title_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.title_question = $event.target.value
-      }
+    model: {
+      value: (_vm.title_question),
+      callback: function($$v) {
+        _vm.title_question = $$v
+      },
+      expression: "title_question"
     }
-  })])])]), _vm._v(" "), _c('div', {
+  })], 1)])]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.content_question),
-      expression: "content_question"
-    }],
+  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": "",
-      "rows": "5"
+      "type": "textarea",
+      "rows": 5,
+      "placeholder": "Nội dung câu hỏi"
     },
-    domProps: {
-      "value": (_vm.content_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.content_question = $event.target.value
-      }
+    model: {
+      value: (_vm.content_question),
+      callback: function($$v) {
+        _vm.content_question = $$v
+      },
+      expression: "content_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
@@ -79444,50 +79404,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.title_question),
-      expression: "title_question"
-    }],
+  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": ""
+      "placeholder": "Nhập tiêu đề câu hỏi"
     },
-    domProps: {
-      "value": (_vm.title_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.title_question = $event.target.value
-      }
+    model: {
+      value: (_vm.title_question),
+      callback: function($$v) {
+        _vm.title_question = $$v
+      },
+      expression: "title_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.content_question),
-      expression: "content_question"
-    }],
+  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": "",
-      "rows": "5"
+      "type": "textarea",
+      "rows": 5,
+      "placeholder": "Nhập nội dung câu hỏi"
     },
-    domProps: {
-      "value": (_vm.content_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.content_question = $event.target.value
-      }
+    model: {
+      value: (_vm.content_question),
+      callback: function($$v) {
+        _vm.content_question = $$v
+      },
+      expression: "content_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"

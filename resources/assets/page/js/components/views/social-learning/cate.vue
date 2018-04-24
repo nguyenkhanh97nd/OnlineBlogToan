@@ -147,14 +147,19 @@
 	            <div class="col-md-12">
 	            	<div class="row">
 				            <label>Tiêu đề</label>
-				            <input v-model="title_question" required>
+				            <el-input placeholder="Nhập tiêu đề câu hỏi" v-model="title_question"></el-input>
 
 	            	</div>
 	            </div>
 	            <div class="col-md-12">
 	            	<div class="row">
 				          <label>Nội dung</label>
-				          <textarea v-model="content_question" required rows="5" ></textarea>
+				          <el-input
+							  type="textarea"
+							  :rows="5"
+							  placeholder="Nhập nội dung câu hỏi"
+							  v-model="content_question">
+							</el-input>
 	            	</div>
 	            </div>
 	            <div class="col-md-12">
