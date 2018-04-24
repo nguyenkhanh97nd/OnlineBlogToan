@@ -81,7 +81,7 @@ class SettingController extends Controller
         
             $path = 'public/upload/users/'.$name;
 
-            // file_put_contents($path, $decoded);
+            file_put_contents($path, $decoded);
 
             // if(filesize($path) > 500000) {
             //     unlink($path);
