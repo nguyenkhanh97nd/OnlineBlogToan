@@ -75683,7 +75683,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "200",
         "height": "150",
-        "src": '/upload/questions/' + question.image
+        "src": '/public/upload/questions/' + question.image
       }
     }) : _vm._e(), _vm._v(" "), (question.image != '') ? _c('p', {
       staticClass: "is-delete center"
@@ -76238,7 +76238,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), (!_vm.create && _vm.temp_avatar) ? _c('img', {
     staticClass: "avatar-member-admin",
     attrs: {
-      "src": '/upload/users/' + _vm.temp_avatar
+      "src": '/public/upload/users/' + _vm.temp_avatar
     }
   }) : _vm._e(), _vm._v(" "), (!_vm.create && _vm.temp_avatar) ? _c('p', {
     staticClass: "btn btn-xs btn-danger",
@@ -76641,7 +76641,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('td', [_vm._v(_vm._s(post.id))]), _vm._v(" "), _c('td', [_c('img', {
       staticClass: "img-posts-admin",
       attrs: {
-        "src": '/upload/posts/' + post.image
+        "src": '/public/upload/posts/' + post.image
       }
     })]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.slug))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.time_start)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.time_do))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.brief))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.subcategory.category.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.subcategory.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.author.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.count_views))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.status == 1 ? 'Active' : 'Pending'))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.created_at)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.updated_at)))]), _vm._v(" "), _c('td', {
       staticClass: "is-delete center"
@@ -77226,7 +77226,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), (!_vm.create) ? _c('img', {
     staticClass: "img-posts-admin",
     attrs: {
-      "src": '/upload/posts/' + _vm.form.image
+      "src": '/public/upload/posts/' + _vm.form.image
     }
   }) : _vm._e(), _vm._v(" "), (_vm.errors.has('image')) ? _c('p', {
     staticClass: "alert alert-danger",
@@ -77990,7 +77990,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), (!_vm.create && _vm.form.image) ? _c('img', {
     staticClass: "img-posts-admin",
     attrs: {
-      "src": '/upload/posts/' + _vm.form.image
+      "src": '/public/upload/posts/' + _vm.form.image
     }
   }) : _vm._e(), _vm._v(" "), (_vm.errors.has('image')) ? _c('p', {
     staticClass: "alert alert-danger",
@@ -79396,7 +79396,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('td', [_vm._v(_vm._s(member.id))]), _vm._v(" "), _c('td', [(member.avatar) ? _c('img', {
       staticClass: "avatar-member-admin",
       attrs: {
-        "src": '/upload/users/' + member.avatar
+        "src": '/public/upload/users/' + member.avatar
       }
     }) : _vm._e()]), _vm._v(" "), _c('td', [_vm._v(_vm._s(member.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(member.username))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(member.email))]), _vm._v(" "), (member.gender == 1) ? _c('td', [_vm._v(_vm._s('Male'))]) : _vm._e(), _vm._v(" "), (member.gender == 0) ? _c('td', [_vm._v(_vm._s('Female'))]) : _vm._e(), _vm._v(" "), (member.gender == 3) ? _c('td', [_vm._v(_vm._s('Unknow'))]) : _vm._e(), _vm._v(" "), (member.level == 1) ? _c('td', [_vm._v(_vm._s('Admin'))]) : _vm._e(), _vm._v(" "), (member.level == 2) ? _c('td', [_vm._v(_vm._s('Editor'))]) : _vm._e(), _vm._v(" "), (member.level == 3) ? _c('td', [_vm._v(_vm._s('Member'))]) : _vm._e(), _vm._v(" "), (member.level == 0) ? _c('td', [_vm._v(_vm._s('Unknow'))]) : _vm._e(), _vm._v(" "), (member.status == 1) ? _c('td', [_vm._v(_vm._s('Active'))]) : _vm._e(), _vm._v(" "), (member.status == 0) ? _c('td', [_vm._v(_vm._s('Disable'))]) : _vm._e(), _vm._v(" "), _c('td', {
       staticClass: "is-delete center"
@@ -79546,7 +79546,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('td', [_vm._v(_vm._s(post.id))]), _vm._v(" "), _c('td', [_c('img', {
       staticClass: "img-posts-admin",
       attrs: {
-        "src": '/upload/posts/' + post.image
+        "src": '/public/upload/posts/' + post.image
       }
     })]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.slug))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.time_start)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.time_do))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.brief))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.subcategory.category.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.subcategory.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.author.name))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.count_views))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(post.status == 1 ? 'Active' : 'Pending'))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.created_at)))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(_vm.parseDate(post.updated_at)))]), _vm._v(" "), _c('td', {
       staticClass: "is-delete center"

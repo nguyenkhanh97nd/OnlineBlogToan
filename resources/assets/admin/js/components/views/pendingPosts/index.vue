@@ -29,7 +29,7 @@
         <tbody v-for="post in posts.data">
             <tr class="table-content" align="center">
                 <td>{{ post.id }}</td>
-                <td><img class="img-posts-admin" :src="'/upload/posts/'+post.image"/></td>
+                <td><img class="img-posts-admin" :src="'/public/upload/posts/'+post.image"/></td>
                 <td>{{ post.name }}</td>
                 <td>{{ post.slug }}</td>
                 <td>{{ parseDate(post.time_start) }}</td>

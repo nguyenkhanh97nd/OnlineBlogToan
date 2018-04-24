@@ -16,7 +16,7 @@
 									</div>
 								</div>
 								<div v-if="current_user.avatar">
-									<img class="img-circle" width="64px" height="64px" :src="'upload/users/' + current_user.avatar">
+									<img class="img-circle" width="64px" height="64px" :src="'public/upload/users/' + current_user.avatar">
 								</div>
 							</a>
 							</router-link>

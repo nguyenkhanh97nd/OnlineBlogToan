@@ -12,7 +12,7 @@
 		            <div class="row">
 		                <div class="col-sm-3 media hidden-xs">
 		                	<router-link  :to="{ name: 'ClientPostIndex', params: { slugSubCate: post.subcategory.slug, slugPost: post.slug } }">
-		                    <a><img class="img-responsive" :src="'upload/posts/' + post.image"/></a>
+		                    <a><img class="img-responsive" :src="'public/upload/posts/' + post.image"/></a>
 			                </router-link>
 		                </div>
 		                <div class="meta-content-single  col-sm-9 col-xs-12 caption">
@@ -41,7 +41,7 @@
 		                            <fieldset :id = "'ques-' + key" class="fieldset-question">
 		                                <legend class="legend-name-question" ><strong>Câu {{ key + 1 }}. {{ question.name }}</strong></legend>
 		                                <div v-if="question.image">
-		                                <p><img width="200px" height="112px" :src="'upload/questions/' + question.image"/></p>
+		                                <p><img width="200px" height="112px" :src="'public/upload/questions/' + question.image"/></p>
 		                                </div>
 
 		                                <label class="label-testonline">
@@ -72,7 +72,7 @@
 		                            <fieldset :id = "'ques-' + key" class="fieldset-question">
 		                                <legend class="legend-name-question">Câu {{ key + 1 }}. {{ question.name }}</legend>
 		                                <div v-if="question.image">
-		                                <p><img width="200px" height="112px" :src="'upload/questions/' + question.image"/></p>
+		                                <p><img width="200px" height="112px" :src="'public/upload/questions/' + question.image"/></p>
 		                                </div>
 
 		                                <label class="label-testonline">

@@ -24,7 +24,7 @@
 	                                	<a>
 		                                    <div v-if="friend.avatar">
 
-		                                       <img class="img-responsive" style="width: 70px;" :src="'upload/users/' +friend.avatar"/>
+		                                       <img class="img-responsive" style="width: 70px;" :src="'public/upload/users/' +friend.avatar"/>
 
 		                                    </div>
 		                                    <div v-if="!friend.avatar">
@@ -68,7 +68,7 @@
 	                                	<a>
 		                                    <div v-if="friend.avatar">
 
-		                                       <img class="img-responsive" style="width: 70px;" :src="'upload/users/' +friend.avatar"/>
+		                                       <img class="img-responsive" style="width: 70px;" :src="'public/upload/users/' +friend.avatar"/>
 
 		                                    </div>
 		                                    <div v-if="!friend.avatar">
@@ -102,7 +102,7 @@
 		                                <router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: friend.username } }"><a>
 		                                    <div v-if="friend.avatar">
 
-		                                       <img class="img-responsive" style="width: 70px;" :src="'upload/users/' +friend.avatar"/>
+		                                       <img class="img-responsive" style="width: 70px;" :src="'public/upload/users/' +friend.avatar"/>
 
 		                                    </div>
 		                                    <div v-if="!friend.avatar">

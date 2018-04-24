@@ -17,7 +17,7 @@
 									</div>
 								</div>
 								<div v-if="getUser.avatar">
-									<img class="img-circle" width="64px" height="64px" :src="'upload/users/' + getUser.avatar">
+									<img class="img-circle" width="64px" height="64px" :src="'public/upload/users/' + getUser.avatar">
 								</div>
 							</a>
 							</router-link>
@@ -116,7 +116,7 @@
 											<router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: current_user.username } }">
 					                        <a class="pull-left be-comment-media">
 					                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! current_user.avatar">{{ current_user.name.substring(0,1) }}</span>
-					                                <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'upload/users/' + current_user.avatar">
+					                                <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'public/upload/users/' + current_user.avatar">
 					                        </a>
 						                    </router-link>
 					                        <div class="media-body">
@@ -133,7 +133,7 @@
 											<router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: comment_feed_item.user.username } }">
 						                	<a class="pull-left be-comment-media">
 					                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! comment_feed_item.user.avatar">{{ comment_feed_item.user.name.substring(0,1) }}</span>
-					                                <img class="img-circle" style="width: 34px; height: 34px" v-if="comment_feed_item.user.avatar" width="50px" height="50px" :src="'upload/users/' + comment_feed_item.user.avatar">
+					                                <img class="img-circle" style="width: 34px; height: 34px" v-if="comment_feed_item.user.avatar" width="50px" height="50px" :src="'public/upload/users/' + comment_feed_item.user.avatar">
 					                        </a>
 						                    </router-link>
 					                        <div class="media-body">

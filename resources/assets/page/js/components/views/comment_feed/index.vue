@@ -14,7 +14,7 @@
                             </div>
                         </div>
                         <div v-if="getUser.avatar">
-                            <img class="img-circle" width="64px" height="64px" :src="'upload/users/' + getUser.avatar">
+                            <img class="img-circle" width="64px" height="64px" :src="'public/upload/users/' + getUser.avatar">
                         </div>
                     </a>
                     </router-link>
@@ -75,7 +75,7 @@
                     <div class="col-md-12">
                         <p class="be-feed-name">{{ feed.name }}</p>
                         <p class="be-feed-content">{{ feed.content }}</p>
-                        <img v-if="feed.image" class="img-responsive" :src="'upload/user_questions/'+  feed.image " >
+                        <img v-if="feed.image" class="img-responsive" :src="'public/upload/user_questions/'+  feed.image " >
                     </div>
                     <div class="col-md-12">
                         <div class="row be-devide-feed">
@@ -112,7 +112,7 @@
                         <router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: current_user.username } }"  v-if="feed.status == 1">
                         <a class="pull-left be-comment-media hidden_status">
                                 <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! current_user.avatar">{{ current_user.name.substring(0,1) }}</span>
-                                <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'upload/users/' +current_user.avatar ">
+                                <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'public/upload/users/' +current_user.avatar ">
                         </a>
                         </router-link>
                         <div class="media-body hidden_status"  v-if="feed.status == 1">
@@ -136,7 +136,7 @@
                             <router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: comment_feed_item.user.username } }">
                             <a class="pull-left be-comment-media">
                                     <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! comment_feed_item.user.avatar">{{ comment_feed_item.user.name.substring(0,1) }}</span>
-                                    <img class="img-circle" style="width: 34px; height: 34px" v-if="comment_feed_item.user.avatar" width="50px" height="50px" :src="'upload/users/' + comment_feed_item.user.avatar ">
+                                    <img class="img-circle" style="width: 34px; height: 34px" v-if="comment_feed_item.user.avatar" width="50px" height="50px" :src="'public/upload/users/' + comment_feed_item.user.avatar ">
                             </a>
                             </router-link>
                             <div class="media-body">
@@ -159,7 +159,7 @@
                                     </span>
                                 </p>
                                 <p class="comment-content-feed">{{ comment_feed_item.content }}</p>
-                                <img v-if="comment_feed_item.image" class="img-responsive" :src="'upload/user_questions_comment/' +  comment_feed_item.image " >
+                                <img v-if="comment_feed_item.image" class="img-responsive" :src="'public/upload/user_questions_comment/' +  comment_feed_item.image " >
                             </div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@
             <router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: current_user.username } }">
             <a class="pull-left be-feed-media" style="margin-top: 0">
                     <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! current_user.avatar">{{ current_user.name.substring(0,1) }}</span>
-                    <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'upload/users/' + current_user.avatar">
+                    <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'public/upload/users/' + current_user.avatar">
             </a>
             </router-link>
             <div class="media-body body-feed-item">
@@ -274,7 +274,7 @@
                           <p class="file-return-question"></p>
                           <div id="imgQuestion">
                               <img style="max-width:200px" v-if="dataImageQuestion" :src="dataImageQuestion" alt="Ảnh câu hỏi">
-                              <img style="max-width:200px" v-if="imageQuestionUrl" :src="'upload/user_questions/' + imageQuestionUrl" alt="Ảnh câu hỏi">
+                              <img style="max-width:200px" v-if="imageQuestionUrl" :src="'public/upload/user_questions/' + imageQuestionUrl" alt="Ảnh câu hỏi">
                           </div>
                     </div>
                 </div>

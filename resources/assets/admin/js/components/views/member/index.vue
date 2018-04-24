@@ -24,7 +24,7 @@
         <tbody v-for="member in members.data">
             <tr class="table-content" align="center">
                 <td>{{ member.id }}</td>
-                <td><img v-if="member.avatar" class="avatar-member-admin" :src="'/upload/users/'+member.avatar"/></td>
+                <td><img v-if="member.avatar" class="avatar-member-admin" :src="'/public/upload/users/'+member.avatar"/></td>
                 <td>{{ member.name }}</td>
                 <td>{{ member.username }}</td>
                 <td>{{ member.email  }}</td>

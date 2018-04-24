@@ -102,7 +102,7 @@
                 
                 <input @change="changeImage" id="file" type="file" name="avatar" class="form-control"/>
      
-                <img v-if="!create && temp_avatar" class="avatar-member-admin" :src="'/upload/users/'+temp_avatar">
+                <img v-if="!create && temp_avatar" class="avatar-member-admin" :src="'/public/upload/users/'+temp_avatar">
                 <p v-if="!create && temp_avatar" @click="delete_image" class='btn btn-xs btn-danger'>Delete</p>
                 <p class="alert alert-danger" v-if="errors.has('avatar')" v-text="errors.get('avatar')"></p>
 

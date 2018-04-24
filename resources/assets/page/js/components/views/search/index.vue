@@ -17,7 +17,7 @@
                         <div class="row">
                             <div class="col-sm-3 hidden-xs">
                                 <div class="row">
-                                	<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'upload/posts/' + post.image"/></router-link></a>
+                                	<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'public/upload/posts/' + post.image"/></router-link></a>
 
                                 </div>
                             </div>

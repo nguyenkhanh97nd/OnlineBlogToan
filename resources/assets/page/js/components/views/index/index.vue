@@ -38,7 +38,7 @@
 				</div>
 				<div class="col-sm-12">
 					<div class="col-sm-5 media">
-						<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'upload/posts/' + post.image"/></router-link></a>
+						<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'public/upload/posts/' + post.image"/></router-link></a>
 					</div>
 					<div class="col-sm-7 caption">
 						 <p v-html="post.brief"></p>

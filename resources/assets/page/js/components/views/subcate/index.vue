@@ -16,7 +16,7 @@
 		                    <div class="row">
 		                        <div class="col-sm-3 hidden-xs">
 		                            <div class="row">
-		                                <a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'upload/posts/' + post.image"/></router-link></a>
+		                                <a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img class="img-responsive" :src="'public/upload/posts/' + post.image"/></router-link></a>
 		                            </div>
 		                        </div>
 		                        <div class="meta-content-single col-sm-9 col-xs-12 caption">
@@ -42,7 +42,7 @@
 		            <div class="col-md-12">
 		                <div class="row">
 		                    <div class="col-md-5 text-center">
-		                    	<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: top_post.subcategory.slug, slugPost: top_post.slug } }"><img class="img-responsive" :src="'upload/posts/' + top_post.image"/></router-link></a>
+		                    	<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: top_post.subcategory.slug, slugPost: top_post.slug } }"><img class="img-responsive" :src="'public/upload/posts/' + top_post.image"/></router-link></a>
 		                    </div>
 		                    <div class="col-md-7">
 		                        <p style="margin: 0">

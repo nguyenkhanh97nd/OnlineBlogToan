@@ -43,7 +43,7 @@
 								<router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: feed.user.username } }">
 								<a class="pull-left be-feed-media">
 		                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! feed.user.avatar">{{ feed.user.name.substring(0,1) }}</span>
-		                                <img class="img-circle" style="width: 34px; height: 34px" v-if="feed.user.avatar" width="50px" height="50px" :src="'upload/users/' + feed.user.avatar">
+		                                <img class="img-circle" style="width: 34px; height: 34px" v-if="feed.user.avatar" width="50px" height="50px" :src="'public/upload/users/' + feed.user.avatar">
 		                        </a>
 			                    </router-link>
 		                        <div class="media-body body-feed-item">
@@ -105,7 +105,7 @@
 
 				<a class="pull-left be-feed-media" style="margin-top: 0">
 	                    <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! current_user.avatar">{{ current_user.name.substring(0,1) }}</span>
-	                    <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'upload/users/' + current_user.avatar">
+	                    <img class="img-circle" style="width: 34px; height: 34px" v-if="current_user.avatar" width="50px" height="50px" :src="'public/upload/users/' + current_user.avatar">
 	            </a>
 		        </router-link>
 				<div class="media-body body-feed-item">

@@ -124,7 +124,7 @@
                         <template slot="prepend">Question {{ index + 1 }}:</template>
                     </el-input>
                     <input @change="changeImage" :id="index" type="file" name="image" class="form-control"/>
-                    <center><img v-if="question.image != ''" width="200" height="150" :src="'/upload/questions/'+question.image"/>
+                    <center><img v-if="question.image != ''" width="200" height="150" :src="'/public/upload/questions/'+question.image"/>
                             <p v-if="question.image != ''" class="is-delete center">
                                 <ConfirmModal
                                 url="/api/questions/questionimage/"

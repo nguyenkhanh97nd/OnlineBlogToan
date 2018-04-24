@@ -11,7 +11,7 @@
 	        <div class="col-sm-12">
 	            <div class="row">
 	                <div class="col-sm-3 media hidden-xs">
-						<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img style="margin-top: 22px" class="img-responsive" :src="'upload/posts/' + post.image"/></router-link></a>
+						<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><img style="margin-top: 22px" class="img-responsive" :src="'public/upload/posts/' + post.image"/></router-link></a>
 	                </div>
 	                <div class="meta-content-single  col-sm-9 col-xs-12 caption">
 	                	<h1><router-link  :to="{ name: 'ClientPostIndex', params: { slugSubCate: post.subcategory.slug, slugPost: post.slug } }"><a>{{ post.name }}</a></router-link></h1>
@@ -65,7 +65,7 @@
 	                    <div class="media">
 	                        <a class="pull-left" ng-href="profile/comment.user.username">
 	                                <span style="border-radius: 50%; width:50px; height: 50px; line-height: 50px" v-if="! comment.user.avatar">{{comment.user.name.substring(0,1)}}</span>
-	                                <img class="img-circle" v-if="comment.user.avatar" width="50px" height="50px" :src="'upload/users/' + comment.user.avatar">
+	                                <img class="img-circle" v-if="comment.user.avatar" width="50px" height="50px" :src="'public/upload/users/' + comment.user.avatar">
 	                        </a>
 	                        <div class="media-body">
 	                            <h4 class="media-heading"><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: comment.user.username } }"><a><font size="3" color="#3b5998"> {{comment.user.name}} </font></a></router-link>
@@ -91,7 +91,7 @@
 	        <ul  class="list-unstyled" v-for="(same_post, key) in same_posts">
 	            <div class="col-md-12"><div class="row">
 	            <div class="col-md-5 text-center">
-					<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: same_post.subcategory.slug, slugPost: same_post.slug } }"><img class="img-responsive" :src="'upload/posts/' + same_post.image"/></router-link></a>
+					<a><router-link  :to="{ name: 'ClientPostIndex', params: {slugSubCate: same_post.subcategory.slug, slugPost: same_post.slug } }"><img class="img-responsive" :src="'public/upload/posts/' + same_post.image"/></router-link></a>
 	            </div>
 	            <div class="col-md-7">
 	                <p style="margin: 0"><span>

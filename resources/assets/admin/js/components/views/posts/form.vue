@@ -100,7 +100,7 @@
 	            <label>Image</label>
                 
 	            <input @change="changeImage" id="file" type="file" name="image" class="form-control"/>
-                <img v-if="!create && form.image" class="img-posts-admin" :src="'/upload/posts/'+form.image">
+                <img v-if="!create && form.image" class="img-posts-admin" :src="'/public/upload/posts/'+form.image">
                 <p class="alert alert-danger" v-if="errors.has('image')" v-text="errors.get('image')"></p>
 
 	        </div>

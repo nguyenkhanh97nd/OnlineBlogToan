@@ -75465,7 +75465,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + feed.user.avatar
+        "src": 'public/upload/users/' + feed.user.avatar
       }
     }) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "media-body body-feed-item"
@@ -75601,7 +75601,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "50px",
       "height": "50px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   }) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "media-body body-feed-item"
@@ -75915,7 +75915,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/posts/' + post.image
+        "src": 'public/upload/posts/' + post.image
       }
     })])], 1)])]), _vm._v(" "), _c('div', {
       staticClass: "meta-content-single col-sm-9 col-xs-12 caption"
@@ -75982,7 +75982,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/posts/' + top_post.image
+        "src": 'public/upload/posts/' + top_post.image
       }
     })])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "col-md-7"
@@ -76082,7 +76082,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/posts/' + post.image
+        "src": 'public/upload/posts/' + post.image
       }
     })])], 1)])]), _vm._v(" "), _c('div', {
       staticClass: "meta-content-single col-sm-9 col-xs-12 caption"
@@ -76513,7 +76513,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/posts/' + post.image
+        "src": 'public/upload/posts/' + post.image
       }
     })])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "col-sm-7 caption"
@@ -76685,7 +76685,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "width": "70px"
       },
       attrs: {
-        "src": 'upload/users/' + friend.avatar
+        "src": 'public/upload/users/' + friend.avatar
       }
     })]) : _vm._e(), _vm._v(" "), (!friend.avatar) ? _c('div', [_c('div', {
       staticClass: "friend-list-span text-center"
@@ -76741,7 +76741,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "width": "70px"
       },
       attrs: {
-        "src": 'upload/users/' + friend.avatar
+        "src": 'public/upload/users/' + friend.avatar
       }
     })]) : _vm._e(), _vm._v(" "), (!friend.avatar) ? _c('div', [_c('div', {
       staticClass: "friend-list-span text-center"
@@ -76790,7 +76790,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "width": "70px"
       },
       attrs: {
-        "src": 'upload/users/' + friend.avatar
+        "src": 'public/upload/users/' + friend.avatar
       }
     })]) : _vm._e(), _vm._v(" "), (!friend.avatar) ? _c('div', [_c('div', {
       staticClass: "friend-list-span text-center"
@@ -77422,7 +77422,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "64px",
       "height": "64px",
-      "src": 'upload/users/' + _vm.getUser.avatar
+      "src": 'public/upload/users/' + _vm.getUser.avatar
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('p', {
     staticClass: "be-user-name"
@@ -77544,7 +77544,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.feed.content))]), _vm._v(" "), (_vm.feed.image) ? _c('img', {
     staticClass: "img-responsive",
     attrs: {
-      "src": 'upload/user_questions/' + _vm.feed.image
+      "src": 'public/upload/user_questions/' + _vm.feed.image
     }
   }) : _vm._e()]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
@@ -77633,7 +77633,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "50px",
       "height": "50px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   }) : _vm._e()])]) : _vm._e(), _vm._v(" "), (_vm.feed.status == 1) ? _c('div', {
     staticClass: "media-body hidden_status"
@@ -77714,7 +77714,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + comment_feed_item.user.avatar
+        "src": 'public/upload/users/' + comment_feed_item.user.avatar
       }
     }) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "media-body"
@@ -77763,7 +77763,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v(_vm._s(comment_feed_item.content))]), _vm._v(" "), (comment_feed_item.image) ? _c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/user_questions_comment/' + comment_feed_item.image
+        "src": 'public/upload/user_questions_comment/' + comment_feed_item.image
       }
     }) : _vm._e()])], 1)
   })], 2), _vm._v(" "), _c('div', {
@@ -77846,7 +77846,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "50px",
       "height": "50px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   }) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "media-body body-feed-item"
@@ -78061,7 +78061,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "max-width": "200px"
     },
     attrs: {
-      "src": 'upload/user_questions/' + _vm.imageQuestionUrl,
+      "src": 'public/upload/user_questions/' + _vm.imageQuestionUrl,
       "alt": "Ảnh câu hỏi"
     }
   }) : _vm._e()])])])])], 1)])])]) : _vm._e()
@@ -78135,7 +78135,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "64px",
       "height": "64px",
-      "src": 'upload/users/' + _vm.getUser.avatar
+      "src": 'public/upload/users/' + _vm.getUser.avatar
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('p', {
     staticClass: "be-user-name"
@@ -78326,7 +78326,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + _vm.current_user.avatar
+        "src": 'public/upload/users/' + _vm.current_user.avatar
       }
     }) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "media-body"
@@ -78378,7 +78378,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         attrs: {
           "width": "50px",
           "height": "50px",
-          "src": 'upload/users/' + comment_feed_item.user.avatar
+          "src": 'public/upload/users/' + comment_feed_item.user.avatar
         }
       }) : _vm._e()])]), _vm._v(" "), _c('div', {
         staticClass: "media-body"
@@ -78517,7 +78517,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('a', [_c('img', {
     staticClass: "img-responsive",
     attrs: {
-      "src": 'upload/posts/' + _vm.post.image
+      "src": 'public/upload/posts/' + _vm.post.image
     }
   })])])], 1), _vm._v(" "), _c('div', {
     staticClass: "meta-content-single  col-sm-9 col-xs-12 caption"
@@ -78560,7 +78560,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "200px",
         "height": "112px",
-        "src": 'upload/questions/' + question.image
+        "src": 'public/upload/questions/' + question.image
       }
     })])]) : _vm._e(), _vm._v(" "), _c('label', {
       staticClass: "label-testonline"
@@ -78655,7 +78655,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "200px",
         "height": "112px",
-        "src": 'upload/questions/' + question.image
+        "src": 'public/upload/questions/' + question.image
       }
     })])]) : _vm._e(), _vm._v(" "), _c('label', {
       staticClass: "label-testonline"
@@ -79091,7 +79091,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + feed.user.avatar
+        "src": 'public/upload/users/' + feed.user.avatar
       }
     }) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "media-body body-feed-item"
@@ -79227,7 +79227,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "50px",
       "height": "50px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   }) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "media-body body-feed-item"
@@ -79632,7 +79632,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "margin-top": "22px"
     },
     attrs: {
-      "src": 'upload/posts/' + _vm.post.image
+      "src": 'public/upload/posts/' + _vm.post.image
     }
   })])], 1)]), _vm._v(" "), _c('div', {
     staticClass: "meta-content-single  col-sm-9 col-xs-12 caption"
@@ -79738,7 +79738,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + comment.user.avatar
+        "src": 'public/upload/users/' + comment.user.avatar
       }
     }) : _vm._e()]), _vm._v(" "), _c('div', {
       staticClass: "media-body"
@@ -79802,7 +79802,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('img', {
       staticClass: "img-responsive",
       attrs: {
-        "src": 'upload/posts/' + same_post.image
+        "src": 'public/upload/posts/' + same_post.image
       }
     })])], 1)]), _vm._v(" "), _c('div', {
       staticClass: "col-md-7"
@@ -79876,7 +79876,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "64px",
       "height": "64px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   })]) : _vm._e()])]), _vm._v(" "), _c('p', {
     staticClass: "be-user-name"
@@ -80307,7 +80307,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "width": "50px",
         "height": "50px",
-        "src": 'upload/users/' + feed.user.avatar
+        "src": 'public/upload/users/' + feed.user.avatar
       }
     }) : _vm._e()])]), _vm._v(" "), _c('div', {
       staticClass: "media-body body-feed-item"
@@ -80443,7 +80443,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "width": "50px",
       "height": "50px",
-      "src": 'upload/users/' + _vm.current_user.avatar
+      "src": 'public/upload/users/' + _vm.current_user.avatar
     }
   }) : _vm._e()])]), _vm._v(" "), _c('div', {
     staticClass: "media-body body-feed-item"
