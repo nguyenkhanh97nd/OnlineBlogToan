@@ -78,7 +78,7 @@ class SettingController extends Controller
             while(file_exists("upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            if(file_exists('upload/users/test.txt')) {
+            if(file_exists('public/upload/users/test.txt')) {
                 $sao = 'Co';
             } else {
                 $sao = 'Khong';
