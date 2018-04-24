@@ -9,6 +9,10 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Element-UI main css + fonts
+@import url(https://unpkg.com/element-ui/lib/theme-chalk/index.css);
+
+
 html{
 	background: #fff;
 }

@@ -27,15 +27,7 @@
 							    <el-option label="Mới nhất" value="new"></el-option>
 							    <el-option label="Điểm" value="point"></el-option>
 							    <el-option label="Chưa trả lời" value="unans"></el-option>
-
 							  </el-select>
-
-					        <select @change="sort_custom" v-model="sort_by">
-					          <option style="color: #e8ecf3" value="" disabled>Sắp xếp</option>
-							  <option value="new">Mới nhât</option>
-							  <option value="point">Điểm</option>
-							  <option value="unans">Chưa trả lời</option>
-							</select>
 					    </div>
 						<div class="refresh-right pull-right">
 							<a class="a-click-refresh" @click="doRefresh">

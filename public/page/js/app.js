@@ -73185,14 +73185,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -80350,45 +80342,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "label": "Chưa trả lời",
       "value": "unans"
     }
-  })], 1), _vm._v(" "), _c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.sort_by),
-      expression: "sort_by"
-    }],
-    on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.sort_by = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.sort_custom]
-    }
-  }, [_c('option', {
-    staticStyle: {
-      "color": "#e8ecf3"
-    },
-    attrs: {
-      "value": "",
-      "disabled": ""
-    }
-  }, [_vm._v("Sắp xếp")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "new"
-    }
-  }, [_vm._v("Mới nhât")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "point"
-    }
-  }, [_vm._v("Điểm")]), _vm._v(" "), _c('option', {
-    attrs: {
-      "value": "unans"
-    }
-  }, [_vm._v("Chưa trả lời")])])], 1), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "refresh-right pull-right"
   }, [_c('a', {
     staticClass: "a-click-refresh",
