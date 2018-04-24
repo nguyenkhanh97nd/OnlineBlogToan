@@ -75,9 +75,9 @@ class SettingController extends Controller
 
             $username = $user->username;
             $name = str_random(4)."_".$username.'.'.$extension;
-            // while(file_exists("upload/users/".$name)){
-            //     $name = str_random(4)."_".$username.'.'.$extension;
-            // }
+            while(file_exists("upload/users/".$name)){
+                $name = str_random(4)."_".$username.'.'.$extension;
+            }
             // $path = 'upload/users/'.$name;
 
             // file_put_contents($path, $decoded);
