@@ -29,6 +29,10 @@ import VueSweetAlert from 'vue-sweetalert'
 Vue.use(VueSweetAlert)
 
 
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
+Vue.use(ElementUI, { locale })
+
 
 window.axios = require('axios');
 
