@@ -43,8 +43,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif] --}}
 
-  <link rel="stylesheet" href="/public/page/css/app.css">
-  <script type="text/javascript" src="/public/page/js/jquery.min.js"></script>
+  <link rel="stylesheet" data-cfasync="false" href="/public/page/css/app.css">
+  <script type="text/javascript" data-cfasync="false" src="/public/page/js/jquery.min.js"></script>
 
 
 </head>
@@ -54,9 +54,9 @@
   <div id="app_client" ></div>
 
   
-  <script type="text/javascript" src="/public/page/js/bootstrap.min.js"></script>
+  <script type="text/javascript" data-cfasync="false" src="/public/page/js/bootstrap.min.js"></script>
 
-  <script type="text/javascript" src="/public/page/js/app.js"></script>
+  <script type="text/javascript" data-cfasync="false" src="/public/page/js/app.js"></script>
 
   @if(!Auth::check())
       <script type="text/javascript">
