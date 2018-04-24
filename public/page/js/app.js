@@ -73192,6 +73192,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -80630,50 +80636,35 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('input', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.title_question),
-      expression: "title_question"
-    }],
+  }, [_c('label', [_vm._v("Tiêu đề")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": ""
+      "placeholder": "Nhập tiêu đề câu hỏi"
     },
-    domProps: {
-      "value": (_vm.title_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.title_question = $event.target.value
-      }
+    model: {
+      value: (_vm.title_question),
+      callback: function($$v) {
+        _vm.title_question = $$v
+      },
+      expression: "title_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
-  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('textarea', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.content_question),
-      expression: "content_question"
-    }],
+  }, [_c('label', [_vm._v("Nội dung")]), _vm._v(" "), _c('el-input', {
     attrs: {
-      "required": "",
-      "rows": "5"
+      "type": "textarea",
+      "rows": 5,
+      "placeholder": "Nhập nội dung câu hỏi"
     },
-    domProps: {
-      "value": (_vm.content_question)
-    },
-    on: {
-      "input": function($event) {
-        if ($event.target.composing) { return; }
-        _vm.content_question = $event.target.value
-      }
+    model: {
+      value: (_vm.content_question),
+      callback: function($$v) {
+        _vm.content_question = $$v
+      },
+      expression: "content_question"
     }
-  })])]), _vm._v(" "), _c('div', {
+  })], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "row"
