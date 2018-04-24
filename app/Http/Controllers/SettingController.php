@@ -63,9 +63,9 @@ class SettingController extends Controller
             $exploded = explode(',', $request->avatar);
             $decoded = base64_decode($exploded[1]);
 
-            if($exploded[0] === 'data:image/jpeg;base64') {
+            if($exploded[0] == 'data:image/jpeg;base64') {
                 $extension = 'jpg';
-            } else if($exploded[0] === 'data:image/png;base64') {
+            } else if($exploded[0] == 'data:image/png;base64') {
                 $extension = 'png';
             } else {
                 return response()->json([

@@ -75563,10 +75563,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.goNext
     }
   }, [_vm._v("Sau")]) : _vm._e()])])], 2) : _vm._e()])])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-12",
-    staticStyle: {
-      "background": "red"
-    }
+    staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "col-md-offset-2 col-md-8"
   }, [(_vm.current_user) ? _c('div', {
@@ -79192,10 +79189,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.goNext
     }
   }, [_vm._v("Sau")]) : _vm._e()])])], 2) : _vm._e()])])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-12",
-    staticStyle: {
-      "background": "red"
-    }
+    staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "col-md-offset-2 col-md-8"
   }, [(_vm.current_user) ? _c('div', {
@@ -80411,10 +80405,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.goNext
     }
   }, [_vm._v("Sau")]) : _vm._e()])])], 2) : _vm._e()])])])]), _vm._v(" "), _c('div', {
-    staticClass: "col-md-12",
-    staticStyle: {
-      "background": "red"
-    }
+    staticClass: "col-md-12"
   }, [_c('div', {
     staticClass: "col-md-offset-2 col-md-8"
   }, [(_vm.current_user) ? _c('div', {

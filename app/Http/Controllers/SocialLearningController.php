@@ -27,13 +27,13 @@ class SocialLearningController extends Controller
 
     	if(strlen($title) <= 0 || strlen($title) >100) {
             return response()->json([
-                'error' => 'Tiêu đề chỉ từ 1-100 ký tự'
+                'error' => 'Tiêu đề từ 1-100 ký tự'
             ]);
         }
 
     	if(strlen($content) <= 0 || strlen($content) >500) {
             return response()->json([
-                'error' => 'Nội dung chỉ từ 1-500 ký tự'
+                'error' => 'Nội dung từ 1-500 ký tự'
             ]);
         }
 
@@ -65,9 +65,9 @@ class SocialLearningController extends Controller
         	$exploded = explode(',', $imageData);
         	$decoded = base64_decode($exploded[1]);
 
-        	if($exploded[0] === 'data:image/jpeg;base64') {
+        	if($exploded[0] == 'data:image/jpeg;base64') {
                 $extension = 'jpg';
-            } else if($exploded[0] === 'data:image/png;base64') {
+            } else if($exploded[0] == 'data:image/png;base64') {
                 $extension = 'png';
             } else {
                 return response()->json([

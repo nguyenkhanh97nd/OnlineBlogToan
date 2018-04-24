@@ -104,7 +104,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-md-12" style="background:red">
+		<div class="col-md-12">
 			<div class="col-md-offset-2 col-md-8">
 			<div class="showQuestionForm" v-if="current_user">
 				
