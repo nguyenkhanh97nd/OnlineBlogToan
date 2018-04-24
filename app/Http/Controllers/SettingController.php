@@ -78,9 +78,9 @@ class SettingController extends Controller
             while(file_exists("upload/users/".$name)){
                 $name = str_random(4)."_".$username.'.'.$extension;
             }
-            // $path = 'upload/users/'.$name;
+            $path = 'upload/users/'.$name;
 
-            // file_put_contents($path, $decoded);
+            file_put_contents($path, $decoded);
 
             // if(filesize($path) > 500000) {
             //     unlink($path);
