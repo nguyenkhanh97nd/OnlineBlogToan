@@ -28,12 +28,11 @@
 				<div class="col-md-12">
 					<div class="heading-setting">
 						<div class="sort-left">
-					        <select @change="sort_custom" v-model="sort_by">
-					          <option style="color: #e8ecf3" value="" disabled>Sắp xếp</option>
-							  <option value="new">Mới nhât</option>
-							  <option value="point">Điểm</option>
-							  <option value="unans">Chưa trả lời</option>
-							</select>
+					        <el-select v-model="sort_by" @change="sort_custom" placeholder="Sắp xếp">
+							    <el-option label="Mới nhất" value="new"></el-option>
+							    <el-option label="Điểm" value="point"></el-option>
+							    <el-option label="Chưa trả lời" value="unans"></el-option>
+						  </el-select>
 					    </div>
 						<div class="refresh-right pull-right">
 							<a class="a-click-refresh" @click="doRefresh">

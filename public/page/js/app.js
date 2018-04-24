@@ -72773,7 +72773,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -73184,7 +73183,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -73409,8 +73407,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -75356,45 +75352,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "heading-setting"
   }, [_c('div', {
     staticClass: "sort-left"
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.sort_by),
-      expression: "sort_by"
-    }],
-    on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.sort_by = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.sort_custom]
-    }
-  }, [_c('option', {
-    staticStyle: {
-      "color": "#e8ecf3"
+  }, [_c('el-select', {
+    attrs: {
+      "placeholder": "Sắp xếp"
     },
-    attrs: {
-      "value": "",
-      "disabled": ""
+    on: {
+      "change": _vm.sort_custom
+    },
+    model: {
+      value: (_vm.sort_by),
+      callback: function($$v) {
+        _vm.sort_by = $$v
+      },
+      expression: "sort_by"
     }
-  }, [_vm._v("Sắp xếp")]), _vm._v(" "), _c('option', {
+  }, [_c('el-option', {
     attrs: {
+      "label": "Mới nhất",
       "value": "new"
     }
-  }, [_vm._v("Mới nhât")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "Điểm",
       "value": "point"
     }
-  }, [_vm._v("Điểm")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "Chưa trả lời",
       "value": "unans"
     }
-  }, [_vm._v("Chưa trả lời")])])]), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "refresh-right pull-right"
   }, [_c('a', {
     staticClass: "a-click-refresh",
@@ -75675,51 +75662,38 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "layout": "row",
       "layout-align": "space-between center"
     }
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.point_set),
-      expression: "point_set"
-    }],
-    staticClass: "md-no-underline custom-md-select-cate",
+  }, [_c('el-select', {
     attrs: {
-      "required": "",
       "placeholder": "Số điểm"
     },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.point_set = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
+    model: {
+      value: (_vm.point_set),
+      callback: function($$v) {
+        _vm.point_set = $$v
+      },
+      expression: "point_set"
     }
-  }, [_c('option', {
+  }, [_c('el-option', {
     attrs: {
-      "value": "",
-      "disabled": ""
-    }
-  }, [_vm._v("Số điểm")]), _vm._v(" "), _c('option', {
-    attrs: {
+      "label": "5",
       "value": "5"
     }
-  }, [_vm._v("5")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "10",
       "value": "10"
     }
-  }, [_vm._v("10")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "15",
       "value": "15"
     }
-  }, [_vm._v("15")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "20",
       "value": "20"
     }
-  }, [_vm._v("20")])])]), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "cancel_form_question pull-right"
   }, [(_vm.minify) ? _c('span', {
     staticClass: "span-minify glyphicon glyphicon glyphicon-menu-down",
@@ -79070,45 +79044,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "heading-setting"
   }, [_c('div', {
     staticClass: "sort-left"
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.sort_by),
-      expression: "sort_by"
-    }],
-    on: {
-      "change": [function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.sort_by = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }, _vm.sort_custom]
-    }
-  }, [_c('option', {
-    staticStyle: {
-      "color": "#e8ecf3"
+  }, [_c('el-select', {
+    attrs: {
+      "placeholder": "Sắp xếp"
     },
-    attrs: {
-      "value": "",
-      "disabled": ""
+    on: {
+      "change": _vm.sort_custom
+    },
+    model: {
+      value: (_vm.sort_by),
+      callback: function($$v) {
+        _vm.sort_by = $$v
+      },
+      expression: "sort_by"
     }
-  }, [_vm._v("Sắp xếp")]), _vm._v(" "), _c('option', {
+  }, [_c('el-option', {
     attrs: {
+      "label": "Mới nhất",
       "value": "new"
     }
-  }, [_vm._v("Mới nhât")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "Điểm",
       "value": "point"
     }
-  }, [_vm._v("Điểm")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "Chưa trả lời",
       "value": "unans"
     }
-  }, [_vm._v("Chưa trả lời")])])]), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "refresh-right pull-right"
   }, [_c('a', {
     staticClass: "a-click-refresh",
@@ -80623,51 +80588,38 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "layout": "row",
       "layout-align": "space-between center"
     }
-  }, [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.point_set),
-      expression: "point_set"
-    }],
-    staticClass: "md-no-underline custom-md-select-cate",
+  }, [_c('el-select', {
     attrs: {
-      "required": "",
       "placeholder": "Số điểm"
     },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.point_set = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
+    model: {
+      value: (_vm.point_set),
+      callback: function($$v) {
+        _vm.point_set = $$v
+      },
+      expression: "point_set"
     }
-  }, [_c('option', {
+  }, [_c('el-option', {
     attrs: {
-      "value": "",
-      "disabled": ""
-    }
-  }, [_vm._v("Số điểm")]), _vm._v(" "), _c('option', {
-    attrs: {
+      "label": "5",
       "value": "5"
     }
-  }, [_vm._v("5")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "10",
       "value": "10"
     }
-  }, [_vm._v("10")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "15",
       "value": "15"
     }
-  }, [_vm._v("15")]), _vm._v(" "), _c('option', {
+  }), _vm._v(" "), _c('el-option', {
     attrs: {
+      "label": "20",
       "value": "20"
     }
-  }, [_vm._v("20")])])]), _vm._v(" "), _c('div', {
+  })], 1)], 1), _vm._v(" "), _c('div', {
     staticClass: "cancel_form_question pull-right"
   }, [(_vm.minify) ? _c('span', {
     staticClass: "span-minify glyphicon glyphicon glyphicon-menu-down",

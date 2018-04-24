@@ -30,12 +30,11 @@
 				<div class="col-md-12">
 					<div class="heading-setting">
 						<div class="sort-left">
-					        <select @change="sort_custom" v-model="sort_by">
-					          <option style="color: #e8ecf3" value="" disabled>Sắp xếp</option>
-							  <option value="new">Mới nhât</option>
-							  <option value="point">Điểm</option>
-							  <option value="unans">Chưa trả lời</option>
-							</select>
+					        <el-select v-model="sort_by" @change="sort_custom" placeholder="Sắp xếp">
+							    <el-option label="Mới nhất" value="new"></el-option>
+							    <el-option label="Điểm" value="point"></el-option>
+							    <el-option label="Chưa trả lời" value="unans"></el-option>
+						  </el-select>
 					    </div>
 						<div class="refresh-right pull-right">
 							<a class="a-click-refresh" @click="doRefresh">
@@ -130,14 +129,13 @@
 					        </select>
 				    </div>
 					<div class="sort-left div_select_subcate" layout="row" style="margin-left:5px; display: none;" layout-align="space-between center">
-							
-				    		<select v-model="point_set" required placeholder="Số điểm"  class="md-no-underline custom-md-select-cate">
-				    				<option value="" disabled>Số điểm</option>
-					              <option  value="5">5</option>
-					              <option  value="10">10</option>
-					              <option  value="15">15</option>
-					              <option  value="20">20</option>
-				            </select>
+
+							<el-select v-model="point_set" placeholder="Số điểm">
+							    <el-option label="5" value="5"></el-option>
+							    <el-option label="10" value="10"></el-option>
+							    <el-option label="15" value="15"></el-option>
+							    <el-option label="20" value="20"></el-option>
+						  </el-select>
 				    </div>
 				    <div class="cancel_form_question pull-right">
 				    	<span v-if="minify" class="span-minify glyphicon glyphicon glyphicon-menu-down" @click="cancel_minify_add"></span>
