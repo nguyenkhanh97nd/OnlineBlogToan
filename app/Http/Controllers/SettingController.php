@@ -99,7 +99,7 @@ class SettingController extends Controller
 
         return response()->json([
             // 'success' => 'Cập nhật ảnh thành công',
-            'success' => $extension
+            'success' => file_exists('upload/users/test.txt')
         ]);
     }
 
