@@ -72587,10 +72587,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 						vm.$swal("Success!", response.data.success, "success", {
 							button: "OK!"
 						});
-						// vm.$router.go()
+						vm.$router.go();
 					}
-				}, function (response) {
-					console.log(response);
 				});
 			} else {
 				vm.wrong_avatar = 'Chưa chọn ảnh';
