@@ -69811,18 +69811,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
 		return {
-			categories: [],
-			cate_link: '',
 			isAuthenticated: false,
 			user: ''
 		};
 	},
 	created: function created() {
-		this.cate_link = 'api/client/category';
 
 		if (this.$authjs.isAuthenticated()) {
 			this.isAuthenticated = true;
@@ -69830,17 +69830,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		} else {
 			this.isAuthenticated = false;
 		}
-		this.fetchData();
 	},
 
 	methods: {
-		fetchData: function fetchData() {
-			var vm = this;
-			axios.get(vm.cate_link).then(function (response) {
-				vm.categories = response.data;
-				console.log(vm.categories);
-			});
-		},
 		getUser: function getUser() {
 			var _this = this;
 
@@ -76154,26 +76146,49 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_vm._l((_vm.categories), function(category) {
-    return _c('li', [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'ClientCateIndex',
-          params: {
-            slugCate: category.slug
-          }
+  }, [_c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientCateIndex',
+        params: {
+          slugCate: 'toan'
         }
       }
-    }, [_c('a', {
-      staticClass: "color-white",
-      attrs: {
-        "title": category.name
-      },
-      on: {
-        "click": _vm.reloadCate
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Toán"
+    }
+  }, [_vm._v(_vm._s('Toán'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientCateIndex',
+        params: {
+          slugCate: 'ly'
+        }
       }
-    }, [_vm._v(_vm._s(category.name))])])], 1)
-  }), _vm._v(" "), _c('li', [_c('router-link', {
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Lý"
+    }
+  }, [_vm._v(_vm._s('Lý'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientCateIndex',
+        params: {
+          slugCate: 'hoa'
+        }
+      }
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Hoá"
+    }
+  }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientSocialLearningIndex'
@@ -76195,7 +76210,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "title": "Tìm kiếm"
     }
-  }, [_vm._v("Tìm kiếm")])])], 1)], 2), _vm._v(" "), (!_vm.user) ? _c('ul', {
+  }, [_vm._v("Tìm kiếm")])])], 1)]), _vm._v(" "), (!_vm.user) ? _c('ul', {
     staticClass: "nav navbar-nav navbar-right"
   }, [_c('li', [_c('router-link', {
     attrs: {
