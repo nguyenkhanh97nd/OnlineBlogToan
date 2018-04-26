@@ -69811,7 +69811,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -74613,7 +74612,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 			forAll: false
 		}
 	}, {
-		path: prefix + '/:slugCate.html', name: 'ClientCateIndex',
+		path: prefix + '/cate/:slugCate/:random', name: 'ClientCateIndex',
 		component: __WEBPACK_IMPORTED_MODULE_5__components_views_cate_index___default.a,
 		meta: {
 			forAll: true
@@ -76152,22 +76151,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_c('li', [_c('router-link', {
-    attrs: {
-      "to": '/ly.html'
-    }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Cộng đồng học tập"
-    }
-  }, [_vm._v("Cộng đồng học tập")])])], 1), _vm._v(" "), _vm._l((_vm.categories), function(category) {
+  }, [_vm._l((_vm.categories), function(category) {
     return _c('li', [_c('router-link', {
       attrs: {
         "to": {
           name: 'ClientCateIndex',
           params: {
-            slugCate: category.slug
+            slugCate: category.slug,
+            random: Math.random().toString(36).substring(2)
           }
         }
       }
