@@ -69822,7 +69822,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			user: ''
 		};
 	},
-	mounted: function mounted() {
+	created: function created() {
 		this.cate_link = 'api/client/category';
 
 		if (this.$authjs.isAuthenticated()) {
@@ -76179,8 +76179,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('a', {
       staticClass: "color-white",
       attrs: {
-        "title": category.name,
-        "replace": ""
+        "title": category.name
       }
     }, [_vm._v(_vm._s(category.name))])])], 1)
   }), _vm._v(" "), _c('li', [_c('router-link', {
