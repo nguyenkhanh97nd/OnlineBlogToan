@@ -17,9 +17,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a @click="reloadPage" title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a @click="reloadPage" title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a @click="reloadPage"  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
+		<li><a @click="reloadPage" title="Toán" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }">{{ 'Toán' }}</router-link></a></li>
+		<li><a @click="reloadPage" title="Lý" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }">{{ 'Lý' }}</router-link></a></li>
+		<li><a @click="reloadPage"  title="Hoá" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }">{{ 'Hoá' }}</router-link></a></li>
 
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
@@ -34,7 +34,7 @@
 	  <ul class="nav navbar-nav navbar-right" v-if="user">
 			<li><router-link  :to="{ name: 'ClientFollow' }"><a class="color-white"><span class="glyphicon glyphicon-plus"></span> Follow</a></router-link></li>
 
-			<li><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: user.username } }"><a @click="reloadProfile" class="color-white"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></router-link></li>
+			<li><a @click="reloadProfile" class="color-white"><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: user.username } }"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</router-link></a></li>
 
        
             <li>
@@ -175,7 +175,7 @@
 			},
 			reloadProfile() {
 				var vm = this
-				if(vm.user) {
+				if(vm.user && vm.$route.params.userslug) {
 					if(vm.$route.params.userslug != vm.user.username) {
 						vm.$router.go()
 					}

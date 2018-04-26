@@ -69853,7 +69853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		reloadProfile: function reloadProfile() {
 			var vm = this;
-			if (vm.user) {
+			if (vm.user && vm.$route.params.userslug) {
 				if (vm.$route.params.userslug != vm.user.username) {
 					vm.$router.go();
 				}
@@ -72048,6 +72048,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -72146,6 +72148,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					vm.$router.push({ name: 'ClientCommentFeed', params: { slugFeed: e.target.name } });
 				}
 			});
+		},
+		reloadPage: function reloadPage(e) {
+			var vm = this;
+			if (vm.$route.params.userslug) {
+				if (vm.$route.params.userslug != e) {
+					vm.$router.go();
+				}
+			}
 		}
 	}
 });
@@ -76154,7 +76164,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_c('li', [_c('router-link', {
+  }, [_c('li', [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Toán"
+    },
+    on: {
+      "click": _vm.reloadPage
+    }
+  }, [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76163,15 +76181,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_c('a', {
+  }, [_vm._v(_vm._s('Toán'))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
     staticClass: "color-white",
     attrs: {
-      "title": "Toán"
+      "title": "Lý"
     },
     on: {
       "click": _vm.reloadPage
     }
-  }, [_vm._v(_vm._s('Toán'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76180,15 +76198,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_c('a', {
+  }, [_vm._v(_vm._s('Lý'))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
     staticClass: "color-white",
     attrs: {
-      "title": "Lý"
+      "title": "Hoá"
     },
     on: {
       "click": _vm.reloadPage
     }
-  }, [_vm._v(_vm._s('Lý'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76197,15 +76215,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Hoá"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_vm._v(_vm._s('Hoá'))])], 1)]), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientSocialLearningIndex'
@@ -76261,7 +76271,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('a', {
+    staticClass: "color-white",
+    on: {
+      "click": _vm.reloadProfile
+    }
+  }, [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientProfileIndex',
@@ -76270,14 +76285,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_c('a', {
-    staticClass: "color-white",
-    on: {
-      "click": _vm.reloadProfile
-    }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-user"
-  }), _vm._v(" " + _vm._s(_vm.user.username))])])], 1), _vm._v(" "), _c('li', [_c('a', {
+  }), _vm._v(" " + _vm._s(_vm.user.username))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
     attrs: {
       "id": "logout-click"
     },
@@ -78375,7 +78385,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     })])])])], 1) : _vm._e(), _vm._v(" "), _vm._l((feed.comment_feed), function(comment_feed_item, key) {
       return _c('div', {
         staticClass: "be-show-first-comment"
-      }, [(key < 2) ? _c('div', [_c('router-link', {
+      }, [(key < 2) ? _c('div', [_c('a', {
+        staticClass: "pull-left be-comment-media",
+        on: {
+          "click": function($event) {
+            _vm.reloadPage(comment_feed_item.user.username)
+          }
+        }
+      }, [_c('router-link', {
         attrs: {
           "to": {
             name: 'ClientProfileIndex',
@@ -78384,8 +78401,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             }
           }
         }
-      }, [_c('a', {
-        staticClass: "pull-left be-comment-media"
       }, [(!comment_feed_item.user.avatar) ? _c('span', {
         staticStyle: {
           "border-radius": "50%",
@@ -78405,10 +78420,16 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "height": "50px",
           "src": 'public/upload/users/' + comment_feed_item.user.avatar
         }
-      }) : _vm._e()])]), _vm._v(" "), _c('div', {
+      }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
         staticClass: "media-body"
       }, [_c('p', [_c('span', {
         staticClass: "media-heading"
+      }, [_c('a', {
+        on: {
+          "click": function($event) {
+            _vm.reloadPage(comment_feed_item.user.username)
+          }
+        }
       }, [_c('router-link', {
         attrs: {
           "to": {
@@ -78418,12 +78439,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
             }
           }
         }
-      }, [_c('a', [_c('font', {
+      }, [_c('font', {
         attrs: {
           "size": "3",
           "color": "#3b5998"
         }
-      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)])], 1), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])], 1) : _vm._e()])
+      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()])
     })], 2), _vm._v(" "), _c('div', {
       staticClass: "col-md-12"
     }, [_c('p', [_c('router-link', {
