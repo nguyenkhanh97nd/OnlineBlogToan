@@ -17,9 +17,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a  title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a @click="reloadPage" title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a @click="reloadPage" title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a @click="reloadPage"  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
 
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
@@ -170,7 +170,7 @@
 				this.$authjs.destroyToken()
 				this.$router.go()
 			},
-			reloadCate() {
+			reloadPage() {
 				this.$router.go()
 			}
 		}

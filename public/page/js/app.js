@@ -69848,7 +69848,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			this.$authjs.destroyToken();
 			this.$router.go();
 		},
-		reloadCate: function reloadCate() {
+		reloadPage: function reloadPage() {
 			this.$router.go();
 		}
 	}
@@ -76159,6 +76159,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white",
     attrs: {
       "title": "Toán"
+    },
+    on: {
+      "click": _vm.reloadPage
     }
   }, [_vm._v(_vm._s('Toán'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
@@ -76173,6 +76176,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white",
     attrs: {
       "title": "Lý"
+    },
+    on: {
+      "click": _vm.reloadPage
     }
   }, [_vm._v(_vm._s('Lý'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
@@ -76187,6 +76193,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white",
     attrs: {
       "title": "Hoá"
+    },
+    on: {
+      "click": _vm.reloadPage
     }
   }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
