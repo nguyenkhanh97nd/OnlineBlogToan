@@ -69850,14 +69850,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		reloadPage: function reloadPage() {
 			this.$router.go();
-		},
-		reloadProfile: function reloadProfile() {
-			var vm = this;
-			if (vm.user && vm.$route.params.slug) {
-				if (vm.$route.params.userslug != vm.user.username) {
-					vm.$router.go();
-				}
-			}
 		}
 	}
 
@@ -72149,14 +72141,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				}
 			});
 		},
-		reloadPage: function reloadPage(e) {
-			console.log(e);
+		reloadPage: function reloadPage() {
 			var vm = this;
-			if (vm.$route.params.userslug) {
-				if (vm.$route.params.userslug != e) {
-					vm.$router.go();
-				}
-			}
+			vm.$router.go();
 		}
 	}
 });
@@ -76284,7 +76271,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('a', {
     staticClass: "color-white",
     on: {
-      "click": _vm.reloadProfile
+      "click": _vm.reloadPage
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-user"
@@ -78384,7 +78371,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     })])])])], 1) : _vm._e(), _vm._v(" "), _vm._l((feed.comment_feed), function(comment_feed_item, key) {
-      return (feed.commend_feed) ? _c('div', {
+      return _c('div', {
         staticClass: "be-show-first-comment"
       }, [(key < 2) ? _c('div', [_c('a', {
         staticClass: "pull-left be-comment-media",
@@ -78444,7 +78431,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "size": "3",
           "color": "#3b5998"
         }
-      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()]) : _vm._e()
+      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()])
     })], 2), _vm._v(" "), _c('div', {
       staticClass: "col-md-12"
     }, [_c('p', [_c('router-link', {

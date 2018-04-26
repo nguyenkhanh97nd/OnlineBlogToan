@@ -34,7 +34,7 @@
 	  <ul class="nav navbar-nav navbar-right" v-if="user">
 			<li><router-link  :to="{ name: 'ClientFollow' }"><a class="color-white"><span class="glyphicon glyphicon-plus"></span> Follow</a></router-link></li>
 
-			<li><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: user.username } }"><a @click="reloadProfile" class="color-white"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></router-link></li>
+			<li><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: user.username } }"><a @click="reloadPage" class="color-white"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></router-link></li>
 
        
             <li>
@@ -172,14 +172,6 @@
 			},
 			reloadPage() {
 				this.$router.go()
-			},
-			reloadProfile() {
-				var vm = this
-				if(vm.user && vm.$route.params.slug) {
-					if(vm.$route.params.userslug != vm.user.username) {
-						vm.$router.go()
-					}
-				}
 			}
 		}
 

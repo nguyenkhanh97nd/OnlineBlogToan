@@ -128,7 +128,7 @@
 					                        </div>
 						                </div>
 
-						                <div v-if="feed.commend_feed" v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
+						                <div v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
 											<div v-if="key < 2">
 											
 						                	<a @click="reloadPage(comment_feed_item.user.username)" class="pull-left be-comment-media">
@@ -281,14 +281,9 @@
 					
 				})
 			},
-			reloadPage(e) {
-				console.log(e)
+			reloadPage() {
 				var vm = this
-				if(vm.$route.params.userslug) {
-					if(vm.$route.params.userslug != e) {
-						vm.$router.go()
-					}
-				}
+				vm.$router.go()
 			}
 		}
 	}
