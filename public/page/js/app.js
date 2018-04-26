@@ -76179,7 +76179,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('a', {
       staticClass: "color-white",
       attrs: {
-        "title": category.name
+        "title": category.name,
+        "replace": ""
       }
     }, [_vm._v(_vm._s(category.name))])])], 1)
   }), _vm._v(" "), _c('li', [_c('router-link', {
