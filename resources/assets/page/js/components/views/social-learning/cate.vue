@@ -115,26 +115,35 @@
 		        </router-link>
 				<div class="media-body body-feed-item">
 					<div class="sort-left" layout="row" layout-align="space-between center">
-				        <select required v-model="select_cate" @change="select_cate_fun" placeholder="Chọn chuyên mục"  class="md-no-underline custom-md-select-cate">
-			        		<option value="" disabled>Chọn chuyên mục</option>
-				          	<option v-for="cate in catequestion" v-if="cate.sub_cate_question.length" :value="cate.slug">{{ cate.name }}</option>
-				        </select>		
+
+						<el-select v-model="select_cate" @change="select_cate_fun" placeholder="Chọn chuyên mục">
+						    <el-option
+						      v-for="cate in catequestion" v-if="cate.sub_cate_question.length"
+						      :label="cate.name"
+						      :value="cate.slug">
+						    </el-option>
+						  </el-select>
+	
 				    </div>
 				    <div class="sort-left div_select_subcate" layout="row" style="margin-left:5px;display: none;" layout-align="space-between center">
-							<select  v-model="select_subcate" required placeholder="Chọn mục"  class="md-no-underline custom-md-select-cate">
-								<option value="" disabled>Chọn mục</option>
-					          <option v-for="subcate in subcatequestion" :value="subcate.slug">{{ subcate.name }}</option>
-					        </select>
+
+				    		<el-select v-model="select_subcate" placeholder="Chọn mục">
+							    <el-option
+							      v-for="subcate in subcatequestion"
+							      :label="subcate.name"
+							      :value="subcate.slug">
+							    </el-option>
+							  </el-select>
+							  
 				    </div>
 					<div class="sort-left div_select_subcate" layout="row" style="margin-left:5px; display: none;" layout-align="space-between center">
 							
-				    		<select v-model="point_set" required placeholder="Số điểm"  class="md-no-underline custom-md-select-cate">
-				    				<option value="" disabled>Số điểm</option>
-					              <option  value="5">5</option>
-					              <option  value="10">10</option>
-					              <option  value="15">15</option>
-					              <option  value="20">20</option>
-				            </select>
+				    		<el-select v-model="point_set" placeholder="Số điểm">
+							    <el-option label="5" value="5"></el-option>
+							    <el-option label="10" value="10"></el-option>
+							    <el-option label="15" value="15"></el-option>
+							    <el-option label="20" value="20"></el-option>
+						  </el-select>
 				    </div>
 				    <div class="cancel_form_question pull-right">
 				    	<span v-if="minify" class="span-minify glyphicon glyphicon glyphicon-menu-down" @click="cancel_minify_add"></span>
