@@ -282,6 +282,7 @@
 				})
 			},
 			reloadPage(e) {
+				console.log(e)
 				var vm = this
 				if(vm.$route.params.userslug) {
 					if(vm.$route.params.userslug != e) {

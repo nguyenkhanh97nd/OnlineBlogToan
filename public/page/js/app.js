@@ -72150,6 +72150,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			});
 		},
 		reloadPage: function reloadPage(e) {
+			console.log(e);
 			var vm = this;
 			if (vm.$route.params.userslug) {
 				if (vm.$route.params.userslug != e) {
