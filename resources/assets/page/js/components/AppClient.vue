@@ -16,11 +16,10 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li><a href="/toan.html">Toán</a></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a @click="reloadPage" title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a @click="reloadPage" title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a @click="reloadPage"  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
-		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'sinh' } }"><a @click="reloadPage"  title="Sinh" class="color-white" >{{ 'Sinh' }}</a></router-link></li>
+		<li><a title="Toán" href="/toan.html" class="color-white" >Toán</a></li>
+		<li><a title="Lý" href="/ly.html" class="color-white" >Lý</a></li>
+		<li><a title="Hoá" href="/hoa.html" class="color-white" >Hoá</a></li>
+		<li><a title="Sinh" href="/sinh.html" class="color-white" >Sinh</a></li>
 
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
@@ -35,7 +34,7 @@
 	  <ul class="nav navbar-nav navbar-right" v-if="user">
 			<li><router-link  :to="{ name: 'ClientFollow' }"><a class="color-white"><span class="glyphicon glyphicon-plus"></span> Follow</a></router-link></li>
 
-			<li><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: user.username } }"><a @click="reloadPage" class="color-white"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></router-link></li>
+			<li><a :href="'/profile/' + user.username" class="color-white"><span class="glyphicon glyphicon-user"></span> {{ user.username }}</a></li>
 
        
             <li>
@@ -169,9 +168,6 @@
 
 			logout() {
 				this.$authjs.destroyToken()
-				this.$router.go()
-			},
-			reloadPage() {
 				this.$router.go()
 			}
 		}

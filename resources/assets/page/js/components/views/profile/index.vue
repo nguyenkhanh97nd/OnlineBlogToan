@@ -131,16 +131,15 @@
 						                <div v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
 											<div v-if="key < 2">
 											
-						                	<a @click="reloadPage(comment_feed_item.user.username)" class="pull-left be-comment-media">
-						                		<router-link  :to="{ name: 'ClientProfileIndex', params: { userslug: comment_feed_item.user.username } }">
+						                	<a :href="'/profile/' + comment_feed_item.user.username " class="pull-left be-comment-media">
 					                                <span style="border-radius: 50%; width:34px; height: 34px; line-height: 34px; font-size: 15px" v-if="! comment_feed_item.user.avatar">{{ comment_feed_item.user.name.substring(0,1) }}</span>
 					                                <img class="img-circle" style="width: 34px; height: 34px" v-if="comment_feed_item.user.avatar" width="50px" height="50px" :src="'public/upload/users/' + comment_feed_item.user.avatar">
-					                                </router-link>
+					                            
 					                        </a>
 						                    
 					                        <div class="media-body">
 					                        	<p>
-						                            <span class="media-heading" @click="reloadPage(comment_feed_item.user.username)"><a><router-link :to="{ name: 'ClientProfileIndex', params: { userslug:  comment_feed_item.user.username } }"><font size="3" color="#3b5998"> {{ comment_feed_item.user.name }} </font></router-link></a>
+						                            <span class="media-heading"><a :href="'/profile/' + comment_feed_item.user.username "><font size="3" color="#3b5998"> {{ comment_feed_item.user.name }} </font></a>
 						                            </span>
 						                            <span>{{ comment_feed_item.content }}</span>
 					                        	</p>
@@ -280,10 +279,6 @@
 					}
 					
 				})
-			},
-			reloadPage() {
-				var vm = this
-				vm.$router.go()
 			}
 		}
 	}

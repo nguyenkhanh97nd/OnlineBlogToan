@@ -69814,7 +69814,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -69847,9 +69846,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		logout: function logout() {
 			this.$authjs.destroyToken();
-			this.$router.go();
-		},
-		reloadPage: function reloadPage() {
 			this.$router.go();
 		}
 	}
@@ -72042,7 +72038,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -72141,10 +72136,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 					vm.$router.push({ name: 'ClientCommentFeed', params: { slugFeed: e.target.name } });
 				}
 			});
-		},
-		reloadPage: function reloadPage() {
-			var vm = this;
-			vm.$router.go();
 		}
 	}
 });
@@ -76153,75 +76144,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_vm._m(1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": {
-        name: 'ClientCateIndex',
-        params: {
-          slugCate: 'toan'
-        }
-      }
-    }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Toán"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_vm._v(_vm._s('Toán'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": {
-        name: 'ClientCateIndex',
-        params: {
-          slugCate: 'ly'
-        }
-      }
-    }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Lý"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_vm._v(_vm._s('Lý'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": {
-        name: 'ClientCateIndex',
-        params: {
-          slugCate: 'hoa'
-        }
-      }
-    }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Hoá"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": {
-        name: 'ClientCateIndex',
-        params: {
-          slugCate: 'sinh'
-        }
-      }
-    }
-  }, [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Sinh"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_vm._v(_vm._s('Sinh'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3), _vm._v(" "), _vm._m(4), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientSocialLearningIndex'
@@ -76277,23 +76200,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-    attrs: {
-      "to": {
-        name: 'ClientProfileIndex',
-        params: {
-          userslug: _vm.user.username
-        }
-      }
-    }
-  }, [_c('a', {
+  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('a', {
     staticClass: "color-white",
-    on: {
-      "click": _vm.reloadPage
+    attrs: {
+      "href": '/profile/' + _vm.user.username
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-user"
-  }), _vm._v(" " + _vm._s(_vm.user.username))])])], 1), _vm._v(" "), _c('li', [_c('a', {
+  }), _vm._v(" " + _vm._s(_vm.user.username))])]), _vm._v(" "), _c('li', [_c('a', {
     attrs: {
       "id": "logout-click"
     },
@@ -76306,7 +76220,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "padding-top": "90px"
     }
-  }), _vm._v(" "), _c('router-view'), _vm._v(" "), _vm._m(2)], 1)
+  }), _vm._v(" "), _c('router-view'), _vm._v(" "), _vm._m(5)], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('button', {
     staticClass: "navbar-toggle",
@@ -76324,10 +76238,36 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   })])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('li', [_c('a', {
+    staticClass: "color-white",
     attrs: {
+      "title": "Toán",
       "href": "/toan.html"
     }
   }, [_vm._v("Toán")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Lý",
+      "href": "/ly.html"
+    }
+  }, [_vm._v("Lý")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Hoá",
+      "href": "/hoa.html"
+    }
+  }, [_vm._v("Hoá")])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Sinh",
+      "href": "/sinh.html"
+    }
+  }, [_vm._v("Sinh")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('footer', [_c('div', {
     staticClass: "container"
@@ -78407,19 +78347,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         staticClass: "be-show-first-comment"
       }, [(key < 2) ? _c('div', [_c('a', {
         staticClass: "pull-left be-comment-media",
-        on: {
-          "click": function($event) {
-            _vm.reloadPage(comment_feed_item.user.username)
-          }
-        }
-      }, [_c('router-link', {
         attrs: {
-          "to": {
-            name: 'ClientProfileIndex',
-            params: {
-              userslug: comment_feed_item.user.username
-            }
-          }
+          "href": '/profile/' + comment_feed_item.user.username
         }
       }, [(!comment_feed_item.user.avatar) ? _c('span', {
         staticStyle: {
@@ -78440,30 +78369,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "height": "50px",
           "src": 'public/upload/users/' + comment_feed_item.user.avatar
         }
-      }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
+      }) : _vm._e()]), _vm._v(" "), _c('div', {
         staticClass: "media-body"
       }, [_c('p', [_c('span', {
-        staticClass: "media-heading",
-        on: {
-          "click": function($event) {
-            _vm.reloadPage(comment_feed_item.user.username)
-          }
-        }
-      }, [_c('a', [_c('router-link', {
+        staticClass: "media-heading"
+      }, [_c('a', {
         attrs: {
-          "to": {
-            name: 'ClientProfileIndex',
-            params: {
-              userslug: comment_feed_item.user.username
-            }
-          }
+          "href": '/profile/' + comment_feed_item.user.username
         }
       }, [_c('font', {
         attrs: {
           "size": "3",
           "color": "#3b5998"
         }
-      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()])
+      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()])
     })], 2), _vm._v(" "), _c('div', {
       staticClass: "col-md-12"
     }, [_c('p', [_c('router-link', {
