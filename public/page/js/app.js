@@ -69855,6 +69855,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		logout: function logout() {
 			this.$authjs.destroyToken();
 			this.$router.go();
+		},
+		reloadCate: function reloadCate() {
+			this.$router.go();
 		}
 	}
 
@@ -76167,9 +76170,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "title": category.name
       },
       on: {
-        "click": function($event) {
-          this.$router.go()
-        }
+        "click": _vm.reloadCate
       }
     }, [_vm._v(_vm._s(category.name))])])], 1)
   }), _vm._v(" "), _c('li', [_c('router-link', {
