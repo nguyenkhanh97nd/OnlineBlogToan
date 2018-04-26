@@ -69839,6 +69839,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 			var vm = this;
 			axios.get(vm.cate_link).then(function (response) {
 				vm.categories = response.data;
+				console.log(vm.categories);
 			});
 		},
 		getUser: function getUser() {

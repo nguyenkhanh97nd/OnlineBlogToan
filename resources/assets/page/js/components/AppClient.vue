@@ -162,6 +162,7 @@
 				var vm = this
 				axios.get(vm.cate_link).then((response)=> {
 					vm.categories = response.data
+					console.log(vm.categories)
 				})
 			},
 
