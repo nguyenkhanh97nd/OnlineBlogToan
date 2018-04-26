@@ -16,7 +16,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		<li  v-for="category in categories"><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: category.slug, random: Math.random().toString(36).substring(2) } }"><a :title="category.name" class="color-white" >{{ category.name }}</a></router-link></li>
+		<li  v-for="category in categories"><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: category.slug } }"><a @click="this.$router.go()" :title="category.name" class="color-white" >{{ category.name }}</a></router-link></li>
 		
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 

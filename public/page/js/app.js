@@ -74612,7 +74612,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 			forAll: false
 		}
 	}, {
-		path: prefix + '/:slugCate/:random.html', name: 'ClientCateIndex',
+		path: prefix + '/:slugCate.html', name: 'ClientCateIndex',
 		component: __WEBPACK_IMPORTED_MODULE_5__components_views_cate_index___default.a,
 		meta: {
 			forAll: true
@@ -76157,8 +76157,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "to": {
           name: 'ClientCateIndex',
           params: {
-            slugCate: category.slug,
-            random: Math.random().toString(36).substring(2)
+            slugCate: category.slug
           }
         }
       }
@@ -76166,6 +76165,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "color-white",
       attrs: {
         "title": category.name
+      },
+      on: {
+        "click": function($event) {
+          this.$router.go()
+        }
       }
     }, [_vm._v(_vm._s(category.name))])])], 1)
   }), _vm._v(" "), _c('li', [_c('router-link', {
