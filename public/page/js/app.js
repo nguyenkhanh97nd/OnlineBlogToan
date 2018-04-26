@@ -76163,10 +76163,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "id": "myNavbar"
     }
+  }, [_c('ul', {
+    staticClass: "nav navbar-nav"
   }, [_vm._l((_vm.categories), function(category) {
-    return _c('ul', {
-      staticClass: "nav navbar-nav"
-    }, [_c('li', [_c('router-link', {
+    return _c('li', [_c('router-link', {
       attrs: {
         "to": {
           name: 'ClientCateIndex',
@@ -76180,30 +76180,30 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       attrs: {
         "title": category.name
       }
-    }, [_vm._v(_vm._s(category.name))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'ClientSocialLearningIndex'
-        }
+    }, [_vm._v(_vm._s(category.name))])])], 1)
+  }), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientSocialLearningIndex'
       }
-    }, [_c('a', {
-      staticClass: "color-white",
-      attrs: {
-        "title": "Cộng đồng học tập"
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Cộng đồng học tập"
+    }
+  }, [_vm._v("Cộng đồng học tập")])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientSearchPostIndex'
       }
-    }, [_vm._v("Cộng đồng học tập")])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
-      attrs: {
-        "to": {
-          name: 'ClientSearchPostIndex'
-        }
-      }
-    }, [_c('a', {
-      staticClass: "color-white",
-      attrs: {
-        "title": "Tìm kiếm"
-      }
-    }, [_vm._v("Tìm kiếm")])])], 1)])
-  }), _vm._v(" "), (!_vm.user) ? _c('ul', {
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Tìm kiếm"
+    }
+  }, [_vm._v("Tìm kiếm")])])], 1)], 2), _vm._v(" "), (!_vm.user) ? _c('ul', {
     staticClass: "nav navbar-nav navbar-right"
   }, [_c('li', [_c('router-link', {
     attrs: {
@@ -76259,7 +76259,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-log-in"
-  }), _vm._v(" Đăng xuất\n              ")])])]) : _vm._e()], 2)])])])])]), _vm._v(" "), _c('div', {
+  }), _vm._v(" Đăng xuất\n              ")])])]) : _vm._e()])])])])])]), _vm._v(" "), _c('div', {
     staticStyle: {
       "padding-top": "90px"
     }
