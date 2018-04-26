@@ -16,10 +16,11 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		
+		<li><a href="/toan.html">Toán</a></li>
 		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a @click="reloadPage" title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
 		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a @click="reloadPage" title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
 		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a @click="reloadPage"  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'sinh' } }"><a @click="reloadPage"  title="Sinh" class="color-white" >{{ 'Sinh' }}</a></router-link></li>
 
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
@@ -81,7 +82,7 @@
 						<div class="row-footer">
 							<span>Bạn bè</span>
 							<ul class="list-unstyled">
-								<li>Blog Toán</li>
+								<li><a href="http://itmagical.com" style="color:#3b5998;font-weight:bold">ITMAGICAL</a></li>
 							</ul>
 						</div>
 					</div><!--End Col 1.2-->

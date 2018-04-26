@@ -69814,6 +69814,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -76152,7 +76153,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_c('li', [_c('router-link', {
+  }, [_vm._m(1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76204,6 +76205,23 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "click": _vm.reloadPage
     }
   }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
+    attrs: {
+      "to": {
+        name: 'ClientCateIndex',
+        params: {
+          slugCate: 'sinh'
+        }
+      }
+    }
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Sinh"
+    },
+    on: {
+      "click": _vm.reloadPage
+    }
+  }, [_vm._v(_vm._s('Sinh'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientSocialLearningIndex'
@@ -76288,7 +76306,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticStyle: {
       "padding-top": "90px"
     }
-  }), _vm._v(" "), _c('router-view'), _vm._v(" "), _vm._m(1)], 1)
+  }), _vm._v(" "), _c('router-view'), _vm._v(" "), _vm._m(2)], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('button', {
     staticClass: "navbar-toggle",
@@ -76304,6 +76322,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _vm._v(" "), _c('span', {
     staticClass: "icon-bar"
   })])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('li', [_c('a', {
+    attrs: {
+      "href": "/toan.html"
+    }
+  }, [_vm._v("Toán")])])
 },function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('footer', [_c('div', {
     staticClass: "container"
@@ -76325,7 +76349,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row-footer"
   }, [_c('span', [_vm._v("Bạn bè")]), _vm._v(" "), _c('ul', {
     staticClass: "list-unstyled"
-  }, [_c('li', [_vm._v("Blog Toán")])])])])])]), _vm._v(" "), _c('div', {
+  }, [_c('li', [_c('a', {
+    staticStyle: {
+      "color": "#3b5998",
+      "font-weight": "bold"
+    },
+    attrs: {
+      "href": "http://itmagical.com"
+    }
+  }, [_vm._v("ITMAGICAL")])])])])])])]), _vm._v(" "), _c('div', {
     staticClass: "col-sm-6 col-xs-12"
   }, [_c('div', {
     staticClass: "row"
