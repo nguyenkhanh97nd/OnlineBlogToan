@@ -112,7 +112,7 @@ const router = new VueRouter({
 				forAll: false
 			}
 		}, {
-			path: prefix + '/:slugCate.html', name: 'ClientCateIndex',
+			path: prefix + '/cate/:slugCate', name: 'ClientCateIndex',
 			component: ClientCateIndex,
 			meta: {
 				forAll: true
