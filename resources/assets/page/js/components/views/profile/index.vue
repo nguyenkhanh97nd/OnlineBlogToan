@@ -1,6 +1,6 @@
 <template>
 	<div class="container">
-		<div class="row" v-if="getUser">
+		<div class="row" v-if="getUser && current_user">
 
 			<div class="col-sm-9 col-xs-12">
 				<div class="col-md-3">
@@ -128,7 +128,7 @@
 					                        </div>
 						                </div>
 
-						                <div v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
+						                <div v-if="feed.commend_feed.length" v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
 											<div v-if="key < 2">
 											
 						                	<a @click="reloadPage(comment_feed_item.user.username)" class="pull-left be-comment-media">
@@ -140,7 +140,7 @@
 						                    
 					                        <div class="media-body">
 					                        	<p>
-						                            <span class="media-heading" ><a @click="reloadPage(comment_feed_item.user.username)"><router-link  :to="{ name: 'ClientProfileIndex', params: { userslug:  comment_feed_item.user.username } }"><font size="3" color="#3b5998"> {{ comment_feed_item.user.name }} </font></router-link></a>
+						                            <span class="media-heading" @click="reloadPage(comment_feed_item.user.username)"><a><router-link :to="{ name: 'ClientProfileIndex', params: { userslug:  comment_feed_item.user.username } }"><font size="3" color="#3b5998"> {{ comment_feed_item.user.name }} </font></router-link></a>
 						                            </span>
 						                            <span>{{ comment_feed_item.content }}</span>
 					                        	</p>

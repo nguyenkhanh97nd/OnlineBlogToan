@@ -69853,7 +69853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		reloadProfile: function reloadProfile() {
 			var vm = this;
-			if (vm.user && vm.$route.params.userslug) {
+			if (vm.$route.params.userslug) {
 				if (vm.$route.params.userslug != vm.user.username) {
 					vm.$router.go();
 				}
@@ -76272,12 +76272,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "color-white"
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-plus"
-  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('a', {
-    staticClass: "color-white",
-    on: {
-      "click": _vm.reloadProfile
-    }
-  }, [_c('router-link', {
+  }), _vm._v(" Follow")])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientProfileIndex',
@@ -76286,9 +76281,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
+  }, [_c('a', {
+    staticClass: "color-white",
+    on: {
+      "click": _vm.reloadProfile
+    }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-user"
-  }), _vm._v(" " + _vm._s(_vm.user.username))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
+  }), _vm._v(" " + _vm._s(_vm.user.username))])])], 1), _vm._v(" "), _c('li', [_c('a', {
     attrs: {
       "id": "logout-click"
     },
@@ -78141,7 +78141,7 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "container"
-  }, [(_vm.getUser) ? _c('div', {
+  }, [(_vm.getUser && _vm.current_user) ? _c('div', {
     staticClass: "row"
   }, [_c('div', {
     staticClass: "col-sm-9 col-xs-12"
@@ -78384,7 +78384,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     })])])])], 1) : _vm._e(), _vm._v(" "), _vm._l((feed.comment_feed), function(comment_feed_item, key) {
-      return _c('div', {
+      return (feed.commend_feed.length) ? _c('div', {
         staticClass: "be-show-first-comment"
       }, [(key < 2) ? _c('div', [_c('a', {
         staticClass: "pull-left be-comment-media",
@@ -78424,14 +78424,13 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }) : _vm._e()])], 1), _vm._v(" "), _c('div', {
         staticClass: "media-body"
       }, [_c('p', [_c('span', {
-        staticClass: "media-heading"
-      }, [_c('a', {
+        staticClass: "media-heading",
         on: {
           "click": function($event) {
             _vm.reloadPage(comment_feed_item.user.username)
           }
         }
-      }, [_c('router-link', {
+      }, [_c('a', [_c('router-link', {
         attrs: {
           "to": {
             name: 'ClientProfileIndex',
@@ -78445,7 +78444,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
           "size": "3",
           "color": "#3b5998"
         }
-      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()])
+      }, [_vm._v(" " + _vm._s(comment_feed_item.user.name) + " ")])], 1)], 1)]), _vm._v(" "), _c('span', [_vm._v(_vm._s(comment_feed_item.content))])])])]) : _vm._e()]) : _vm._e()
     })], 2), _vm._v(" "), _c('div', {
       staticClass: "col-md-12"
     }, [_c('p', [_c('router-link', {
