@@ -69850,6 +69850,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		reloadPage: function reloadPage() {
 			this.$router.go();
+		},
+		reloadProfile: function reloadProfile() {
+			var vm = this;
+			if (vm.user) {
+				if (vm.$route.params.userslug != vm.user.username) {
+					vm.$router.go();
+				}
+			}
 		}
 	}
 
@@ -76263,7 +76271,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_c('a', {
-    staticClass: "color-white"
+    staticClass: "color-white",
+    on: {
+      "click": _vm.reloadProfile
+    }
   }, [_c('span', {
     staticClass: "glyphicon glyphicon-user"
   }), _vm._v(" " + _vm._s(_vm.user.username))])])], 1), _vm._v(" "), _c('li', [_c('a', {
