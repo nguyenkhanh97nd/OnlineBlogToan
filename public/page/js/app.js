@@ -69853,7 +69853,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 		},
 		reloadProfile: function reloadProfile() {
 			var vm = this;
-			if (vm.$route.params.userslug) {
+			if (vm.user && vm.$route.params.slug) {
 				if (vm.$route.params.userslug != vm.user.username) {
 					vm.$router.go();
 				}
@@ -76165,15 +76165,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('ul', {
     staticClass: "nav navbar-nav"
-  }, [_c('li', [_c('a', {
-    staticClass: "color-white",
-    attrs: {
-      "title": "Toán"
-    },
-    on: {
-      "click": _vm.reloadPage
-    }
-  }, [_c('router-link', {
+  }, [_c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76182,15 +76174,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_vm._v(_vm._s('Toán'))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
+  }, [_c('a', {
     staticClass: "color-white",
     attrs: {
-      "title": "Lý"
+      "title": "Toán"
     },
     on: {
       "click": _vm.reloadPage
     }
-  }, [_c('router-link', {
+  }, [_vm._v(_vm._s('Toán'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76199,15 +76191,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_vm._v(_vm._s('Lý'))])], 1)]), _vm._v(" "), _c('li', [_c('a', {
+  }, [_c('a', {
     staticClass: "color-white",
     attrs: {
-      "title": "Hoá"
+      "title": "Lý"
     },
     on: {
       "click": _vm.reloadPage
     }
-  }, [_c('router-link', {
+  }, [_vm._v(_vm._s('Lý'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientCateIndex',
@@ -76216,7 +76208,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     }
-  }, [_vm._v(_vm._s('Hoá'))])], 1)]), _vm._v(" "), _c('li', [_c('router-link', {
+  }, [_c('a', {
+    staticClass: "color-white",
+    attrs: {
+      "title": "Hoá"
+    },
+    on: {
+      "click": _vm.reloadPage
+    }
+  }, [_vm._v(_vm._s('Hoá'))])])], 1), _vm._v(" "), _c('li', [_c('router-link', {
     attrs: {
       "to": {
         name: 'ClientSocialLearningIndex'
@@ -78384,7 +78384,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         }
       }
     })])])])], 1) : _vm._e(), _vm._v(" "), _vm._l((feed.comment_feed), function(comment_feed_item, key) {
-      return (feed.commend_feed.length) ? _c('div', {
+      return (feed.commend_feed) ? _c('div', {
         staticClass: "be-show-first-comment"
       }, [(key < 2) ? _c('div', [_c('a', {
         staticClass: "pull-left be-comment-media",

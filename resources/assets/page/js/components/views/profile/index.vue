@@ -128,7 +128,7 @@
 					                        </div>
 						                </div>
 
-						                <div v-if="feed.commend_feed.length" v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
+						                <div v-if="feed.commend_feed" v-for="(comment_feed_item, key) in feed.comment_feed" class="be-show-first-comment">
 											<div v-if="key < 2">
 											
 						                	<a @click="reloadPage(comment_feed_item.user.username)" class="pull-left be-comment-media">

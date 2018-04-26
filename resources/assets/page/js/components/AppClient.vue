@@ -17,9 +17,9 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
 		
-		<li><a @click="reloadPage" title="Toán" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }">{{ 'Toán' }}</router-link></a></li>
-		<li><a @click="reloadPage" title="Lý" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }">{{ 'Lý' }}</router-link></a></li>
-		<li><a @click="reloadPage"  title="Hoá" class="color-white" ><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }">{{ 'Hoá' }}</router-link></a></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'toan' } }"><a @click="reloadPage" title="Toán" class="color-white" >{{ 'Toán' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'ly' } }"><a @click="reloadPage" title="Lý" class="color-white" >{{ 'Lý' }}</a></router-link></li>
+		<li><router-link  :to="{ name: 'ClientCateIndex', params: { slugCate: 'hoa' } }"><a @click="reloadPage"  title="Hoá" class="color-white" >{{ 'Hoá' }}</a></router-link></li>
 
 		<li><router-link  :to="{ name: 'ClientSocialLearningIndex' }"><a title="Cộng đồng học tập" class="color-white">Cộng đồng học tập</a></router-link></li>
 
@@ -175,7 +175,7 @@
 			},
 			reloadProfile() {
 				var vm = this
-				if(vm.$route.params.userslug) {
+				if(vm.user && vm.$route.params.slug) {
 					if(vm.$route.params.userslug != vm.user.username) {
 						vm.$router.go()
 					}
