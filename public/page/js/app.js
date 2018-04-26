@@ -76169,12 +76169,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._l((_vm.categories), function(category) {
     return _c('li', [_c('router-link', {
       attrs: {
-        "to": {
-          name: 'ClientCateIndex',
-          params: {
-            slugCate: category.slug
-          }
-        }
+        "to": category.slug + '.html'
       }
     }, [_c('a', {
       staticClass: "color-white",
