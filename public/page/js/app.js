@@ -74612,7 +74612,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 			forAll: false
 		}
 	}, {
-		path: prefix + '/cate/:slugCate/:random', name: 'ClientCateIndex',
+		path: prefix + '/:slugCate/:random.html', name: 'ClientCateIndex',
 		component: __WEBPACK_IMPORTED_MODULE_5__components_views_cate_index___default.a,
 		meta: {
 			forAll: true
