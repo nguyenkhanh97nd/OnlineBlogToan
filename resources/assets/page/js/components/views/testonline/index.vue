@@ -41,7 +41,7 @@
 		                            <fieldset :id = "'ques-' + key" class="fieldset-question">
 		                                <legend class="legend-name-question" ><strong>Câu {{ key + 1 }}. {{ question.name }}</strong></legend>
 		                                <div v-if="question.image">
-		                                <p><img width="200px" height="112px" :src="'public/upload/questions/' + question.image"/></p>
+		                                <p><img width="100%" height="auto" :src="'public/upload/questions/' + question.image"/></p>
 		                                </div>
 
 		                                <label class="label-testonline">
@@ -72,7 +72,7 @@
 		                            <fieldset :id = "'ques-' + key" class="fieldset-question">
 		                                <legend class="legend-name-question">Câu {{ key + 1 }}. {{ question.name }}</legend>
 		                                <div v-if="question.image">
-		                                <p><img width="200px" height="112px" :src="'public/upload/questions/' + question.image"/></p>
+		                                <p><img width="100%" height="auto" :src="'public/upload/questions/' + question.image"/></p>
 		                                </div>
 
 		                                <label class="label-testonline">

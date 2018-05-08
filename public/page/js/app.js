@@ -78542,8 +78542,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "legend-name-question"
     }, [_c('strong', [_vm._v("Câu " + _vm._s(key + 1) + ". " + _vm._s(question.name))])]), _vm._v(" "), (question.image) ? _c('div', [_c('p', [_c('img', {
       attrs: {
-        "width": "200px",
-        "height": "112px",
+        "width": "100%",
+        "height": "auto",
         "src": 'public/upload/questions/' + question.image
       }
     })])]) : _vm._e(), _vm._v(" "), _c('label', {
@@ -78637,8 +78637,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "legend-name-question"
     }, [_vm._v("Câu " + _vm._s(key + 1) + ". " + _vm._s(question.name))]), _vm._v(" "), (question.image) ? _c('div', [_c('p', [_c('img', {
       attrs: {
-        "width": "200px",
-        "height": "112px",
+        "width": "100%",
+        "height": "auto",
         "src": 'public/upload/questions/' + question.image
       }
     })])]) : _vm._e(), _vm._v(" "), _c('label', {
