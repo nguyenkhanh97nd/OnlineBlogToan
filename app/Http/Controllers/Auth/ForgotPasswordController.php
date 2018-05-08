@@ -32,15 +32,29 @@ class ForgotPasswordController extends Controller
     }
 
     public function sendResetLinkEmail(Request $request) {
+        // $this->validateEmail($request);
+
+        // $data = array();
+        // $data['email'] = $request->email;
+
+        // Mail::send('pages.mail.verify', $data, function($message) use ($data){
+        //     $message->from('blogtoan.com@gmail.com', 'Blog Toán');
+        //     $message->subject('Quên mật khẩu');
+        //     $message->to($data['email']);
+        // });
+
         $this->validateEmail($request);
 
-        $data = array();
-        $data['email'] = $request->email;
+        // We will send the password reset link to this user. Once we have attempted
+        // to send the link, we will examine the response then see the message we
+        // need to show to the user. Finally, we'll send out a proper response.
+        
+        $response = $this->broker()->sendResetLink(
+            $request->only('email')
+        );
 
-        Mail::send('pages.mail.verify', $data, function($message) use ($data){
-            $message->from('blogtoan.com@gmail.com', 'Blog Toán');
-            $message->subject('Quên mật khẩu');
-            $message->to($data['email']);
-        });
+        return $response == Password::RESET_LINK_SENT
+                    ? $this->sendResetLinkResponse($response)
+                    : $this->sendResetLinkFailedResponse($request, $response);
     }
 }
