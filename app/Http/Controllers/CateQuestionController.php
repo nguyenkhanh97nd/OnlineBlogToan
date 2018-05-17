@@ -159,7 +159,6 @@ class CateQuestionController extends Controller
         if($sort_key === 'point') {
             $feeds = Feed::with(['user', 'comment_feed', 'sub_cate_question.cate_question'])
                             ->whereIn('id_sub_cate_question', $subcate)
-                            ->where('status', 1)
                             ->orderBy('point_feed', 'DESC')
                             ->paginate(10);
         } else if($sort_key === 'unans') {
@@ -169,13 +168,11 @@ class CateQuestionController extends Controller
             $feeds = Feed::with(['user', 'comment_feed', 'sub_cate_question.cate_question'])
                             ->whereIn('id_sub_cate_question', $subcate)
                             ->whereNotIn('id', $comment_feeds)
-                            ->where('status', 1)
                             ->orderBy('id', 'DESC')
                             ->paginate(10);
         } else {
             $feeds = Feed::with(['user', 'comment_feed', 'sub_cate_question.cate_question'])
                             ->whereIn('id_sub_cate_question', $subcate)
-                            ->where('status', 1)
                             ->orderBy('id', 'DESC')
                             ->paginate(10);
         }   

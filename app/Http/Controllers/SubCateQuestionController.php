@@ -154,7 +154,6 @@ class SubCateQuestionController extends Controller
         if($sort_key === 'point') {
 
             $feeds = Feed::with(['sub_cate_question.cate_question', 'user', 'comment_feed'])
-                    ->where('status', 1)
                     ->where('id_sub_cate_question', $subCate->id)
                     ->orderBy('point_feed', 'DESC')
                     ->paginate(10);
@@ -163,7 +162,6 @@ class SubCateQuestionController extends Controller
             $comment_feeds = CommentFeed::where('status', 1)->pluck('id_feed','id_feed')->toArray();
 
             $feeds = Feed::with(['sub_cate_question.cate_question', 'user', 'comment_feed'])
-                    ->where('status', 1)
                     ->where('id_sub_cate_question', $subCate->id)
                     ->whereNotIn('id', $comment_feeds)
                     ->orderBy('id', 'DESC')
@@ -172,7 +170,6 @@ class SubCateQuestionController extends Controller
         } else {
 
             $feeds = Feed::with(['sub_cate_question.cate_question', 'user', 'comment_feed'])
-                    ->where('status', 1)
                     ->where('id_sub_cate_question', $subCate->id)
                     ->orderBy('id', 'DESC')
                     ->paginate(10);
